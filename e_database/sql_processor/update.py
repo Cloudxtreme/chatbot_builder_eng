@@ -9,6 +9,13 @@ def commit(sql):
     conn.commit()
     conn.close()
 
+def commit_param(sql, param):
+    conn = pymysql.connect(host=c_host, user=c_user, password=c_password, db=c_db, charset=c_charset)    
+    c = conn.cursor()
+    c.execute(sql, param)
+    conn.commit()
+    conn.close()
+
 def get_connection():
     return pymysql.connect(host=c_host, user=c_user, password=c_password, db=c_db, charset=c_charset)
 

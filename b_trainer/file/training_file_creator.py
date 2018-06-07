@@ -52,7 +52,7 @@ def create_vocabulary(train_arr, max_vocabulary_size, flag, language):
     for line in train_arr:
         if flag == 'enc':
             if language == 'eng':
-                tokens = word_tokenizer(line)
+                tokens = char_tokenizer(line)
             elif language == 'kor':
                 tokens = char_tokenizer(line)
         else:
@@ -76,7 +76,7 @@ def initialize_vocabulary(flag):
 
 def sentence_to_token_ids(sentence, vocabulary, language):
     if language == 'eng':
-        words = word_tokenizer(sentence)
+        words = char_tokenizer(sentence)
     elif language == 'kor':
         words = char_tokenizer(sentence)
     

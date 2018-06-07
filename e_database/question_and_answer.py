@@ -194,8 +194,8 @@ def search_next_question_srno(user, project):
 
 def insert_question(answer_num, question, question_tag, user, project):
     question_srno = search_next_question_srno(user, project)
-    sql = "INSERT INTO QUESTION_BUILDER_" + user + "_" + project + " VALUES ('" + answer_num + "', '" + question_srno + "', '" + question + "', '" + question_tag + "', '')"
-    update.commit(sql)
+    sql = "INSERT INTO QUESTION_BUILDER_" + user + "_" + project + " VALUES (%s, %s, %s, %s, %s)"
+    update.commit_param(sql, (answer_num, question_srno, question, question_tag, ''))
     
     return question_srno
     
