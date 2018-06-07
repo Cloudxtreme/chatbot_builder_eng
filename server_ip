@@ -1,0 +1,7 @@
+builder_ip=172.27.0.96
+tf_ip=172.27.0.96:5001
+tf_compression_tag_ip=172.27.0.96:5001
+file_ip=172.27.0.96:5005
+db_host_ip=172.27.0.96
+group_chat_ip=14.63.168.58:5006
+external_adapter_ip=172.27.0.96:5007
