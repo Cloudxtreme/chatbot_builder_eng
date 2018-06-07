@@ -16,13 +16,13 @@ var dsOption1= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "순번" , width :30 }, 
-	 {id: 'rpsn_question' , header: "대표질문" , width :370 },
-	 {id: 'answer' , header: "답변" , width :380, toolTip : true, toolTipWidth : 350},
-	 {id: 'answer_num' , header: "답변번호" , width :55 },
-	 {id: 'category_nm' , header: "분류명" , width :100 },
-	 {id: 'image_cnt' , header: "이미지" , width :50 },
-	 {id: 'rgsn_user' , header: "등록자" , width :70 }
+	 {id: 'num' , header: "num" , width :30 }, 
+	 {id: 'rpsn_question' , header: "represent question" , width :370 },
+	 {id: 'answer' , header: "answer" , width :380, toolTip : true, toolTipWidth : 350},
+	 {id: 'answer_num' , header: "answer num" , width :55 },
+	 {id: 'category_nm' , header: "category num" , width :100 },
+	 {id: 'image_cnt' , header: "image count" , width :50 },
+	 {id: 'rgsn_user' , header: "register user" , width :70 }
 ];
 
 var gridOption1={

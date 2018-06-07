@@ -17,12 +17,12 @@ var dsOption1= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "순번" , width :60 },
-	 {id: 'big_category' , header: "대분류" , width :160 , editor: {  type :"text"  }},
-	 {id: 'middle_category' , header: "중분류" , width :160 , editor: {  type :"text"  }},
-	 {id: 'small_category_lv1' , header: "소분류 lv1" , width :160 , editor: {  type :"text"  }},
-	 {id: 'small_category_lv2' , header: "소분류 lv2" , width :160 , editor: {  type :"text"  }},
-	 {id: 'small_category_lv3' , header: "소분류 lv3" , width :160 , editor: {  type :"text"  }}
+	 {id: 'num' , header: "num" , width :60 },
+	 {id: 'big_category' , header: "big category" , width :160 , editor: {  type :"text"  }},
+	 {id: 'middle_category' , header: "middle category" , width :160 , editor: {  type :"text"  }},
+	 {id: 'small_category_lv1' , header: "small category lv1" , width :160 , editor: {  type :"text"  }},
+	 {id: 'small_category_lv2' , header: "small category lv2" , width :160 , editor: {  type :"text"  }},
+	 {id: 'small_category_lv3' , header: "small category lv3" , width :160 , editor: {  type :"text"  }}
 ];
 
 var gridOption1={
@@ -124,7 +124,7 @@ function search_category_callback(ret_data) {
 
 function submit_category() {
 	mygrid1.endEdit();
-	if (!confirm("저장 하시겠습니까?")) {
+	if (!confirm("do you want to save?")) {
 		return;
 	}
 	var input_data = [];
@@ -151,7 +151,7 @@ function delete_category() {
 		mygrid1.refresh(grid_data1);
 		return;
 	}
-	if (!confirm("삭제 하시겠습니까?")) {
+	if (!confirm("do you want to delete?")) {
 		return;
 	}
 	var input_data = {"category_num" : $("#category_num").val()};

@@ -38,23 +38,23 @@ var dsOption3= {
 
 var colsOption1 = [
 	 {id: 'chk' ,isCheckColumn : true}, 
-	 {id: 'question' , header: "요청질문" , width :530 },
-	 {id: 'answer_num' , header: "답변번호" , width :80 },
-	 {id: 'rgsn_date' , header: "등록일자" , width :120 },
-	 {id: 'rgsn_time' , header: "등록시간" , width :120 },
+	 {id: 'question' , header: "question" , width :530 },
+	 {id: 'answer_num' , header: "answer num" , width :80 },
+	 {id: 'rgsn_date' , header: "registered date" , width :120 },
+	 {id: 'rgsn_time' , header: "registered time" , width :120 },
 ];
 
 var colsOption2 = [
      {id: 'chk' ,isCheckColumn : true}, 
-	 {id: 'rpsn_question' , header: "대표질문" , width :370 },
-	 {id: 'answer' , header: "답변" , width :400 },
-	 {id: 'answer_num' , header: "답변번호" , width :80 }
+	 {id: 'rpsn_question' , header: "represent question" , width :370 },
+	 {id: 'answer' , header: "answer" , width :400 },
+	 {id: 'answer_num' , header: "answer num" , width :80 }
 ];
 
 var colsOption3 = [
-	 {id: 'num' , header: "순번" , width :60 }, 
-	 {id: 'answer_num' , header: "답변번호" , width :80 },
-	 {id: 'question' , header: "질문" , width :750 }
+	 {id: 'num' , header: "num" , width :60 }, 
+	 {id: 'answer_num' , header: "answer num" , width :80 },
+	 {id: 'question' , header: "question" , width :750 }
 ];
 
 var gridOption1={
@@ -287,12 +287,12 @@ function mapping_new_question_answer() {
 		}
 	}
 	if (question_arr.length == 0 || answer_num_arr.length == 0) {
-		alert("매핑할 질문 또는 답변 체크박스를 체크하세요.");
+		alert("click the checkbox of question and answer to map.");
 		return;
 	}
 	
 	if (question_arr.length > 1 || answer_num_arr.length > 1) {
-		alert("질문과 답변 매핑은 1:1이어야 합니다.");
+		alert("one to one is required to map question and answer.");
 		return;
 	}
 	
@@ -300,7 +300,7 @@ function mapping_new_question_answer() {
 }
 
 function submit_question(question, answer_num) {
-	if (!confirm("전송 하시겠습니까?")) {
+	if (!confirm("do you want to send?")) {
 		return;
 	}
 	var input_data = [];
@@ -313,6 +313,6 @@ function submit_question(question, answer_num) {
 }
 
 function submit_question_callback() {
-	alert("전송이 완료되었습니다.");
+	alert("sent");
 	search_question();
 }

@@ -63,11 +63,11 @@ function submit_chatbot_config() {
 }
 
 function submit_training_config_callback() {
-	alert("전송이 완료되었습니다.");
+	alert("sending complete.");
 }
 
 function submit_chatbot_config_callback() {
-	alert("전송이 완료되었습니다.");
+	alert("sending complete.");
 }
 
 function search_training_config() {
@@ -119,15 +119,15 @@ var grid2;
 var data1 = [];
 var data2 = [];
 var columns1 = [
-	{id: "num", name: "순번", field: "num", behavior: "select", cssClass: "cell-selection", width: 40, cannotTriggerInsert: true, resizable: false, selectable: false},
-	{id: "config_name", name: "설정명", field: "config_name", width: 450, cssClass: "cell-title", resizable: true, selectable: false},
-	{id: "config_value", name: "설정값", field: "config_value", width: 100, cssClass: "cell-title", editor: Slick.Editors.Text, resizable: true}
+	{id: "num", name: "num", field: "num", behavior: "select", cssClass: "cell-selection", width: 40, cannotTriggerInsert: true, resizable: false, selectable: false},
+	{id: "config_name", name: "config name", field: "config_name", width: 450, cssClass: "cell-title", resizable: true, selectable: false},
+	{id: "config_value", name: "config value", field: "config_value", width: 100, cssClass: "cell-title", editor: Slick.Editors.Text, resizable: true}
 ];
 
 var columns2 = [
-	{id: "num", name: "순번", field: "num", behavior: "select", cssClass: "cell-selection", width: 40, cannotTriggerInsert: true, resizable: false, selectable: false},
-	{id: "config_name", name: "설정명", field: "config_name", width: 450, cssClass: "cell-title", resizable: true, selectable: false},
-	{id: "config_value", name: "설정값", field: "config_value", width: 100, cssClass: "cell-title", editor: Slick.Editors.Text, resizable: true}
+	{id: "num", name: "num", field: "num", behavior: "select", cssClass: "cell-selection", width: 40, cannotTriggerInsert: true, resizable: false, selectable: false},
+	{id: "config_name", name: "config name", field: "config_name", width: 450, cssClass: "cell-title", resizable: true, selectable: false},
+	{id: "config_value", name: "config value", field: "config_value", width: 100, cssClass: "cell-title", editor: Slick.Editors.Text, resizable: true}
 ];
 
 var options1 = {

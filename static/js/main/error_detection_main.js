@@ -23,14 +23,14 @@ var dsOption2= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "순번" , width :60 },
-	 {id: 'answer_num' , header: "답변번호" , width :120 },
-	 {id: 'question_voca' , header: "추출단어" , width :400 }
+	 {id: 'num' , header: "num" , width :60 },
+	 {id: 'answer_num' , header: "answer num" , width :120 },
+	 {id: 'question_voca' , header: "extracted word" , width :400 }
 ];
 
 var colsOption2 = [
-	 {id: 'num' , header: "순번" , width :60 },
-	 {id: 'question' , header: "질문" , width :520 }
+	 {id: 'num' , header: "num" , width :60 },
+	 {id: 'question' , header: "question" , width :520 }
 ];
 
 var gridOption1={

@@ -14,9 +14,9 @@ var dsOption1= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "순번" , width :60 },
-	 {id: 'expression' , header: "부분문장" , width :620, editor: {  type :"text"  } },
-	 {id: 'tag_name' , header: "태그명" , width :200, editor: {  type :"text"  } }
+	 {id: 'num' , header: "num" , width :60 },
+	 {id: 'expression' , header: "expression" , width :620, editor: {  type :"text"  } },
+	 {id: 'tag_name' , header: "tag name" , width :200, editor: {  type :"text"  } }
 ];
 
 var gridOption1={
@@ -66,7 +66,7 @@ $(document).ready(function() {
 	get_is_training();
 	$("#start_training").click(function() {
 		var training_status = $("#start_training").text();
-		if (training_status == "훈련시작") {
+		if (training_status == "start training") {
 			start_training();
 		} else {
 			stop_training();
@@ -136,7 +136,7 @@ function add_row() {
 function del_row() {
 	var cur_row = $("#cur_row").val();
 	if (cur_row == '') {
-		alert("삭제할 열을 선택해 주세요.");
+		alert("choose the row to delete.");
 		return;
 	}
 	if ($("#compression_num").val() == '') {
@@ -144,7 +144,7 @@ function del_row() {
 		mygrid1.refresh(grid_data1);
 		return;
 	}
-	if (!confirm("삭제 하시겠습니까?")) {
+	if (!confirm("do you want to delete?")) {
 		return;
 	}
 	var input_data = {"compression_num" : $("#compression_num").val(), "user" : $("#user").val(), "project" : $("#project").val()};
@@ -153,7 +153,7 @@ function del_row() {
 
 function submit_compression_tag() {
 	mygrid1.endEdit();
-	if (!confirm("저장 하시겠습니까?")) {
+	if (!confirm("do you want to save?")) {
 		return;
 	}
 	var input_data = [];
@@ -191,17 +191,17 @@ function search_compression_tag_callback(retData) {
 }
 
 function submit_compression_tag_callback() {
-	alert("저장 되었습니다.");
+	alert("saved.");
 	search_compression_tag();
 }
 
 function delete_compression_tag_callback() {
-	alert("삭제완료 처리되었습니다.");
+	alert("deleted.");
 	search_compression_tag();
 }
 
 function delete_ckpt_file() {
-	if (!confirm("훈련모델을 삭제하시겠습니까?")) {
+	if (!confirm("do you want to delete training model?")) {
 		return;
 	}
 	var user = $("#user").val();
@@ -211,34 +211,34 @@ function delete_ckpt_file() {
 }
 
 function start_training() {
-	if (!confirm("훈련을 시작 하시겠습니까?")) {
+	if (!confirm("do you want to start training?")) {
 		return;
 	}
-	$("#start_training").text("훈련중단");
+	$("#start_training").text("stop training");
 	var user = $("#user").val();
 	var project = $("#project").val();
 	var saving_step = $("#saving_step").val();
 	var input_data = {"user" : user, "project" : project, "saving_step" : saving_step};
 
 	$.post('/start_compression_tag_training', input_data).done(function(reply) {
-		alert("훈련이 시작되었습니다.");
-		$('#training_info').text('훈련을 준비중입니다..');
+		alert("start training.");
+		$('#training_info').text('preparing training..');
 		start_interval();
 	}).fail(function() {
 	});
 }
 
 function stop_training() {
-	if (!confirm("훈련을 종료 하시겠습니까?")) {
+	if (!confirm("do you want to end training?")) {
 		return;
 	}
-	$("#start_training").text("훈련시작");	
+	$("#start_training").text("start training");	
 	var user = $("#user").val();
 	var project = $("#project").val();
 	var input_data = {"user" : user, "project" : project};
 	
 	$.post('/stop_compression_tag_training', input_data).done(function(reply) {
-		alert("훈련이 중단되었습니다.");
+		alert("training stopped.");
 		$('#training_info').text('');
 		$('#show_testing').hide();
 		stop_interval();
@@ -251,10 +251,10 @@ function get_is_training() {
 	var project = $("#project").val();
 	$.post("/get_is_compression_tag_training", { user : user, project : project}).done(function(reply) {
 		if (reply['is_training'] == 'Y') {
-			$("#start_training").text('훈련중단');
+			$("#start_training").text('stop training');
 			start_interval();
 		} else {
-			$("#start_training").text('훈련시작');
+			$("#start_training").text('start training');
 			stop_interval();
 			$('#training_info').text('');
 		}
@@ -280,7 +280,7 @@ function get_training_info_callback(training_info, saving_step) {
 }
 
 function delete_ckpt_file_callback() {
-	alert("훈련모델이 삭제되었습니다.");
+	alert("training model deleted.");
 }
 
 var interval_name = '';

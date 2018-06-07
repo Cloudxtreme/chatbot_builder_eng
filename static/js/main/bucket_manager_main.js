@@ -27,14 +27,14 @@ var dsOption2 = {
 var colsOption1 = [
 	 {id: 'num' , header: "num" , width :40 },
 	 {id: 'answer_num' , header: "answer num" , width :60 },
-	 {id: 'rpsn_question' , header: "최대길이질문" , width :340 }
+	 {id: 'rpsn_question' , header: "represent question" , width :340 }
 ];
 
 var colsOption2 = [
-	 {id: 'num' , header: "순번" , width :40 },
-	 {id: 'answer_num' , header: "답변번호" , width :60 },
-	 {id: 'bucket_id' , header: "버킷ID" , width :60 },
-	 {id: 'question' , header: "질문" , width :720 }
+	 {id: 'num' , header: "num" , width :40 },
+	 {id: 'answer_num' , header: "answer num" , width :60 },
+	 {id: 'bucket_id' , header: "bucket ID" , width :60 },
+	 {id: 'question' , header: "question" , width :720 }
 ];
 
 var gridOption1={
