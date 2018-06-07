@@ -9,13 +9,14 @@
 		<link rel='stylesheet prefetch' href='/static/lib/jquery/jquery.mCustomScrollbar.min.css'>
 		<link rel="stylesheet" href="static/css/chat/chat.css">
 		<link rel="stylesheet" href="/static/lib/jquery/jquery.modal.min.css">
+		<link rel="stylesheet" href="/static/lib/jquery_ui/jquery-ui.min.css">
 		<script src="/static/lib/jquery/jquery-latest.js"></script>		
 	</head>
 <div id="side-button-theme" onclick="change_background()">
-    <p id="side-button-theme-text">change theme</p>
+    <p id="side-button-theme-text">THEME</p>
 </div>
 <div id="side-button-main" onclick="call_main_frame()">
-    <p id="side-button-main-text">admin menu</p>
+    <p id="side-button-main-text">ADMIN</p>
 </div>
 <div class="chat">
 	<div class="chat-title">
@@ -106,12 +107,14 @@
     <input type="hidden" id="hwp_report_file_path" name="file_path" value="">
 </form>
 <div id="chat_modal" class="chat-modal">
+	<iframe class="modal-iframe" id="modal_iframe" frameBorder="0" src=""></iframe>
 	<a id="modal_close" href="#" rel="modal:close" style="display: none"></a>	
 </div>
 <input id="user" type="hidden" value="{{ user }}">
 <input id="project" type="hidden" value="{{ project }}">
 <input id="notice_list" type="hidden" value="{{ notice_list }}">
 <script src='/static/lib/jquery/jquery.min.js'></script>
+<script src='/static/lib/jquery_ui/jquery-ui.min.js'></script>
 <script src='/static/lib/jquery/jquery.mCustomScrollbar.concat.min.js'></script>
 <script src='/static/js/popup/popup_size.js'></script>
 <script src="/static/js/chat/chat.js"></script>

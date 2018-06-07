@@ -53,7 +53,7 @@ Chat
   width: 50%;
   height: 160vh;
   max-height: 90%;
-  z-index: 2;
+  z-index: 1;
   overflow: hidden;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
   background: rgba(0, 0, 0, 0.5);
@@ -82,7 +82,7 @@ Chat
   width: 40%;
   height: 260vh;
   max-height: 43%;
-  z-index: 2;
+  z-index: 1;
   overflow: hidden;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
   background: rgba(0, 0, 0, 0.5);
@@ -122,7 +122,7 @@ Chat
   width: 40%;
   height: 260vh;
   max-height: 44%;
-  z-index: 2;
+  z-index: 1;
   overflow: hidden;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
   background: rgba(0, 0, 0, 0.5);
@@ -147,7 +147,7 @@ Chat Title
 .chat-title {
   height:65px;
   position: relative;
-  z-index: 2;
+  z-index: 1;
   background: rgba(0, 0, 0, 0.2);
   color: #fff;
   text-align: left;
@@ -841,10 +841,15 @@ input[type="radio"]{
 }
 
 .chat-modal {
-	width: 500px;
-	height: 500px;
+	width: 1200px;
+	height: 600px;
 	border-radius: 0;
     line-height: 18px;
     padding: 0;
     font-family: "Lucida Grande", Verdana, sans-serif;
+}
+
+.modal-iframe {
+	width: 100%;
+	height: 100%;
 }
