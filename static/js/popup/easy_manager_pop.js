@@ -49,7 +49,7 @@ function modify_answer(div_id) {
 	var category_num = div.find("#category_num").val();
 	var question = div.find("#question").val();
 	var answer = div.find("#answer").val();
-	if (!confirm("전송 하시겠습니까?")) {
+	if (!confirm("do you want to send?")) {
 		return;
 	}
 	var user = $("#user").val();
@@ -65,7 +65,7 @@ function search_answer_callback(retData) {
 	for (var i = 0; i < retList.length; ++i) {
 		var num = i + 1;
 		var div_id = "div_no" + num 
-		$('#container').append('<div id="' + div_id + '"><div class="upper"><a>[' + num + ']</a><button class="btn" id="btn' + num + '">저장</button></div>');
+		$('#container').append('<div id="' + div_id + '"><div class="upper"><a>[' + num + ']</a><button class="btn" id="btn' + num + '">save</button></div>');
 		$('#' + div_id).append('<p><div class="each" id="' + div_id + '_each">');
 		$('#' + div_id + "_each").append('<input id="answer_num" type="hidden" value="' + retList[i]['answer_num'] + '">');
 		$('#' + div_id + "_each").append('<input id="category_num" type="hidden" value="' + retList[i]['category_num'] + '">');
@@ -85,7 +85,7 @@ function search_answer_callback(retData) {
 }
 
 function modify_answer_callback() {
-	alert("전송되었습니다.");
+	alert("sent.");
 }
 
 function put_emphasis(txtarea) {
