@@ -417,6 +417,10 @@ function interact(message){
 	    page = reply['page'];
 	    for (var i = 0; i < Number(reply['num']); ++i) {
 	    	var answer = reply['text' + (i + 1)];
+	    	if (answer.split("=")[0] == 'MODAL') {
+	    		$('#chat_modal').modal({});
+	    		break;
+	    	}
 	    	if (reply['function_yn'] == 'N' && reply['rpsn_question'] != '' && multiple_answer_num == '') {
 	    		q = '<a class="message_question">Q: ' + reply['rpsn_question'] + '<a><br><br>A: ';
 	    		answer = q + answer;

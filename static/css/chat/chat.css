@@ -839,3 +839,12 @@ input[type="radio"]{
  cursor: pointer;
  text-decoration: underline;
 }
+
+.chat-modal {
+	width: 500px;
+	height: 500px;
+	border-radius: 0;
+    line-height: 18px;
+    padding: 0;
+    font-family: "Lucida Grande", Verdana, sans-serif;
+}

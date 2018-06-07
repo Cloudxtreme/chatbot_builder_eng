@@ -8,7 +8,8 @@
 		<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 		<link rel='stylesheet prefetch' href='/static/lib/jquery/jquery.mCustomScrollbar.min.css'>
 		<link rel="stylesheet" href="static/css/chat/chat.css">
-		<script src="/static/lib/jquery/jquery-latest.js"></script>
+		<link rel="stylesheet" href="/static/lib/jquery/jquery.modal.min.css">
+		<script src="/static/lib/jquery/jquery-latest.js"></script>		
 	</head>
 <div id="side-button-theme" onclick="change_background()">
     <p id="side-button-theme-text">change theme</p>
@@ -104,6 +105,9 @@
     <input type="hidden" id="hwp_report_title" name="title" value="">
     <input type="hidden" id="hwp_report_file_path" name="file_path" value="">
 </form>
+<div id="chat_modal" class="chat-modal">
+	<a id="modal_close" href="#" rel="modal:close" style="display: none"></a>	
+</div>
 <input id="user" type="hidden" value="{{ user }}">
 <input id="project" type="hidden" value="{{ project }}">
 <input id="notice_list" type="hidden" value="{{ notice_list }}">
@@ -111,5 +115,6 @@
 <script src='/static/lib/jquery/jquery.mCustomScrollbar.concat.min.js'></script>
 <script src='/static/js/popup/popup_size.js'></script>
 <script src="/static/js/chat/chat.js"></script>
+<script src='/static/lib/jquery/jquery.modal.min.js'></script>
 </body>
 </html>

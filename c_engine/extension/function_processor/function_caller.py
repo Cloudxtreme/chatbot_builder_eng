@@ -36,7 +36,12 @@ def insert_my_frequent_question(p):
     return '자주하는 질문으로 등록되었습니다.'
 
 def get_today_weather_info(p):
-    return 'todays weather : '
+    year = '2018'
+    m = 1
+    d = 30
+    url = 'http://www.wunderground.com/history/airport/KBNA/' + str(year) + '/' + str(m) + '/' + str(d) + '/DailyHistory.html'
+    res = 'MODAL=' + url
+    return res
 
 def scan_param(msg):
     param = []
