@@ -1,9 +1,9 @@
 $(document).ready(function() {
 	if ($('#logout').val() == 'N') {
 		if (confirm("자동 로그인 하시겠습니까?")) {
-			$('#user').val('chatbot_tft');
+			$('#user').val('kant1724');
 			$('#password').val('1111');
-			$('#project').val('fund');
+			$('#project').val('bot');
 			login();
 			return;
 		}
