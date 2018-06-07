@@ -225,7 +225,7 @@ function hide_all() {
 }
 
 function check_can_open_menu() {
-	if ($('.open-menu').size() + $('.open-menu-active').size() >= 7) {
+	if ($('.open-menu').size() + $('.open-menu-active').size() >= 5) {
 		alert("can't open over 5 menu at the same time.");
 		return false;
 	}
