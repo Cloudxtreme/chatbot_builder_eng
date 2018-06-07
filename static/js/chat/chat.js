@@ -4,7 +4,7 @@ var $messages = $('.messages-content'),
 
 $(window).load(function() {
 	$messages.mCustomScrollbar();
-	var text = "저는 i-Learning이라고 해요<br>펀드에 관하여 무엇이던지 물어보세요 ^^<br>아직 많이 부족하지만 많은 관심이 저를 더욱더 성장하게 만든답니다.";
+	var text = "Hello, Tell me anything.";
 	reply_answer(text);
 	var notice_list = eval($('#notice_list').val());
 	for (var i = 0; i < notice_list.length; ++i) {
@@ -202,7 +202,7 @@ function getReserveList(message) {
 		}
 		var bucket_id = reply['bucket_id'];
 		var bucket_range = reply['bucket_range'];
-		$('<div class="bucket-info">- 버킷: [ID: ' + bucket_id + ', 토큰길이: ' + bucket_range + '] 탐색 결과 -</div>').appendTo($('#message2 .mCSB_container')).addClass('new');
+		$('<div class="bucket-info">- BUCKET: [ID: ' + bucket_id + ', token length: ' + bucket_range + '] result -</div>').appendTo($('#message2 .mCSB_container')).addClass('new');
 		for (var i = 0; i < Number(reply['num']); ++i) {
 			var text = reply['text' + (i + 1)];
 			var html = '<div id="reserve_msg" class="reserve-msg" onclick="setMessageInput(\'' + text.replace(/\"/g, '') + '\')">';
@@ -270,7 +270,7 @@ function setMySchedule() {
 	$.post('/get_all_schedule', {
 	}).done(function(reply) {
 		$('#message3 .mCSB_container').empty();
-		var text = '채팅창에 "내 일정"이라고 입력하여 나의 일정을 등록 해 주세요.';
+		var text = 'write "my schedule" to register schedule.';
 		$('<div class="schedule-msg">' + text + '</div>').appendTo($('#right-down-board .mCSB_container')).addClass('new');
 		for (var i = 0; i < reply.length; ++i) {
 			var message = reply[i]['message'];
@@ -305,7 +305,7 @@ function getNewQuestion() {
 		if (Number(reply['num']) > 0) {
 			$('#message3 .mCSB_container').empty();			
 		}
-		var text = '- 최근 한달간 신규등록된 질문목록 입니다 -';
+		var text = '- newly registered questions in a month -';
 		$('<div class="new-question-msg">' + text + '</div>').appendTo($('#right-down-board .mCSB_container')).addClass('new');
 		for (var i = 0; i < Number(reply['num']); ++i) {
 			var text = reply['text' + (i + 1)];
@@ -447,7 +447,7 @@ function interact(message){
 	    }
 	}).fail(function() {
 		$('.message.loading').remove();
-		reply_answer("학습되지 않은 질문입니다. 다른 질문으로 부탁드려요!.");
+		reply_answer("Not trained question. please tell me other question.");
 	});
 }
 
