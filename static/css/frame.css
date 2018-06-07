@@ -150,14 +150,14 @@
 .info-bar {
 	position: relative;
 	font-family: Roboto, Arial, sans-serif;
-	font-size: 0.85em;
+	font-size: 0.65em;
 	font-variant: normal;
 	left: 2px;
 	top: 2px;
     background: linear-gradient(180deg, #BDBDBD, #CFCFCF);
     color: #333;
     width: 95%;
-    height: 20px;
+    height: 25px;
 }
 
 .info-bar span {
@@ -178,7 +178,7 @@
 	float: right;
 	margin-right: 10px;
 	width: 90px;
-	height: 20px;
+	height: 25px;
 	font-size: 0.9em;
 	color: white;
 	text-align: center;
@@ -193,7 +193,7 @@
 	float: right;
 	margin-right: 10px;
 	width: 90px;
-	height: 20px;
+	height: 25px;
 	font-size: 0.9em;
 	color: white;
 	text-align: center;
