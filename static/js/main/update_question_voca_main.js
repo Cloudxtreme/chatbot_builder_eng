@@ -41,12 +41,12 @@ $(document).ready(function() {
 	get_updating_info();
 	var is_updating = $("#is_updating").val();
 	if (is_updating == 'Y') {
-		$("#start_updating").text('업데이트중단');
+		$("#start_updating").text('stop updating');
 		start_interval();
 	}	
 	$("#start_updating").click(function() {
 		var updating_status = $("#start_updating").text();
-		if (updating_status == "업데이트시작") {
+		if (updating_status == "start updating") {
 			start_updating();
 		} else {
 			stop_updating();
@@ -100,7 +100,7 @@ function ajax(url, input_data, gubun, method) {
 }
 
 function update_voca_synonym() {
-	if (!confirm("동의어를 업데이트 하시겠습니까?")) {
+	if (!confirm("do you want to update synonym?")) {
 		return;
 	}
 	var input_data = {};
@@ -108,10 +108,10 @@ function update_voca_synonym() {
 }
 
 function start_updating() {
-	if (!confirm("업데이트를 시작 하시겠습니까?")) {
+	if (!confirm("do you want to start updating?")) {
 		return;
 	}
-	$("#start_updating").text("업데이트중단");
+	$("#start_updating").text("stop updating");
 	var input_data = {};
 	var user = $("#user").val();
 	var project = $("#project").val();
@@ -119,10 +119,10 @@ function start_updating() {
 }
 
 function stop_updating() {
-	if (!confirm("업데이트를 중단 하시겠습니까?")) {
+	if (!confirm("do you want to stop updating?")) {
 		return;
 	}
-	$("#start_updating").text("업데이트시작");
+	$("#start_updating").text("start updating");
 	var input_data = {};
 	var user = $("#user").val();
 	var project = $("#project").val();
@@ -140,24 +140,24 @@ function get_updating_info() {
 function get_updating_info_callback(updating_info, end_yn) {
 	$('#updating_info').text(updating_info);
 	if (end_yn == "Y") {
-		$("#start_updating").text("업데이트시작");
+		$("#start_updating").text("start updating");
 	}
 }
 
 function start_updating_callback() {
-	alert("업데이트가 시작되었습니다.");
-	$('#updating_info').text('업데이트 중입니다.');
+	alert("updating started.");
+	$('#updating_info').text('updating is in progress.');
 	start_interval();
 }
 
 function stop_updating_callback() {
-	alert("업데이트가 중단되었습니다.");
+	alert("updating stopped.");
 	get_updating_info();
 	stop_interval();
 }
 
 function update_voca_synonym_callback() {
-	alert("업데이트 작업이 완료되었습니다.");
+	alert("updating completed.");
 	search_voca();
 }
 
