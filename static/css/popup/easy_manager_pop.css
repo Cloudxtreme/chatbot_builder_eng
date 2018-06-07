@@ -32,7 +32,7 @@
 
 .each {
 	position: relative;
-	width: 1000px;
+	width: 1050px;
 	height: 130px;
 	border-bottom: 1px solid #D5D5D5;
 	border-width: thin
@@ -46,7 +46,7 @@
 }
 
 .div1 {
-	width: 1020px;
+	width: 1070px;
     height: 32px;
     background-color: #F6F6F6;
     border-top: 1px solid gray;
