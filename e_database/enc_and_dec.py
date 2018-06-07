@@ -12,8 +12,8 @@ def insert_vocab(voca_nm, t):
     voca_num = result[0][0]
     if voca_num == None:
         voca_num = 1
-    sql = "INSERT INTO " + table + " VALUES (" + str(voca_num) + ", '" + voca_nm + "')"
-    update.commit(sql)
+    sql = "INSERT INTO " + table + " VALUES (%s, %s)"
+    update.commit_param(sql, (str(voca_num), voca_nm))
 
 def select_vocab(voca_nm, t):
     table = ''
