@@ -23,14 +23,14 @@ var dsOption2= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "num" , width :60 },
-	 {id: 'answer_num' , header: "answer num" , width :120 },
-	 {id: 'question_voca' , header: "extracted word" , width :400 }
+	 {id: 'num' , header: "NUM" , width :60 },
+	 {id: 'answer_num' , header: "ANSWER NUM" , width :120 },
+	 {id: 'question_voca' , header: "EXTRACTED WORD" , width :400 }
 ];
 
 var colsOption2 = [
-	 {id: 'num' , header: "num" , width :60 },
-	 {id: 'question' , header: "question" , width :520 }
+	 {id: 'num' , header: "NUM" , width :60 },
+	 {id: 'question' , header: "QUESTION" , width :520 }
 ];
 
 var gridOption1={

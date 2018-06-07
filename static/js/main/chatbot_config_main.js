@@ -119,15 +119,15 @@ var grid2;
 var data1 = [];
 var data2 = [];
 var columns1 = [
-	{id: "num", name: "num", field: "num", behavior: "select", cssClass: "cell-selection", width: 40, cannotTriggerInsert: true, resizable: false, selectable: false},
-	{id: "config_name", name: "config name", field: "config_name", width: 450, cssClass: "cell-title", resizable: true, selectable: false},
-	{id: "config_value", name: "config value", field: "config_value", width: 100, cssClass: "cell-title", editor: Slick.Editors.Text, resizable: true}
+	{id: "num", name: "NUM", field: "num", behavior: "select", cssClass: "cell-selection", width: 40, cannotTriggerInsert: true, resizable: false, selectable: false},
+	{id: "config_name", name: "CONFIG NAME", field: "config_name", width: 450, cssClass: "cell-title", resizable: true, selectable: false},
+	{id: "config_value", name: "CONFIG VALUE", field: "config_value", width: 100, cssClass: "cell-title", editor: Slick.Editors.Text, resizable: true}
 ];
 
 var columns2 = [
-	{id: "num", name: "num", field: "num", behavior: "select", cssClass: "cell-selection", width: 40, cannotTriggerInsert: true, resizable: false, selectable: false},
-	{id: "config_name", name: "config name", field: "config_name", width: 450, cssClass: "cell-title", resizable: true, selectable: false},
-	{id: "config_value", name: "config value", field: "config_value", width: 100, cssClass: "cell-title", editor: Slick.Editors.Text, resizable: true}
+	{id: "num", name: "NUM", field: "num", behavior: "select", cssClass: "cell-selection", width: 40, cannotTriggerInsert: true, resizable: false, selectable: false},
+	{id: "config_name", name: "CONFIG NAME", field: "config_name", width: 450, cssClass: "cell-title", resizable: true, selectable: false},
+	{id: "config_value", name: "CONFIG VALUE", field: "config_value", width: 100, cssClass: "cell-title", editor: Slick.Editors.Text, resizable: true}
 ];
 
 var options1 = {

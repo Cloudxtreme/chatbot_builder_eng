@@ -17,12 +17,12 @@ var dsOption1= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "num" , width :60 },
-	 {id: 'big_category' , header: "big category" , width :160 , editor: {  type :"text"  }},
-	 {id: 'middle_category' , header: "middle category" , width :160 , editor: {  type :"text"  }},
-	 {id: 'small_category_lv1' , header: "small category lv1" , width :160 , editor: {  type :"text"  }},
-	 {id: 'small_category_lv2' , header: "small category lv2" , width :160 , editor: {  type :"text"  }},
-	 {id: 'small_category_lv3' , header: "small category lv3" , width :160 , editor: {  type :"text"  }}
+	 {id: 'num' , header: "NUM" , width :60 },
+	 {id: 'big_category' , header: "BIG CATEGORY" , width :160 , editor: {  type :"text"  }},
+	 {id: 'middle_category' , header: "MIDDLE CATEGORY" , width :160 , editor: {  type :"text"  }},
+	 {id: 'small_category_lv1' , header: "SMALL CATEGORY lv1" , width :160 , editor: {  type :"text"  }},
+	 {id: 'small_category_lv2' , header: "SMALL CATEGORY lv2" , width :160 , editor: {  type :"text"  }},
+	 {id: 'small_category_lv3' , header: "SMALL CATEGORY lv3" , width :160 , editor: {  type :"text"  }}
 ];
 
 var gridOption1={

@@ -25,16 +25,16 @@ var dsOption2 = {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "num" , width :40 },
-	 {id: 'answer_num' , header: "answer num" , width :60 },
-	 {id: 'rpsn_question' , header: "represent question" , width :340 }
+	 {id: 'num' , header: "NUM" , width :40 },
+	 {id: 'answer_num' , header: "ANSWER NUM" , width :100 },
+	 {id: 'rpsn_question' , header: "REPRESENT QUESTION" , width :340 }
 ];
 
 var colsOption2 = [
-	 {id: 'num' , header: "num" , width :40 },
-	 {id: 'answer_num' , header: "answer num" , width :60 },
-	 {id: 'bucket_id' , header: "bucket ID" , width :60 },
-	 {id: 'question' , header: "question" , width :720 }
+	 {id: 'num' , header: "NUM" , width :40 },
+	 {id: 'answer_num' , header: "ANSWER NUM" , width :100 },
+	 {id: 'bucket_id' , header: "BUCKET ID" , width :100 },
+	 {id: 'question' , header: "QUESTION" , width :720 }
 ];
 
 var gridOption1={

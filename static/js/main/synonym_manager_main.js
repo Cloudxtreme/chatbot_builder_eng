@@ -27,14 +27,14 @@ var dsOption2= {
 	}
 
 var colsOption1 = [
-	 {id: 'num' , header: "num" , width :60 },
-	 {id: 'synonym_nm' , header: "synonym" , width :600 },
-	 {id: 'synonym_tag' , header: "tag name" , width :200 }
+	 {id: 'num' , header: "NUM" , width :60 },
+	 {id: 'synonym_nm' , header: "SYNONYM" , width :600 },
+	 {id: 'synonym_tag' , header: "TAG NAME" , width :200 }
 ];
 
 var colsOption2 = [
-	 {id: 'num' , header: "num" , width :60 },
-	 {id: 'synonym_nm' , header: "synonym" , width :800 , editor: {  type :"text"  }}
+	 {id: 'num' , header: "NUM" , width :60 },
+	 {id: 'synonym_nm' , header: "SYNONYM" , width :800 , editor: {  type :"text"  }}
 ];
 
 var gridOption1={

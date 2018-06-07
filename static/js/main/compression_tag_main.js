@@ -14,9 +14,9 @@ var dsOption1= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "num" , width :60 },
-	 {id: 'expression' , header: "expression" , width :620, editor: {  type :"text"  } },
-	 {id: 'tag_name' , header: "tag name" , width :200, editor: {  type :"text"  } }
+	 {id: 'num' , header: "NUM" , width :60 },
+	 {id: 'expression' , header: "EXPRESSION" , width :620, editor: {  type :"text"  } },
+	 {id: 'tag_name' , header: "TAG NAME" , width :200, editor: {  type :"text"  } }
 ];
 
 var gridOption1={

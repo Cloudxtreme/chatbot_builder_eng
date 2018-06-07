@@ -18,13 +18,13 @@ var dsOption1= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "num" , width :40 }, 
-	 {id: 'question' , header: "question" , width :300 },
-	 {id: 'rgsn_date' , header: "request date" , width :70 },
-	 {id: 'rgsn_time' , header: "request time" , width :60 },
-	 {id: 'recommend_cnt' , header: "recommend count" , width :40 },
-	 {id: 'answer' , header: "answer" , width :300 }, 
-	 {id: 'pc_status' , header: "process status" , width :70 }
+	 {id: 'num' , header: "NUM" , width :60 }, 
+	 {id: 'question' , header: "QUESTION" , width :300 },
+	 {id: 'rgsn_date' , header: "REQUEST DATE" , width :100 },
+	 {id: 'rgsn_time' , header: "REQUEST TIME" , width :100 },
+	 {id: 'recommend_cnt' , header: "RECOMMEND COUNT" , width :150 },
+	 {id: 'answer' , header: "ANSWER" , width :300 }, 
+	 {id: 'pc_status' , header: "PROCESS STATUS" , width :120 }
 ];
 
 var gridOption1={

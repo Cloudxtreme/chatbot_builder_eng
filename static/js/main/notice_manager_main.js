@@ -18,13 +18,13 @@ var dsOption1= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "순번" , width :60 },
-	 {id: 'notice_num' , header: "공지번호" , width :60 },
-	 {id: 'notice_subject' , header: "공지제목" , width :200 },
-	 {id: 'notice_content' , header: "공지내용" , width :340 },
-	 {id: 'notice_start_date' , header: "공지시작일" , width :80 },
-	 {id: 'notice_end_date' , header: "공지종료일" , width :80 },
-	 {id: 'complete_yn' , header: "완료여부" , width :60 }
+	 {id: 'num' , header: "NUM" , width :60 },
+	 {id: 'notice_num' , header: "NOTICE NUM" , width :100 },
+	 {id: 'notice_subject' , header: "NOTICE NAME" , width :200 },
+	 {id: 'notice_content' , header: "NOTICE CONTENT" , width :340 },
+	 {id: 'notice_start_date' , header: "NOTICE START" , width :100 },
+	 {id: 'notice_end_date' , header: "NOTICE END" , width :100 },
+	 {id: 'complete_yn' , header: "COMPLETE YN" , width :100 }
 ];
 
 var gridOption1={

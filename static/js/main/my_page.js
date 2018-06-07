@@ -16,13 +16,13 @@ var dsOption1= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "num" , width :30 }, 
-	 {id: 'rpsn_question' , header: "represent question" , width :370 },
-	 {id: 'answer' , header: "answer" , width :380, toolTip : true, toolTipWidth : 350},
-	 {id: 'answer_num' , header: "answer num" , width :55 },
-	 {id: 'category_nm' , header: "category num" , width :100 },
-	 {id: 'image_cnt' , header: "image count" , width :50 },
-	 {id: 'rgsn_user' , header: "register user" , width :70 }
+	 {id: 'num' , header: "NUM" , width :40 }, 
+	 {id: 'rpsn_question' , header: "REPRESENT QUESTION" , width :370 },
+	 {id: 'answer' , header: "ANSWER" , width :380, toolTip : true, toolTipWidth : 350},
+	 {id: 'answer_num' , header: "ANSWER NUM" , width :100 },
+	 {id: 'category_nm' , header: "CATEGORY NUM" , width :120 },
+	 {id: 'image_cnt' , header: "IMAGE COUNT" , width :100 },
+	 {id: 'rgsn_user' , header: "REGISTER USER" , width :100 }
 ];
 
 var gridOption1={

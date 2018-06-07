@@ -38,23 +38,23 @@ var dsOption3= {
 
 var colsOption1 = [
 	 {id: 'chk' ,isCheckColumn : true}, 
-	 {id: 'question' , header: "question" , width :530 },
-	 {id: 'answer_num' , header: "answer num" , width :80 },
-	 {id: 'rgsn_date' , header: "registered date" , width :120 },
-	 {id: 'rgsn_time' , header: "registered time" , width :120 },
+	 {id: 'question' , header: "QUESTION" , width :530 },
+	 {id: 'answer_num' , header: "ANSWER NUM" , width :100 },
+	 {id: 'rgsn_date' , header: "REGISTERED DATE" , width :120 },
+	 {id: 'rgsn_time' , header: "REGISTERED TIME" , width :120 },
 ];
 
 var colsOption2 = [
      {id: 'chk' ,isCheckColumn : true}, 
-	 {id: 'rpsn_question' , header: "represent question" , width :370 },
-	 {id: 'answer' , header: "answer" , width :400 },
-	 {id: 'answer_num' , header: "answer num" , width :80 }
+	 {id: 'rpsn_question' , header: "REPRESENT QUESTION" , width :370 },
+	 {id: 'answer' , header: "ANSWER" , width :400 },
+	 {id: 'answer_num' , header: "ANSWER NUM" , width :100 }
 ];
 
 var colsOption3 = [
-	 {id: 'num' , header: "num" , width :60 }, 
-	 {id: 'answer_num' , header: "answer num" , width :80 },
-	 {id: 'question' , header: "question" , width :750 }
+	 {id: 'num' , header: "NUM" , width :60 }, 
+	 {id: 'answer_num' , header: "ANSWER NUM" , width :100 },
+	 {id: 'question' , header: "QUESTION" , width :750 }
 ];
 
 var gridOption1={

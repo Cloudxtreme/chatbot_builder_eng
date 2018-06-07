@@ -14,10 +14,10 @@ var dsOption1= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "num" , width :60 },
-	 {id: 'voca_nm' , header: "voca name" , width :400 },
-	 {id: 'appearance_count' , header: "appearance count" , width :200 },
-	 {id: 'voca_weight' , header: "weight" , width :200 }
+	 {id: 'num' , header: "NUM" , width :60 },
+	 {id: 'voca_nm' , header: "VOCA NAME" , width :400 },
+	 {id: 'appearance_count' , header: "APPEARANCE COUNT" , width :200 },
+	 {id: 'voca_weight' , header: "WEIGHT" , width :200 }
 ];
 
 var gridOption1={

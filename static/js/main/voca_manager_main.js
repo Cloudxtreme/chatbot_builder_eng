@@ -13,10 +13,10 @@ var dsOption1= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "num" , width :60 },
-	 {id: 'voca_nm' , header: "voca name" , width :300 },
-	 {id: 'voca_synonym' , header: "synonym" , width :420 },
-	 {id: 'keyword_yn' , header: "keyword" , width :60 }
+	 {id: 'num' , header: "NUM" , width :60 },
+	 {id: 'voca_nm' , header: "VOCA NAME" , width :300 },
+	 {id: 'voca_synonym' , header: "SYNONYM" , width :420 },
+	 {id: 'keyword_yn' , header: "KEYWORD" , width :60 }
 ];
 
 var gridOption1={
