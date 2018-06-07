@@ -2,6 +2,7 @@
 English Chatbot Building Platform
 <br>
 <br>
+http://14.63.168.58:5002
 <br>
 <br>
 ```
