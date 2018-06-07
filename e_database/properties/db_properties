@@ -1,4 +1,4 @@
 user=chatbot
 password=chatbot
-db_name=chatbot
+db_name=chatbot_eng
 charset=utf8

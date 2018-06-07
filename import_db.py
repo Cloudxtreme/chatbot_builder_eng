@@ -4,4 +4,4 @@ from a_builder.importer import config_importer
 from a_builder.importer import voca_importer
 from a_builder.importer import create_all_tables
 
-qna_importer.compression_tag_importer('chatbot_tft', 'fund')
+create_all_tables.create_all()
