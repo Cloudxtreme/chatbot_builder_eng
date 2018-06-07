@@ -35,6 +35,9 @@ def insert_my_frequent_question(p):
     
     return '자주하는 질문으로 등록되었습니다.'
 
+def get_today_weather_info(p):
+    return 'todays weather : '
+
 def scan_param(msg):
     param = []
     t = {"time" : '', "date_from" : '', "date_to" : '', "acct_no" : '', "rnn" : '', "cust_no" : ''}

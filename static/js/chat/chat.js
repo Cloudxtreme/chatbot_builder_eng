@@ -270,7 +270,7 @@ function setMySchedule() {
 	$.post('/get_all_schedule', {
 	}).done(function(reply) {
 		$('#message3 .mCSB_container').empty();
-		var text = 'write "my schedule" to register schedule.';
+		var text = 'write "my schedule" to register your schedule.';
 		$('<div class="schedule-msg">' + text + '</div>').appendTo($('#right-down-board .mCSB_container')).addClass('new');
 		for (var i = 0; i < reply.length; ++i) {
 			var message = reply[i]['message'];
