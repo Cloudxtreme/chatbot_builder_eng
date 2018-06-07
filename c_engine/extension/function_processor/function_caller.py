@@ -3,6 +3,7 @@ from c_engine.core.util import time_util
 from e_database import chat
 from c_engine.extension.function_processor import excel_exporter
 from c_engine.extension.function_processor import tag_manager
+import datetime
 
 def set_my_schedule(p):
     user_ip, question, time = p.get('user_ip'), p.get('question'), p.get('time')    
@@ -36,9 +37,10 @@ def insert_my_frequent_question(p):
     return '자주하는 질문으로 등록되었습니다.'
 
 def get_today_weather_info(p):
-    year = '2018'
-    m = 1
-    d = 30
+    now = datetime.datetime.now()
+    year = now.year
+    m = now.month
+    d = now.day
     url = 'http://www.wunderground.com/history/airport/KBNA/' + str(year) + '/' + str(m) + '/' + str(d) + '/DailyHistory.html'
     res = 'MODAL=' + url
     return res
