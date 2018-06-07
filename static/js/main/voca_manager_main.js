@@ -13,10 +13,10 @@ var dsOption1= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "순번" , width :60 },
-	 {id: 'voca_nm' , header: "단어명" , width :300 },
-	 {id: 'voca_synonym' , header: "동의어" , width :420 },
-	 {id: 'keyword_yn' , header: "키워드" , width :60 }
+	 {id: 'num' , header: "num" , width :60 },
+	 {id: 'voca_nm' , header: "voca name" , width :300 },
+	 {id: 'voca_synonym' , header: "synonym" , width :420 },
+	 {id: 'keyword_yn' , header: "keyword" , width :60 }
 ];
 
 var gridOption1={
