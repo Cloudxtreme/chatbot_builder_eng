@@ -3,7 +3,7 @@ $(document).ready(function() {
 	get_is_training();
 	$("#start_training").click(function() {
 		var training_status = $("#start_training").text();
-		if (training_status == "훈련시작") {
+		if (training_status == "Start Training") {
 			start_training();
 		} else {
 			stop_training();
@@ -56,7 +56,7 @@ function start_training() {
 	if (!confirm("훈련을 시작 하시겠습니까?")) {
 		return;
 	}
-	$("#start_training").text("훈련중단");
+	$("#start_training").text("Stop Training");
 	var user = $("#user").val();
 	var project = $("#project").val();
 	var saving_step = $("#saving_step").val();
@@ -74,7 +74,7 @@ function stop_training() {
 	if (!confirm("훈련을 종료 하시겠습니까?")) {
 		return;
 	}
-	$("#start_training").text("훈련시작");	
+	$("#start_training").text("Start Training");	
 	var user = $("#user").val();
 	var project = $("#project").val();
 	var input_data = {"user" : user, "project" : project};
@@ -110,10 +110,10 @@ function get_is_training() {
 	var project = $("#project").val();
 	$.post("/get_is_training", { user : user, project : project}).done(function(reply) {
 		if (reply['is_training'] == 'Y') {
-			$("#start_training").text('훈련중단');
+			$("#start_training").text('Stop Training');
 			start_interval();
 		} else {
-			$("#start_training").text('훈련시작');
+			$("#start_training").text('Start Training');
 			stop_interval();
 			$('#training_info').text('');
 			$('#show_testing').hide();

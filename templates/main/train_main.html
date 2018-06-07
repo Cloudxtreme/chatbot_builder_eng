@@ -5,12 +5,12 @@
 <link rel="stylesheet" href="/static/css/main/train_main.css">
 <body>
 <div id="setting">
-	<a id="saving_step_text1">훈련저장주기:</a><input id="saving_step" type="text" size="13" value="3000"><a id="saving_step_text2">스텝 마다 저장</a>
+	<a id="saving_step_text1">Saving per:</a><input id="saving_step" type="text" size="13" value="3000"><a id="saving_step_text2">Steps</a>
 </div>
-<button id="update_voca_and_question">단어추출업데이트</button>
-<button id="create_fragment">질문조각생성</button>
-<button id="delete_ckpt_file">훈련모델초기화</button>
-<button id="start_training">훈련시작</button>
+<button id="update_voca_and_question">Word Extraction</button>
+<button id="create_fragment">Question Fragment</button>
+<button id="delete_ckpt_file">Delete Model</button>
+<button id="start_training">Start Training</button>
 <div id="training_info"></div>
 <button id="show_testing">훈련테스트</button>
 <input id="is_training" type="hidden" value="{{ is_training }}">
