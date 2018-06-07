@@ -17,12 +17,12 @@ var dsOption1= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "순번" , width :60 },
-	 {id: 'big_category' , header: "대분류" , width :80 },
-	 {id: 'middle_category' , header: "중분류" , width :80},
-	 {id: 'small_category_lv1' , header: "소분류 lv1" , width :80},
-	 {id: 'small_category_lv2' , header: "소분류 lv2" , width :80 },
-	 {id: 'small_category_lv3' , header: "소분류 lv3" , width :80 }
+	 {id: 'num' , header: "NUM" , width :60 },
+	 {id: 'big_category' , header: "BIG CATEGORY" , width :80 },
+	 {id: 'middle_category' , header: "MIDDLE CATEGORY" , width :80},
+	 {id: 'small_category_lv1' , header: "SMALL CATEGORY lv1" , width :80},
+	 {id: 'small_category_lv2' , header: "SMALL CATEGORY lv2" , width :80 },
+	 {id: 'small_category_lv3' , header: "SMALL CATEGORY lv3" , width :80 }
 ];
 
 var gridOption1={
