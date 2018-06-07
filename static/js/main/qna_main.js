@@ -30,21 +30,21 @@ var dsOption2= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "순번" , width :30 }, 
-	 {id: 'rpsn_question' , header: "대표질문" , width :370 },
-	 {id: 'answer' , header: "답변" , width :380, toolTip : true, toolTipWidth : 350},
-	 {id: 'answer_num' , header: "답변번호" , width :55 },
-	 {id: 'category_nm' , header: "분류명" , width :100 },
-	 {id: 'image_cnt' , header: "이미지" , width :50 },
-	 {id: 'rgsn_user' , header: "등록자" , width :70 }
+	 {id: 'num' , header: "num" , width :30 }, 
+	 {id: 'rpsn_question' , header: "represent question" , width :370 },
+	 {id: 'answer' , header: "answer" , width :380, toolTip : true, toolTipWidth : 350},
+	 {id: 'answer_num' , header: "answer num" , width :55 },
+	 {id: 'category_nm' , header: "category name" , width :100 },
+	 {id: 'image_cnt' , header: "image count" , width :50 },
+	 {id: 'rgsn_user' , header: "register user" , width :70 }
 ];
 
 var colsOption2 = [
-	 {id: 'answer_num' , header: "답변번호" , width :55 },
-	 {id: 'question_srno' , header: "질문번호" , width :55 },
-	 {id: 'question' , header: "질문" , width :410 },
-	 {id: 'bucket_id' , header: "버킷ID" , width :80 },
-	 {id: 'question_voca' , header: "추출단어목록" , width :400 }
+	 {id: 'answer_num' , header: "answer num" , width :55 },
+	 {id: 'question_srno' , header: "question srno" , width :55 },
+	 {id: 'question' , header: "question" , width :410 },
+	 {id: 'bucket_id' , header: "bucket ID" , width :80 },
+	 {id: 'question_voca' , header: "extracted words" , width :400 }
 ];
 
 var gridOption1={
@@ -214,25 +214,25 @@ function search_question_callback(retData) {
 }
 
 function delete_answer_callback() {
-	alert("삭제가 완료되었습니다.");
+	alert("deleted.");
 	search_answer();
 }
 
 function delete_question_callback() {
-	alert("삭제가 완료되었습니다.");
+	alert("deleted.");
 	search_question();
 }
 
 function submit_voca_callback(data) {
 	if (data == 'N') {
-		alert("이미 등록된 단어입니다.");
+		alert("word already exists.");
 	} else {
-		alert("단어가 저장되었습니다.");
+		alert("word saved.");
 	}
 }
 
 function update_question_voca_callback() {
-	alert("단어추출이 완료되었습니다.");
+	alert("word extraction completed.");
 	search_question();
 }
 
@@ -275,7 +275,7 @@ function new_question_pop() {
     var y = (screen.height - h) / 3;
 	var answer_num = $("#answer_num").val();
 	if (answer_num == '') {
-		alert("답변목록을 선택하세요.");
+		alert("choose the row in answer list.");
 		return;
 	}
 	window.open('/new_question_pop?user=' + user + '&project=' + project + '&answer_num=' + answer_num, '_blank', 'scrollbars=yes, width=' + w + ', height=' + h + ', left=' + x + ', top=' + y);
@@ -290,7 +290,7 @@ function add_image_pop() {
     var y = (screen.height - h) / 3;
 	var answer_num = $("#answer_num").val();
 	if (answer_num == '') {
-		alert("답변목록을 선택하세요.");
+		alert("choose the row in answer list.");
 		return;
 	}
 	window.open('/add_image_pop?user=' + user + '&project=' + project + '&answer_num=' + answer_num, '_blank', 'scrollbars=yes, width=' + w + ', height=' + h + ', left=' + x + ', top=' + y);
@@ -319,7 +319,7 @@ function modify_answer_pop() {
 	var rpsn_question = $("#rpsn_question").val();
 	var answer = $("#answer").val();
 	if (answer_num == '') {
-		alert("답변목록을 선택하세요.");
+		alert("choose the row in answer list.");
 		return;
 	}
 	$("#modify_user").val(user);
@@ -333,10 +333,10 @@ function modify_answer_pop() {
 
 function delete_answer() {
 	if ($("#answer_num").val() == "") {
-		alert("삭제대상을 선택하세요");
+		alert("choose the row to delete.");
 		return;
 	}
-	if (!confirm("삭제 하시겠습니까?")) {
+	if (!confirm("do you want to delete?")) {
 		return;
 	}
 	var user = $("#user").val();
@@ -350,10 +350,10 @@ function delete_answer() {
 function submit_voca() {
 	var voca = getSelectedText().trim();
 	if (voca == '') {
-		alert("등록할 단어를 화면에서 드래그 하여 선택하세요.");
+		alert("choose the word by dragging on the screen.");
 		return;
 	}
-	if (!confirm("단어를 등록 하시겠습니까?\n\n[단어명: " + voca + "]")) {
+	if (!confirm("do you want to register word?\n\n[voca name: " + voca + "]")) {
 		return;
 	}
 	var input_data = {"voca_nm" : voca};
@@ -367,10 +367,10 @@ function update_question_voca() {
 	var answer_num = $("#answer_num").val();
 	var input_data = {"user" : user, "project" : project, "answer_num" : answer_num};
 	if (answer_num == '') {
-		alert("답변목록을 선택하세요.");
+		alert("choose the row in answer list.");
 		return;
 	}
-	if (!confirm("단어를 추출 하시겠습니까?")) {
+	if (!confirm("do you want to extract word?")) {
 		return;
 	}
 	
@@ -379,10 +379,10 @@ function update_question_voca() {
 
 function delete_question() {
 	if ($("#answer_num").val() == "" || $("#question_srno").val() == "") {
-		alert("삭제할 열을 선택하세요");
+		alert("choose the row to delete.");
 		return;
 	}
-	if (!confirm("삭제 하시겠습니까?")) {
+	if (!confirm("do you want to delete?")) {
 		return;
 	}
 	var user = $("#user").val();

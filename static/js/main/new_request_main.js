@@ -18,13 +18,13 @@ var dsOption1= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "순번" , width :40 }, 
-	 {id: 'question' , header: "요청질문" , width :300 },
-	 {id: 'rgsn_date' , header: "요청일자" , width :70 },
-	 {id: 'rgsn_time' , header: "요청시간" , width :60 },
-	 {id: 'recommend_cnt' , header: "추천수" , width :40 },
-	 {id: 'answer' , header: "등록답변" , width :300 }, 
-	 {id: 'pc_status' , header: "처리상태" , width :70 }
+	 {id: 'num' , header: "num" , width :40 }, 
+	 {id: 'question' , header: "question" , width :300 },
+	 {id: 'rgsn_date' , header: "request date" , width :70 },
+	 {id: 'rgsn_time' , header: "request time" , width :60 },
+	 {id: 'recommend_cnt' , header: "recommend count" , width :40 },
+	 {id: 'answer' , header: "answer" , width :300 }, 
+	 {id: 'pc_status' , header: "process status" , width :70 }
 ];
 
 var gridOption1={
@@ -100,7 +100,7 @@ function search_new_request() {
 
 function new_answer_pop() {
 	if ($("#rq_num").val() == '') {
-		alert("답변등록할 열을 선택하세요.");
+		alert("choose the row to write answer.");
 		return;
 	}
 	var user = $("#user").val();
@@ -115,10 +115,10 @@ function new_answer_pop() {
 
 function submit_complete_request() {
 	if ($("#rq_num").val() == '') {
-		alert("처리완료할 열을 선택하세요.");
+		alert("choose the row to complete.");
 		return;
 	}
-	if (!confirm("처리완료 하시겠습니까?")) {
+	if (!confirm("do you want to complete?")) {
 		return;
 	}
 	var subject = "";
@@ -143,9 +143,9 @@ function search_new_request_callback(retData) {
 		a.push(retList[i]['recommend_cnt']);
 		a.push(retList[i]['answer']);
 		if (retList[i]['pc_status'] == "01") {
-			a.push("요청");
+			a.push("request");
 		} else {
-			a.push("처리완료");
+			a.push("complete");
 		}
 		dataArr.push(a);
 	}
@@ -155,6 +155,6 @@ function search_new_request_callback(retData) {
 }
 
 function submit_complete_request_callback() {
-	alert("처리가 완료되었습니다.");
+	alert("process completed.");
 	search_new_request();
 }

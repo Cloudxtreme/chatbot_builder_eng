@@ -51,7 +51,7 @@ function ajax(url, input_data, gubun, method) {
 }
 
 function start_training() {
-	if (!confirm("훈련을 시작 하시겠습니까?")) {
+	if (!confirm("do you want to start training?")) {
 		return;
 	}
 	$("#start_training").text("Stop Training");
@@ -61,15 +61,15 @@ function start_training() {
 	var input_data = {"user" : user, "project" : project, "saving_step" : saving_step};
 
 	$.post('/start_training', input_data).done(function(reply) {
-		alert("훈련이 시작되었습니다.");
-		$('#training_info').text('훈련을 준비중입니다..');
+		alert("training started.");
+		$('#training_info').text('preparing training..');
 		start_interval();
 	}).fail(function() {
 	});
 }
 
 function stop_training() {
-	if (!confirm("훈련을 종료 하시겠습니까?")) {
+	if (!confirm("do you want to end training?")) {
 		return;
 	}
 	$("#start_training").text("Start Training");	
@@ -78,7 +78,7 @@ function stop_training() {
 	var input_data = {"user" : user, "project" : project};
 	
 	$.post('/stop_training', input_data).done(function(reply) {
-		alert("훈련이 중단되었습니다.");
+		alert("training ended.");
 		$('#training_info').text('');
 		$('#show_testing').hide();
 		stop_interval();
@@ -87,7 +87,7 @@ function stop_training() {
 }
 
 function delete_ckpt_file() {
-	if (!confirm("훈련모델을 삭제하시겠습니까?")) {
+	if (!confirm("do you want to delete training model?")) {
 		return;
 	}
 	var user = $("#user").val();
@@ -131,7 +131,7 @@ function get_training_info_callback(training_info, saving_step) {
 }
 
 function delete_ckpt_file_callback() {
-	alert("훈련모델이 삭제되었습니다.");
+	alert("deleted training model.");
 }
 
 var interval_name = '';

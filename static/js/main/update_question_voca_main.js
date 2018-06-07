@@ -14,10 +14,10 @@ var dsOption1= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "순번" , width :60 },
-	 {id: 'voca_nm' , header: "단어명" , width :400 },
-	 {id: 'appearance_count' , header: "출현빈도" , width :200 },
-	 {id: 'voca_weight' , header: "가중치" , width :200 }
+	 {id: 'num' , header: "num" , width :60 },
+	 {id: 'voca_nm' , header: "voca name" , width :400 },
+	 {id: 'appearance_count' , header: "appearance count" , width :200 },
+	 {id: 'voca_weight' , header: "weight" , width :200 }
 ];
 
 var gridOption1={

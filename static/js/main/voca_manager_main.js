@@ -113,10 +113,10 @@ function search_voca_callback(ret_data) {
 
 function submit_voca() {
 	if ($("#voca_input").val() == '') {
-		alert("단어명을 입력하세요.");
+		alert("write the voca name.");
 		return;
 	}
-	if (!confirm("저장 하시겠습니까?")) {
+	if (!confirm("do you want to save?")) {
 		return;
 	}
 	var input_data = {"voca_nm" : $("#voca_input").val()};
@@ -126,10 +126,10 @@ function submit_voca() {
 
 function submit_voca_keyword() {
 	if ($("#voca_nm").val() == '') {
-		alert("단어를 선택하세요.");
+		alert("choose the voca.");
 		return;
 	}
-	if (!confirm("키워드로 등록/해제 하시겠습니까?")) {
+	if (!confirm("do you want to register/unregister?")) {
 		return;
 	}
 	var voca_nm = $("#voca_nm").val();
@@ -140,10 +140,10 @@ function submit_voca_keyword() {
 
 function delete_voca() {
 	if ($("#voca_nm").val() == '') {
-		alert("삭제할 단어를 선택하세요.");
+		alert("choose the word to delete.");
 		return;
 	}
-	if (!confirm("삭제 하시겠습니까?")) {
+	if (!confirm("do you want to delete?")) {
 		return;
 	}
 	var input_data = {"voca_nm" : $("#voca_nm").val()};
@@ -151,7 +151,7 @@ function delete_voca() {
 }
 
 function update_voca_synonym() {
-	if (!confirm("동의어를 업데이트 하시겠습니까?")) {
+	if (!confirm("do you want to update synonym?")) {
 		return;
 	}
 	var input_data = {};
@@ -160,19 +160,19 @@ function update_voca_synonym() {
 
 function submit_voca_callback(data) {
 	if (data == 'N') {
-		alert("이미 등록된 단어입니다.");
+		alert("voca already exists.");
 	} else {
-		alert("단어가 저장되었습니다.");
+		alert("saved word.");
 	}
 	search_voca();
 }
 
 function submit_voca_keyword_callback() {
-	alert("처리 완료되었습니다.");
+	alert("process completed.");
 	search_voca();
 }
 
 function delete_voca_callback() {
-	alert("삭제가 완료되었습니다.");
+	alert("deleted.");
 	search_voca();
 }

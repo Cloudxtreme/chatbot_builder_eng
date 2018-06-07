@@ -27,14 +27,14 @@ var dsOption2= {
 	}
 
 var colsOption1 = [
-	 {id: 'num' , header: "순번" , width :60 },
-	 {id: 'synonym_nm' , header: "동의어" , width :600 },
-	 {id: 'synonym_tag' , header: "태그명" , width :200 }
+	 {id: 'num' , header: "num" , width :60 },
+	 {id: 'synonym_nm' , header: "synonym" , width :600 },
+	 {id: 'synonym_tag' , header: "tag name" , width :200 }
 ];
 
 var colsOption2 = [
-	 {id: 'num' , header: "순번" , width :60 },
-	 {id: 'synonym_nm' , header: "동의어" , width :800 , editor: {  type :"text"  }}
+	 {id: 'num' , header: "num" , width :60 },
+	 {id: 'synonym_nm' , header: "synonym" , width :800 , editor: {  type :"text"  }}
 ];
 
 var gridOption1={
@@ -212,12 +212,12 @@ function new_detail() {
 
 function submit_synonym_detail() {
 	mygrid2.endEdit();
-	if (!confirm("저장 하시겠습니까?")) {
+	if (!confirm("do you want to save?")) {
 		return;
 	}
 	var input_data = get_input_data();
 	if (input_data.length == 0) {
-		alert("변경된 데이터가 없습니다.");
+		alert("no modified data.");
 		return;
 	}
 	ajax('/submit_synonym', input_data, 'submit_synonym_detail', 'POST');
@@ -225,10 +225,10 @@ function submit_synonym_detail() {
 
 function delete_synonym_master() {
 	if ($("#synonym_tag").val() == '') {
-		alert("삭제할 열을 선택하세요.");
+		alert("choose the row to delete.");
 		return;
 	}
-	if (!confirm("삭제 하시겠습니까?")) {
+	if (!confirm("do you want to delete?")) {
 		return;
 	}
 	var input_data = {"synonym_tag" : $("#synonym_tag").val()};
@@ -237,7 +237,7 @@ function delete_synonym_master() {
 
 function delete_synonym_detail() {
 	if ($("#synonym_detail_cur_row").val() == '') {
-		alert("삭제할 열을 선택하세요.");
+		alert("choose the row to delete.");
 		return;
 	}
 	var cur_row = $("#synonym_detail_cur_row").val(); 
@@ -246,7 +246,7 @@ function delete_synonym_detail() {
 		mygrid2.refresh(grid_data2);
 		return;
 	}
-	if (!confirm("삭제 하시겠습니까?")) {
+	if (!confirm("do you want to delete?")) {
 		return;
 	}
 	var input_data = {"synonym_num" : $("#synonym_num").val()};
@@ -254,18 +254,18 @@ function delete_synonym_detail() {
 }
 
 function submit_synonym_detail_callback() {
-	alert("전송이 완료되었습니다.");
+	alert("sent.");
 	search_synonym();
 }
 
 function delete_synonym_master_callback() {
-	alert("삭제가 완료되었습니다.");
+	alert("deleted");
 	mygrid2.refresh([]);
 	search_synonym();
 }
 
 function delete_synonym_detail_callback() {
-	alert("삭제가 완료되었습니다.");
+	alert("deleted.");
 	search_synonym_by_synonym_tag($("#synonym_tag").val());
 	search_synonym();
 }
