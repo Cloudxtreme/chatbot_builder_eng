@@ -86,14 +86,14 @@ function ajax(url, input_data, gubun, method) {
 
 function modify_answer() {
 	if ($("#rpsn_question_input").val() == "") {
-		alert("질문을 작성하세요");
+		alert("write question");
 		return;
 	}
 	if ($("#answer_input").val() == "") {
-		alert("답변을 작성하세요");
+		alert("write answer");
 		return;
 	}
-	if (!confirm("전송 하시겠습니까?")) {
+	if (!confirm("do you want to send?")) {
 		return;
 	}
 	var user = $("#user").val();
@@ -108,7 +108,7 @@ function modify_answer() {
 }
 
 function modify_answer_callback() {
-	alert("전송이 완료되었습니다.");
+	alert("sent.");
 	opener.search_answer();
 	window.close();
 }

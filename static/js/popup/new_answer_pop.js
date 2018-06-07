@@ -91,14 +91,14 @@ function ajax(url, input_data, gubun, method) {
 
 function submit_answer() {
 	if ($("#question_input").val() == "") {
-		alert("질문을 작성하세요");
+		alert("write question");
 		return;
 	}
 	if ($("#answer_input").val() == "") {
-		alert("답변을 작성하세요");
+		alert("write answer");
 		return;
 	}
-	if (!confirm("전송 하시겠습니까?")) {
+	if (!confirm("do you want to send?")) {
 		return;
 	}
 	var user = $("#user").val();
@@ -114,7 +114,7 @@ function submit_answer() {
 }
 
 function submit_answer_callback() {
-	alert("전송이 완료되었습니다.");
+	alert("sent.");
 	if (opener.search_answer != null) {
 		opener.search_answer();
 	}

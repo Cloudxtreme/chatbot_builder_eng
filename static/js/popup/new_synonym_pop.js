@@ -27,10 +27,10 @@ function ajax(url, input_data, gubun, method) {
 
 function submit_synonym() {
 	if ($("#synonym_nm").val() == "") {
-		alert("동의어를 작성하세요");
+		alert("write synonym");
 		return;
 	}
-	if (!confirm("전송 하시겠습니까?")) {
+	if (!confirm("do you want to send?")) {
 		return;
 	}
 	var synonym_num = "";
@@ -43,6 +43,6 @@ function submit_synonym() {
 }
 
 function submit_synonym_callback() {
-	alert("전송이 완료되었습니다.");
+	alert("sent.");
 	window.close();
 }

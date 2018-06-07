@@ -12,9 +12,9 @@ var dsOption1= {
 }
 
 var colsOption1 = [
-	 {id: 'num' , header: "순번" , width :60 },
-	 {id: 'new_question' , header: "질문" , width :400 },
-	 {id: 'bucket' , header: "버킷" , width :80 },
+	 {id: 'num' , header: "NUM" , width :60 },
+	 {id: 'new_question' , header: "QUESTION" , width :400 },
+	 {id: 'bucket' , header: "BUCKET" , width :80 },
 ];
 
 var gridOption1={
@@ -115,10 +115,10 @@ function get_bucket_id_by_sentence(question) {
 
 function submit_question() {
 	if (grid_data1.length == 0) {
-		alert("질문을 작성하세요");
+		alert("write question");
 		return;
 	}
-	if (!confirm("전송 하시겠습니까?")) {
+	if (!confirm("do you want to send?")) {
 		return;
 	}
 	var input_data = [];
@@ -134,7 +134,7 @@ function submit_question() {
 }
 
 function submit_question_callback() {
-	alert("전송이 완료되었습니다.");
+	alert("sent.");
 	opener.search_question();
 	window.close();
 }

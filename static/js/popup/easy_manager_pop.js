@@ -71,7 +71,7 @@ function search_answer_callback(retData) {
 		$('#' + div_id + "_each").append('<input id="category_num" type="hidden" value="' + retList[i]['category_num'] + '">');
 		$('#' + div_id + "_each").append('<textarea class="question" id="question" rows="8" cols="80">' + retList[i]['rpsn_question'] + '</textarea>');
 		$('#' + div_id + "_each").append('<textarea class="answer" id="answer" rows="8" cols="80">' + retList[i]['answer'] + '</textarea>');
-		$('#' + div_id + "_each").append('<button id="put_emphasis" class="put_emphasis">강조</button>');
+		$('#' + div_id + "_each").append('<button id="put_emphasis" class="put_emphasis">emphasize</button>');
 		$('#container').append('</div></div>');
 	}
 	$(".btn").click(function() {

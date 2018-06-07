@@ -31,7 +31,7 @@ function modify_image() {
 }
 
 function delete_image() {
-	if (!confirm("해당 이미지를 삭제 하시겠습니까?")) {
+	if (!confirm("do you want to delete image?")) {
 		return;
 	}
 	$('#gubun').val('delete');
