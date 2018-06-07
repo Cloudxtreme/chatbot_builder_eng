@@ -226,7 +226,7 @@ function hide_all() {
 
 function check_can_open_menu() {
 	if ($('.open-menu').size() + $('.open-menu-active').size() >= 7) {
-		alert("7개이상 메뉴를 동시에 열 수 없습니다.\n다른메뉴를 닫고 다시 열어 주세요.");
+		alert("can't open over 5 menu at the same time.");
 		return false;
 	}
 	return true;
