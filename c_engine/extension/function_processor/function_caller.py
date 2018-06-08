@@ -55,6 +55,11 @@ def order_pizza(p):
     res = 'MODAL=' + url
     return res  
 
+def get_google_news(p):
+    url = 'https://www.bbc.com/news/world'
+    res = 'MODAL=' + url
+    return res
+
 def scan_param(msg):
     param = []
     t = {"time" : '', "date_from" : '', "date_to" : '', "acct_no" : '', "rnn" : '', "cust_no" : ''}
