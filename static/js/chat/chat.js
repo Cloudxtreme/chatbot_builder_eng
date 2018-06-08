@@ -221,7 +221,7 @@ function getMyQuestion() {
 		if (Number(reply['num']) > 0) {
 			$('#message2 .mCSB_container').empty();
 		}
-		var text = '- 채팅창에 "자주하는질문"을 입력하여 나의 질문을 등록하세요 -';
+		var text = '- say "frequnt question" to register your frequent question. -';
 		$('<div class="my-question-msg">' + text + '</div>').appendTo($('#message2 .mCSB_container')).addClass('new');
 		for (var i = 0; i < Number(reply['num']); ++i) {
 			var text = reply['text' + (i + 1)];
