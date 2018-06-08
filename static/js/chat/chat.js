@@ -205,6 +205,7 @@ function getReserveList(message) {
 		$('<div class="bucket-info">- BUCKET: [ID: ' + bucket_id + ', token length: ' + bucket_range + '] result -</div>').appendTo($('#message2 .mCSB_container')).addClass('new');
 		for (var i = 0; i < Number(reply['num']); ++i) {
 			var text = reply['text' + (i + 1)];
+				text = text.replace('\n', '');
 			var html = '<div id="reserve_msg" class="reserve-msg" onclick="setMessageInput(\'' + text.replace(/\"/g, '') + '\')">';
 				html += '<img class="check-mark" src="static/res/green_check_mark.png" />&nbsp;&nbsp;' + text + '</div>';
 			$(html).appendTo($('#message2 .mCSB_container')).addClass('new');
