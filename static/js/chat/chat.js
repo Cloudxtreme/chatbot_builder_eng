@@ -221,7 +221,7 @@ function getMyQuestion() {
 		if (Number(reply['num']) > 0) {
 			$('#message2 .mCSB_container').empty();
 		}
-		var text = '- say "frequnt question" to register your frequent question. -';
+		var text = '- say "frequent question" to register your frequent question. -';
 		$('<div class="my-question-msg">' + text + '</div>').appendTo($('#message2 .mCSB_container')).addClass('new');
 		for (var i = 0; i < Number(reply['num']); ++i) {
 			var text = reply['text' + (i + 1)];

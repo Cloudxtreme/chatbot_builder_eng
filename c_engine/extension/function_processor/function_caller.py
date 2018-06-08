@@ -15,18 +15,18 @@ def set_my_schedule(p):
         elif t[0] == '분':
             minute = t[1]
     if hour == '':
-        return '잘못된 입력입니다. 다시 시도해 주세요. 시간 + 내용 ex) 15시30분 팀원들과 티타임'
+        return 'wrong input. retry please. time + content ex) 15:30 tea time with my people'
     if minute == '':
         minute = '00'
     time = hour + minute
     chat.insert_schedule(user_ip, question, time)
     if time_util.is_time(time) == False:
-        return '잘못된 입력입니다. 다시 시도해 주세요. 시간 + 내용 ex) 15시30분 팀원들과 티타임'
+        return 'wrong input. retry please. time + content ex) 15:30 tea time with my people'
     kor_time = hour + "시" + minute + "분"
-    msg = '일정이 등록되었습니다.<br>'
+    msg = 'schedule is registered.<br>'
     msg += question + '<br>'
-    msg += '예약시간: ' + kor_time + '<br>'
-    msg += '예약시간에 알림 메세지 보내겠습니다.'
+    msg += 'reserve time: ' + kor_time + '<br>'
+    msg += 'it will alarm you when reserve time comes.'
     
     return msg
 
@@ -34,7 +34,7 @@ def insert_my_frequent_question(p):
     user_ip, question = p.get('user_ip'), p.get('question')    
     chat.insert_my_frequent_question(user_ip, question)
     
-    return '자주하는 질문으로 등록되었습니다.'
+    return 'your frequent question is registered.'
 
 def get_today_weather_info(p):
     now = datetime.datetime.now()
