@@ -45,6 +45,11 @@ def get_today_weather_info(p):
     res = 'MODAL=' + url
     return res
 
+def recommend_movie(p):
+    url = 'https://www.rottentomatoes.com/'
+    res = 'MODAL=' + url
+    return res
+
 def scan_param(msg):
     param = []
     t = {"time" : '', "date_from" : '', "date_to" : '', "acct_no" : '', "rnn" : '', "cust_no" : ''}
