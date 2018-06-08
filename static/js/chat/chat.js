@@ -491,7 +491,7 @@ function get_schedule() {
 		 time : t
 	}).done(function(reply) {
 		for (var i = 0; i < reply.length; ++i) {
-			var msg = "아래 일정의 예약시간이 되었습니다.<br>" + reply[i]['message'];
+			var msg = "reserve time comes.<br>" + reply[i]['message'];
 			$('<div class="message schedule"><figure class="avatar"><img src="/static/res/ai_image2.png" /></figure>' + msg + '</div>').appendTo($('#left-board .mCSB_container')).addClass('new');
 			setMySchedule();
 		}
