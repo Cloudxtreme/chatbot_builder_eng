@@ -35,7 +35,13 @@ def before_request():
         my_session = session.get('k', None)
         if my_session == None:
             return render_template("login/no_session.html")
-        
+
+@app.after_request
+def after_request(response):
+    response.headers["X-Frame-Options"] = "SAMEORIGIN"
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
+ 
 @app.route('/search_answer', methods=['POST'])
 def search_answer():
     return search.search_answer(request)

@@ -50,6 +50,11 @@ def recommend_movie(p):
     res = 'MODAL=' + url
     return res
 
+def order_pizza(p):
+    url = 'http://eng.pizzahut.co.kr/EngOrder/'
+    res = 'MODAL=' + url
+    return res  
+
 def scan_param(msg):
     param = []
     t = {"time" : '', "date_from" : '', "date_to" : '', "acct_no" : '', "rnn" : '', "cust_no" : ''}
