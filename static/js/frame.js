@@ -110,7 +110,7 @@ function run_chatbot() {
 			project : project
 		}).done(function(reply) {
 			if (reply['is_training'] == 'Y') {
-				alert("훈련을 중단 후 실행해 주세요.");
+				alert("Stop Training and Run.");
 				return;
 			} else {
 				var w = RUN_CHAT_POPUP_WIDTH;
@@ -150,7 +150,7 @@ function group_chat_start() {
 		project : project
 	}).done(function(reply) {
 		if (reply['is_training'] == 'Y') {
-			alert("훈련을 중단 후 실행해 주세요.");
+			alert("Stop Training and Run.");
 			return;
 		} else {
 			$('#create_chat').modal({});
@@ -201,7 +201,7 @@ function action_principle() {
 	var project = $("#project").val();
 	$.post("/get_is_training", { user : user, project : project}).done(function(reply) {
 		if (reply['is_training'] == 'Y') {
-			alert("훈련을 중단 후 실행해 주세요.");
+			alert("Stop Training and Run.");
 			return;
 		} else {
 			var w = ACTION_PRINCIPLE_POPUP_WIDTH;
