@@ -309,6 +309,7 @@ function getNewQuestion() {
 		$('<div class="new-question-msg">' + text + '</div>').appendTo($('#right-down-board .mCSB_container')).addClass('new');
 		for (var i = 0; i < Number(reply['num']); ++i) {
 			var text = reply['text' + (i + 1)];
+				text = text.replace('\n', '');
 			var html = '<div id="latest_new_question" class="latest-new-question" onclick="setMessageInput(\'' + text.replace(/\"/g, '') + '\')">';
 				html += '<img class="check-mark" src="static/res/green_check_mark.png" />&nbsp;&nbsp;' + text + '</div>';
 			$(html).appendTo($('#right-down-board .mCSB_container')).addClass('new');
