@@ -51,7 +51,7 @@ def recommend_movie(p):
     return res
 
 def order_pizza(p):
-    url = 'http://eng.pizzahut.co.kr/EngOrder/'
+    url = 'http://eng.pizzahut.co.kr/EngOrder/'    
     res = 'MODAL=' + url
     return res  
 
@@ -59,6 +59,11 @@ def get_google_news(p):
     url = 'https://www.bbc.com/news/world'
     res = 'MODAL=' + url
     return res
+
+def get_near_restaurants(p):
+    url = "https://www.google.com/maps/search/restaurants+near+me/"
+    res = 'POP=' + url
+    return res 
 
 def scan_param(msg):
     param = []

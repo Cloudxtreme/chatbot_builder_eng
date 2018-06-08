@@ -400,6 +400,14 @@ function noRequestNewAnswer(msg_count) {
 	$('#' + msg_count).remove();
 }
 
+function open_popup(url) {
+	var w = CHAT_POPUP_WIDTH;
+	var h = CHAT_POPUP_HEIGHT;
+	var x = (screen.width - w) / 2;
+	var y = (screen.height - h) / 3;
+	window.open(url, 'pop', 'scrollbars=yes, resizable=yes, width=' + w + ', height=' + h + ', left=' + x + ', top=' + y);
+}
+
 function interact(message){
 	$('<div class="message loading new"><figure class="avatar"><img src="/static/res/ai_image2.png" /></figure><span></span></div>').appendTo($('#left-board .mCSB_container'));
 	$.post('/message', {
@@ -426,6 +434,9 @@ function interact(message){
 	    			escapeClose: false,
 	    			clickClose: false,
 	    		});
+	    		break;
+	    	} else if (spl[0] == 'POP') {
+	    		open_popup(spl[1]);
 	    		break;
 	    	}
 	    	if (reply['function_yn'] == 'N' && reply['rpsn_question'] != '' && multiple_answer_num == '') {

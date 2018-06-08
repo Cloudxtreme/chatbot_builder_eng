@@ -37,7 +37,7 @@ def before_request():
             return render_template("login/no_session.html")
 
 @app.after_request
-def after_request(response):
+def after_request(response):    
     response.headers["X-Frame-Options"] = "SAMEORIGIN"
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
