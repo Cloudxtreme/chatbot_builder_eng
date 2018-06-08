@@ -22,7 +22,7 @@ def set_my_schedule(p):
     chat.insert_schedule(user_ip, question, time)
     if time_util.is_time(time) == False:
         return 'wrong input. retry please. time + content ex) 15:30 tea time with my people'
-    kor_time = hour + "시" + minute + "분"
+    kor_time = hour + ":" + minute
     msg = 'schedule is registered.<br>'
     msg += question + '<br>'
     msg += 'reserve time: ' + kor_time + '<br>'
