@@ -25,3 +25,11 @@
 	height: 15px;
 	top: 3px;
 }
+
+.back_arrow {
+	position: relative;
+	width: 25px;
+	height: 25px;
+	top: -17px;
+	left: -53px;	
+}

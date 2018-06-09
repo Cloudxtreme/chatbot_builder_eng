@@ -62,7 +62,7 @@ function start_training() {
 
 	$.post('/start_training', input_data).done(function(reply) {
 		alert("training started.");
-		$('#training_info').text('preparing training..');
+		$('#training_info').text('preparing to train..');
 		start_interval();
 	}).fail(function() {
 	});

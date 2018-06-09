@@ -65,6 +65,11 @@ def get_near_restaurants(p):
     res = 'POP=' + url
     return res 
 
+def get_nfl_schedule(p):
+    url = "http://www.nfl.com/schedules/2018/REG1"
+    res = 'MODAL=' + url
+    return res
+
 def scan_param(msg):
     param = []
     t = {"time" : '', "date_from" : '', "date_to" : '', "acct_no" : '', "rnn" : '', "cust_no" : ''}

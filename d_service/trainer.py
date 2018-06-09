@@ -33,7 +33,7 @@ def get_training_info(request):
     project = req_dict['project']
     training_info, saving_step = train.get_training_info(user, project)
     if training_info == '':
-        training_info = '훈련을 준비중입니다..'
+        training_info = 'preparing to train..'
     
     return jsonify({'training_info' : training_info, 'saving_step' : saving_step})
 
@@ -89,7 +89,7 @@ def get_compression_tag_training_info(request):
     project = req_dict['project']
     training_info, saving_step = train.get_compression_tag_training_info(user, project)
     if training_info == '':
-        training_info = '훈련을 준비중입니다..'
+        training_info = 'preparing to train..'
     
     return jsonify({'training_info' : training_info, 'saving_step' : saving_step})
 

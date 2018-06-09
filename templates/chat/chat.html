@@ -9,7 +9,7 @@
 		<link rel='stylesheet prefetch' href='/static/lib/jquery/jquery.mCustomScrollbar.min.css'>
 		<link rel="stylesheet" href="static/css/chat/chat.css">
 		<link rel="stylesheet" href="/static/lib/jquery/jquery.modal.min.css">
-		<link rel="stylesheet" href="/static/lib/jquery_ui/jquery-ui.min.css">
+		<link rel="stylesheet" href="/static/lib/jquery_ui/jquery-ui.min.css">		
 		<script src="/static/lib/jquery/jquery-latest.js"></script>		
 	</head>
 <div id="side-button-theme" onclick="change_background()">
@@ -108,6 +108,7 @@
 </form>
 <div id="chat_modal" class="chat-modal">
 	<iframe class="modal-iframe" id="modal_iframe" style="visibility:visible" frameBorder="0" src=""></iframe>
+	<a href="#" onclick="javascript:go_back();"><img class="back_arrow" src="static/res/back_arrow.png"/></a>
 	<a id="modal_close" href="#" rel="modal:close" style="display: none"></a>	
 </div>
 <input id="user" type="hidden" value="{{ user }}">

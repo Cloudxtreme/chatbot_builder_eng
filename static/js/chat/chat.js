@@ -3,6 +3,10 @@ var $messages = $('.messages-content'),
     i = 0;
 
 $(window).load(function() {
+	if (document.referrer.indexOf('loading') != -1) {
+		location.reload();
+		return;
+	}
 	$messages.mCustomScrollbar();
 	var text = "Hello, Tell me anything.";
 	reply_answer(text);
@@ -406,6 +410,11 @@ function open_popup(url) {
 	var x = (screen.width - w) / 2;
 	var y = (screen.height - h) / 3;
 	window.open(url, 'pop', 'scrollbars=yes, resizable=yes, width=' + w + ', height=' + h + ', left=' + x + ', top=' + y);
+}
+
+function go_back() {
+	history.back();
+	//$("#chat_modal").attr('src', document.referrer); 
 }
 
 function interact(message){

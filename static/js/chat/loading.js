@@ -44,5 +44,5 @@ function redirect_if_ready() {
 
 var interval_name = ''
 function start_interval() {
-	interval_name = setInterval(function() {redirect_if_ready();}, 1000);
+	interval_name = setInterval(function() {redirect_if_ready();}, 500);
 }

@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from b_trainer.worker import train
+from e_database import chat as db_chat
 
 def my_page_main(request):
     user = request.args.get('user')
