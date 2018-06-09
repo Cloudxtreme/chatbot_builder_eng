@@ -67,6 +67,11 @@ def get_near_restaurants(p):
 
 def get_nfl_schedule(p):
     url = "http://www.nfl.com/schedules/2018/REG1"
+    res = 'POP=' + url
+    return res
+
+def get_tripadvisor(p):
+    url = "https://www.tripadvisor.co.kr/"
     res = 'MODAL=' + url
     return res
 
