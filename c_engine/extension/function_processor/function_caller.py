@@ -52,7 +52,7 @@ def recommend_movie(p):
 
 def order_pizza(p):
     url = 'http://eng.pizzahut.co.kr/EngOrder/'    
-    res = 'MODAL=' + url
+    res = 'POP=' + url
     return res  
 
 def get_google_news(p):
