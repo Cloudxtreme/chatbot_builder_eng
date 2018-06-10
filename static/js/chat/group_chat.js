@@ -23,7 +23,7 @@ var chat = {
 		this.scrollToBottom();
 		if (this.messageToSend.trim() !== '') {
 			var html_template = '<li class="clearfix"><div class="message-data align-right"><span class="message-data-time" >' + this.getCurrentTime() + ', Today</span> &nbsp; &nbsp;';
-				html_template += '<span class="message-data-name" >나</span> <i class="fa fa-circle me"></i></div>';
+				html_template += '<span class="message-data-name" >me</span> <i class="fa fa-circle me"></i></div>';
 				html_template += '<div class="message other-message float-right">' + this.messageToSend + '</div></li>'
 	    	
 			this.$chatHistoryList.append(html_template);
@@ -33,7 +33,7 @@ var chat = {
 	},
 	
 	render_others: function(message) {
-		var html_template = '<li><div class="message-data"><span class="message-data-name"><i class="fa fa-circle online"></i>상대방</span>';
+		var html_template = '<li><div class="message-data"><span class="message-data-name"><i class="fa fa-circle online"></i>other</span>';
 			html_template += '<span class="message-data-time">' + this.getCurrentTime() + ', Today</span></div><div class="message my-message">';
 			html_template += message + '</div></li>'
 		this.$chatHistoryList.append(html_template);
@@ -42,7 +42,7 @@ var chat = {
 	
 	add_person: function (name) {
 		var html_template = '<li class="clearfix"><div class="about"><div class="name">' + name + '</div>';
-			html_template += '<div class="status"><i class="fa fa-circle online"></i> 온라인</div>';
+			html_template += '<div class="status"><i class="fa fa-circle online"></i> online</div>';
 			html_template += '</div></li>';
 		this.$peopleList.append(html_template);
 	},
