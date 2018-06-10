@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 function get_action_principle() {
 	if ($("#my_question").val() == '') {
-		alert("질문을 입력하세요.");
+		alert("write your question.");
 		return;
 	}
 	var input_data = {"user" : $("#user").val(), "project" : $("#project").val(), "question" : $("#my_question").val()};
