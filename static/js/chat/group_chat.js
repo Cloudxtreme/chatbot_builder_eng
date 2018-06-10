@@ -115,7 +115,7 @@ function connect() {
 	websocket.onmessage = function(evt) { onMessage(evt) };
 	websocket.onerror = function(evt) { onError(evt) };
 	setTimeout(function() {
-		var message = $('#emno').val() + "enter the room.";
+		var message = $('#emno').val() + " enter the room.";
 		var notice = "<br>put '!' before your sentence to tell chatbot A.I.<br>";
 			notice += "ex) !hello";
 		chat.messageToSend = message.replace('$', '') + notice;
