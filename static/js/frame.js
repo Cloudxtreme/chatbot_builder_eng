@@ -166,7 +166,7 @@ function create_new_room(room_name, room_password) {
 		room_password : room_password
 	}).done(function(reply) {
 		if (reply['already'] == 'Y') {
-			alert("동일한 대화방명이 이미 존재합니다.");
+			alert("room name already exists.");
 			return;
 		} else {
 			$('#modal_close').click();
@@ -183,10 +183,10 @@ function enter_room(room_name, room_password) {
 		room_password : room_password
 	}).done(function(reply) {
 		if (reply['has_room_name'] == 'N') {
-			alert("해당 대화방이 존재하지 않습니다.");
+			alert("room name doesn't exist.");
 			return;
 		} else if (reply['right_password'] == 'N') {
-			alert("패스워드가 잘못되었습니다.");
+			alert("wrong password.");
 			return;
 		} else {
 			$('#modal_close').click();
