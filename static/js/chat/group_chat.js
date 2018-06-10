@@ -115,9 +115,9 @@ function connect() {
 	websocket.onmessage = function(evt) { onMessage(evt) };
 	websocket.onerror = function(evt) { onError(evt) };
 	setTimeout(function() {
-		var message = $('#emno').val() + "님이 대화방에 참여하였습니다.";
-		var notice = "<br>대화의 첫 마디에 '!'를 붙여 챗봇에게 말을 걸어 보세요.<br>";
-			notice += "예) !안녕하세요";
+		var message = $('#emno').val() + "enter the room.";
+		var notice = "<br>put '!' before your sentence to tell chatbot A.I.<br>";
+			notice += "ex) !hello";
 		chat.messageToSend = message.replace('$', '') + notice;
 		var send_data = {"message" : message, "members" : ""};
 		websocket.send(JSON.stringify(send_data));
