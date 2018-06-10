@@ -75,6 +75,11 @@ def get_tripadvisor(p):
     res = 'MODAL=' + url
     return res
 
+def get_shopping_site(p):
+    url = "https://www.amazon.com/"
+    res = 'POP=' + url
+    return res
+
 def scan_param(msg):
     param = []
     t = {"time" : '', "date_from" : '', "date_to" : '', "acct_no" : '', "rnn" : '', "cust_no" : ''}
