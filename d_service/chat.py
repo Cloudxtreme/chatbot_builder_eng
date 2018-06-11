@@ -13,6 +13,7 @@ from c_engine.extension.faq_processor import faq_manager
 from c_engine.extension.function_processor import function_adapter
 from c_engine.extension.function_processor import fixed_question_processor
 from c_engine.extension.image_processor import conv_net
+from c_engine.extension.site_linker import linker
 from e_database import notice as db_notice
 from e_database import training_config as db_training_config
 from d_service import properties
@@ -165,9 +166,14 @@ def reply(request):
         multiple_answer_num = ''
         if answer != '':
             if answer[:1] == '$':                
-                param[0]['function_nm'] = answer.replace('\n', '').split(" ")[1]
-                msg, tmp, function_nm, param_holder = function_adapter.get_message_by_function(param, message_count, 'N')
-                function_yn = 'Y'
+                prefix = answer.replace('\n', '').replace('$', '').split(" ")[0]
+                suffix = answer.replace('\n', '').split(" ")[1]
+                param[0]['function_nm'] = suffix                
+                if prefix == 'CALL':
+                    msg, tmp, function_nm, param_holder = function_adapter.get_message_by_function(param, message_count, 'N')
+                    function_yn = 'Y'
+                elif prefix == 'POP' or prefix == 'MODAL':
+                    msg.append(linker.get_url(prefix, suffix))
             else:
                 tmp = ''
                 multiple_answer_num, multiple_answer = faq_manager.check_multiple_answer(answer_num, user, project)

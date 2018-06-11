@@ -36,50 +36,6 @@ def insert_my_frequent_question(p):
     
     return 'your frequent question is registered.'
 
-def get_today_weather_info(p):
-    now = datetime.datetime.now()
-    year = now.year
-    m = now.month
-    d = now.day
-    url = 'http://www.wunderground.com/history/airport/KBNA/' + str(year) + '/' + str(m) + '/' + str(d) + '/DailyHistory.html'
-    res = 'MODAL=' + url
-    return res
-
-def recommend_movie(p):
-    url = 'https://www.rottentomatoes.com/'
-    res = 'MODAL=' + url
-    return res
-
-def order_pizza(p):
-    url = 'http://eng.pizzahut.co.kr/EngOrder/'    
-    res = 'POP=' + url
-    return res  
-
-def get_google_news(p):
-    url = 'https://www.bbc.com/news/world'
-    res = 'MODAL=' + url
-    return res
-
-def get_near_restaurants(p):
-    url = "https://www.google.com/maps/search/restaurants+near+me/"
-    res = 'POP=' + url
-    return res 
-
-def get_nfl_schedule(p):
-    url = "http://www.nfl.com/schedules/2018/REG1"
-    res = 'POP=' + url
-    return res
-
-def get_tripadvisor(p):
-    url = "https://www.tripadvisor.co.kr/"
-    res = 'MODAL=' + url
-    return res
-
-def get_shopping_site(p):
-    url = "https://www.amazon.com/"
-    res = 'POP=' + url
-    return res
-
 def scan_param(msg):
     param = []
     t = {"time" : '', "date_from" : '', "date_to" : '', "acct_no" : '', "rnn" : '', "cust_no" : ''}
