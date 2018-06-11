@@ -393,7 +393,7 @@ function requestNewAnswer(msg_count) {
 		qst : q
 	}).done(function(reply) {
 		$('#' + msg_count).remove();
-		alert('전송되었습니다. 우측 [신규요청(MY)] 또는 [신규요청(ALL)] 에서 확인 가능합니다.');
+		alert('request was sent.');
 		getRequestQuestion();
 	}).fail(function() {
 		alert('error calling function');
