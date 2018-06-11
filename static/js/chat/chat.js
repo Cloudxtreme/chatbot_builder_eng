@@ -350,7 +350,7 @@ function rightAnswer(msg_count){
 		ans_num : a
 	}).done(function(reply) {
 		$('#' + msg_count).remove();
-		alert('예를 선택하였습니다.');
+		alert('you have chosen yes.');
 	}).fail(function() {
 		alert('error calling function');
 	});
@@ -371,7 +371,7 @@ function wrongAnswer(msg_count) {
 		ans_num : a
 	}).done(function(reply) {
 		$('#' + msg_count).remove();
-		alert('아니오를 선택하였습니다.');
+		alert('you have chosen no.');
 	}).fail(function() {
 		alert('error calling function');
 	});
