@@ -409,7 +409,8 @@ function open_popup(url) {
 	var h = CHAT_POPUP_HEIGHT;
 	var x = (screen.width - w) / 2;
 	var y = (screen.height - h) / 3;
-	window.open(url, '', 'scrollbars=yes, resizable=yes, width=' + w + ', height=' + h + ', left=' + x + ', top=' + y);	
+	window.open(url, '');
+	//, 'scrollbars=yes, resizable=yes, width=' + w + ', height=' + h + ', left=' + x + ', top=' + y
 }
 
 function go_back() {
