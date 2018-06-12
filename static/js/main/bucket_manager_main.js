@@ -184,17 +184,15 @@ function count_question_in_buckets(ret_data) {
 	mygrid1.gotoPage(1);	
 }
 
-var buckets = [];
+var buckets = [0];
 function search_bucket_id_callback(ret_data) {
-	buckets = ret_data["buckets"].split(",");
-	for (var i = 0; i < buckets.length; ++i) {
+	var ret_bucket = ret_data["buckets"].split(",");
+	for (var i = 0; i < ret_bucket.length; ++i) {
+		buckets.push(ret_bucket[i]);
+	}
+	for (var i = 0; i < buckets.length - 1; ++i) {
 		dsOption1['fields'].push({name : "bucket_" + i});
-		var header = "";
-		if (i < buckets.length - 1) {
-			header = "[" + buckets[i] + "~" + (buckets[i + 1] - 1) + "]";
-		} else {
-			header = "[" + buckets[i] + "~∞]";
-		}
+		var header = "[" + buckets[i] + "~" + (buckets[i + 1] - 1) + "]";
 		colsOption1.push({id: "bucket_" + i, header: header, width :55 });
 	}
 	mygrid1 = new Sigma.Grid(gridOption1);
