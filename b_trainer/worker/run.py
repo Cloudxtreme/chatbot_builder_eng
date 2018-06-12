@@ -20,7 +20,7 @@ def get_token_ids(sentence, enc_vocab, language):
     return tfc.sentence_to_token_ids(sentence, enc_vocab, language)
 
 def get_token_words(sentence):
-    return tfc.char_tokenizer(sentence)
+    return tfc.word_tokenizer(sentence)
 
 def is_chatbot_ready():
     res = ct.is_chatbot_ready()

@@ -38,22 +38,9 @@ def insert_my_frequent_question(p):
 
 def scan_param(msg):
     param = []
-    t = {"time" : '', "date_from" : '', "date_to" : '', "acct_no" : '', "rnn" : '', "cust_no" : ''}
+    t = {"time" : '', "date_from" : '', "date_to" : ''}
     param.append(t)
-    msg = msg.replace(" ", "").replace("-", "")
-    has, acct_no, replacedMsg = tag_manager.is_acct_no(msg)
-    if has:
-        t["acct_no"] = acct_no
-    has, cust_no, replacedMsg = tag_manager.is_cust_no(replacedMsg)
-    if has:
-        t["cust_no"] = cust_no
-    has, cust_no, replacedMsg = tag_manager.is_cust_no2(replacedMsg)
-    if has:
-        t["cust_no"] = cust_no
-    has, rnn, replacedMsg = tag_manager.is_rnn(replacedMsg)
-    if has:
-        t["rnn"] = rnn
-    has, date_from, date_to, replacedMsg = tag_manager.is_date_from_to(replacedMsg)
+    has, date_from, date_to, replacedMsg = tag_manager.is_date_from_to(msg)
     if has:
         t["date_from"] = date_from
         t["date_to"] = date_to
