@@ -467,9 +467,6 @@ function interact(message){
 	    }
 	    setDate();
 	    updateScrollbar();
-	    if (getMessage3RadioValue() == '5') {
-	    	getLatestQuestion();
-	    }
 	}).fail(function() {
 		$('.message.loading').remove();
 		reply_answer("Not trained question. please tell me other question.");
