@@ -296,11 +296,11 @@ function reset_highlight() {
 
 function auto_add_row() {
 	if (highlight_arr.length == 0) {
-		alert("마우스를 드래그 하여 자동생성하고자 하는 부분을 선택해 주세요.");
+		alert("drag the mouse to where you want to create automatically.");
 		return;
 	}
 	if (highlight_arr.length > 2) {
-		alert("현재 2개까지만 지원합니다.");
+		alert("cannot be over 2.");
 		return;
 	}
 	if (highlight_arr.length == 1) {
