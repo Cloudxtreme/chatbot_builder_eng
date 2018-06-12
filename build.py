@@ -31,6 +31,10 @@ no_check_session = ['login', 'login_chat', 'login_try', 'static']
 
 @app.before_request
 def before_request():
+    data = str(request.data).replace("b'{", "{").replace("}'", "}")
+    data = data.replace("b'[", "[").replace("]'", "]")
+    data = data.replace("'", "\\'") 
+    request.data = data.encode()
     if request.endpoint not in no_check_session:
         my_session = session.get('k', None)
         if my_session == None:
