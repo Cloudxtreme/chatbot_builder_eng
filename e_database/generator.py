@@ -19,6 +19,7 @@ def delete_all_question_fragment(user, project):
 
 def insert_question_fragment(conn, answer_num, question, question_voca, user, project):
     question_srno = search_next_question_fragment_srno(conn, user, project)
-    sql = "INSERT INTO QUESTION_FRAGMENT_BUILDER_" + user + "_" + project + " VALUES ('" + answer_num + "', '" + question_srno + "', '" + question + "', '" + question_voca + "')"
-    update.execute(conn, sql)
+    sql = "INSERT INTO QUESTION_FRAGMENT_BUILDER_" + user + "_" + project + " VALUES (%s, %s, %s, %s)"
+    param = (answer_num, question_srno, question, question_voca)
+    update.execute_param(conn, sql, param)
     return question_srno

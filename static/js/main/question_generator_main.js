@@ -2,12 +2,12 @@ $(document).ready(function() {
 	get_generating_all_fragment_info();
 	var is_generating_all_fragment = $("#is_generating_all_fragment").val();
 	if (is_generating_all_fragment == 'Y') {
-		$("#start_generating_all_fragment").text('질문조각 생성중단');
+		$("#start_generating_all_fragment").text('stop creating sentence fragment');
 		start_interval();
 	}	
 	$("#start_generating_all_fragment").click(function() {
 		var generating_status = $("#start_generating_all_fragment").text();
-		if (generating_status == "질문조각 생성시작") {
+		if (generating_status == "start creating sentence fragment") {
 			start_generating_all_fragment();
 		} else {
 			stop_generating_all_fragment();
@@ -41,10 +41,10 @@ function ajax(url, input_data, gubun, method) {
 }
 
 function start_generating_all_fragment() {
-	if (!confirm("질문조각 생성을 시작 하시겠습니까?")) {
+	if (!confirm("Do you want to start creating sentence fragment?")) {
 		return;
 	}
-	$("#start_generating_all_fragment").text("질문조각 생성중단");
+	$("#start_generating_all_fragment").text("stop creating sentence fragment");
 	var input_data = {};
 	var user = $("#user").val();
 	var project = $("#project").val();
@@ -52,10 +52,10 @@ function start_generating_all_fragment() {
 }
 
 function stop_generating_all_fragment() {
-	if (!confirm("질문조각 생성을 중단 하시겠습니까?")) {
+	if (!confirm("Do you want to stop creating sentence fragment?")) {
 		return;
 	}
-	$("#start_generating_all_fragment").text("질문조각 생성시작");
+	$("#start_generating_all_fragment").text("start creating sentence fragment");
 	var input_data = {};
 	var user = $("#user").val();
 	var project = $("#project").val();
@@ -73,18 +73,18 @@ function get_generating_all_fragment_info() {
 function get_generating_all_fragment_info_callback(generating_all_fragment_info, end_yn) {
 	$('#generating_all_fragment_info').text(generating_all_fragment_info);
 	if (end_yn == "Y") {
-		$("#start_generating_all_fragment").text("질문조각 생성시작");
+		$("#start_generating_all_fragment").text("start creating sentence fragment");
 	}
 }
 
 function start_generating_all_fragment_callback() {
-	alert("질문조각 생성이 시작되었습니다.");
-	$('#generating_all_fragment_info').text('생성 중입니다.');
+	alert("creating sentence fragment started.");
+	$('#generating_all_fragment_info').text('it is in progress.');
 	start_interval();
 }
 
 function stop_generating_all_fragment_callback() {
-	alert("질문조각 생성이 중단되었습니다.");
+	alert("creating sentence fragment stopped.");
 	get_generating_all_fragment_info();
 	stop_interval();
 }

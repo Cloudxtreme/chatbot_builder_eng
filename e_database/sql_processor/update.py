@@ -22,6 +22,10 @@ def get_connection():
 def execute(conn, sql):
     c = conn.cursor()
     c.execute(sql)
+
+def execute_param(conn, sql, param):
+    c = conn.cursor()
+    c.execute(sql, param)
     
 def end_connection(conn):
     conn.commit()
