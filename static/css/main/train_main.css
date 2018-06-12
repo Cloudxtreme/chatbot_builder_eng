@@ -28,19 +28,11 @@
 	font-size: 0.7em;
 }
 
-#create_fragment {
-	position: absolute;
-	width: 120px;
-	left: 20px;
-	top: 370px;
-	font-size: 0.7em;	
-}
-
 #delete_ckpt_file {
 	position: absolute;
 	width: 120px;
 	left: 20px;
-	top: 400px;
+	top: 370px;
 	font-size: 0.7em;
 }
 
@@ -48,14 +40,14 @@
 	position: absolute;
 	width: 120px;
 	left: 20px;
-	top: 430px;	
+	top: 400px;	
 	font-size: 0.7em;
 }
 
 #training_info {
 	position: absolute;
 	left: 10px;
-	top: 470px;	
+	top: 440px;	
 	font-size: 0.8em;
 }
 
@@ -64,6 +56,6 @@
 	position: absolute;
 	width: 120px;
 	left: 20px;
-	top: 530px;	
+	top: 500px;	
 	font-size: 0.7em;
 }
