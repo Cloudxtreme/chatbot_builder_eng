@@ -199,7 +199,6 @@ def reply(request):
     
     return jsonify(res)
 
-
 def reply_dynamic_popup(request):
     user, project = request.form['user'], request.form['project']
     question = request.form['msg']
@@ -248,10 +247,8 @@ def reserve_list(request):
     bucket_id = bucket_util.get_bucket_id_by_sentence(buckets, question)
     res['bucket_id'] = bucket_id
     res['bucket_range'] = ''
-    if bucket_id < len(buckets) - 1:
-        res['bucket_range'] = buckets[bucket_id] + '~' + str(int(buckets[bucket_id + 1]) - 1)
-    else:
-        res['bucket_range'] = buckets[bucket_id] + '~∞'
+    b = ['0'] + buckets
+    res['bucket_range'] = b[bucket_id] + '~' + str(int(b[bucket_id + 1]) - 1)
 
     return jsonify(res)
 

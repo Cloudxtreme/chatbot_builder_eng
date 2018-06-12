@@ -24,6 +24,10 @@ function getSelectedRange() {
 	return [document.activeElement.selectionStart, document.activeElement.selectionEnd];
 }
 
+function word_tokenizer(sentence, exception) {
+	return sentence.split(" ");
+}
+
 function char_tokenizer(sentence, exception) {
 	var words = [];
 	var i = 0;

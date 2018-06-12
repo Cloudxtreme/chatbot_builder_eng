@@ -311,11 +311,11 @@ function auto_add_row() {
 }
 
 function get_bucket_id(question) {
-	var token = char_tokenizer(question, exception);
+	var token = word_tokenizer(question, exception);
 	var bucket_id = 0;
 	for (var i = 0; i < buckets.length; ++i) {
 		if (token.length < buckets[i]) {
-			bucket_id = Math.max(i - 1, 0);
+			bucket_id = i;
 			break;
 		}
 	}
