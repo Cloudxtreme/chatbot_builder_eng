@@ -40,11 +40,11 @@ def compare_my_question_and_right_question(voca_and_appearance, base, question, 
     if total == 0:
         total = 1
     point = round(my / total * 100, 3)    
-    msg = '일치단어: ' + ",".join(has) + ', 일치 포인트: ' + str(point) + '점<br><br>'
-    msg += '일치포인트 산식:<br>∑k=1→n (1 / ' + base + '^(단어출현빈도(a(k)) - 1):a=[내질문∩정답질문])<br>'
+    msg = 'right word: ' + ",".join(has) + ', point: ' + str(point) + '<br><br>'
+    msg += 'formula:<br>∑k=1→n (1 / ' + base + '^(word frequency(a(k)) - 1):a=[my question ∩ right question])<br>'
     msg += '/<br>'
-    msg += '∑k=1→n (1 / ' + base + '^(단어출현빈도(a(k)) - 1):a=[정답질문])<br><br>'
-    msg += '내 질문 포인트 :<br>' + "<br>".join(b)
-    msg += '<br><br>전체 질문 포인트 :<br>' + "<br>".join(a)
+    msg += '∑k=1→n (1 / ' + base + '^(word frequency(a(k)) - 1):a=[right question])<br><br>'
+    msg += 'my question point:<br>' + "<br>".join(b)
+    msg += '<br><br>total question point:<br>' + "<br>".join(a)
     
     return msg, point
