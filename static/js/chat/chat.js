@@ -8,8 +8,6 @@ $(window).load(function() {
 		return;
 	}
 	$messages.mCustomScrollbar();
-	var text = "Hello, Tell me anything.";
-	reply_answer(text);
 	var notice_list = eval($('#notice_list').val());
 	for (var i = 0; i < notice_list.length; ++i) {
 		var notice = notice_list[i].replace('\n', '<br>');
