@@ -46,14 +46,14 @@ class updater():
         
     def make_updating_message(self, user, project, step, total):
         f = open(os.path.join(self.root, user, project, 'update', 'updating_info'), 'w', encoding='utf8')
-        f.write('진행스탭: ' + str(step) + '/' + str(total) + ', 진행률: ' + str(round(step / total * 100)) + '%')
+        f.write('Step: ' + str(step) + '/' + str(total) + ', Percent: ' + str(round(step / total * 100)) + '%')
         f.close()
     
     def end_updating_message(self, user, project, step, total):
         now = datetime.now()
         cur = str(now.year) + '-' + str(now.month) + '-' + str(now.day) + ' ' + str(now.hour) + ':' + str(now.minute) + ':' + str(now.second)
         f1 = open(os.path.join(self.root, user, project, 'update', 'updating_info'), 'w', encoding='utf8')
-        f1.write('업데이트 완료: ' + cur + ', 진행스텝: ' + str(step) + '/' + str(total))
+        f1.write('Updating completed: ' + cur + ', Step: ' + str(step) + '/' + str(total))
         f1.close()
         f2 = open(os.path.join(self.root, user, project, 'update', 'updating_end_yn'), 'w', encoding='utf8')
         f2.write('Y')
