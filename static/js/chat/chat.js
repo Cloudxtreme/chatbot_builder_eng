@@ -3,10 +3,6 @@ var $messages = $('.messages-content'),
     i = 0;
 
 $(window).load(function() {
-	if (document.referrer.indexOf('loading') != -1) {
-		location.reload();
-		return;
-	}
 	$messages.mCustomScrollbar();
 	var notice_list = eval($('#notice_list').val());
 	for (var i = 0; i < notice_list.length; ++i) {
