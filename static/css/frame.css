@@ -120,13 +120,13 @@
 
 .logo-img {
 	position:absolute;
-	left: 5px;
-	top: 60px;
+	left: 1px;
+	top: 54px;
 }
 	
 .logo-img img {
-	width: 150px;
-	height: 80px;
+	width: 160px;
+	height: 90px;
 }
 
 .powered-by-text {
