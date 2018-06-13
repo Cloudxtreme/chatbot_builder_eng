@@ -430,6 +430,7 @@ def compression_tag_main():
 
 @app.route("/")
 def login():
+    session['k'] = 'v'
     return login_service.login_chat(request)
 
 @app.route("/admin")
@@ -492,10 +493,6 @@ def get_action_principle():
 
 @app.route("/is_chatbot_ready", methods=['POST'])
 def is_chatbot_ready(): 
-    return chat.is_chatbot_ready(request)
-
-@app.route("/is_chatbot_ready_direct", methods=['POST'])
-def is_chatbot_ready_direct(): 
     return chat.is_chatbot_ready(request)
 
 @app.route('/message', methods=['POST'])

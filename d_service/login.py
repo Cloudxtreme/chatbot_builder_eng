@@ -28,8 +28,7 @@ def login_chat(request):
     emno = 'bot'
     room_name = ''
     gubun = '1'
-    direct_yn = 'Y'
-    return render_template("chat/loading.html", user = user, project = project, emno = emno, room_name = room_name, gubun = gubun, direct_yn = direct_yn)
+    return render_template("chat/loading.html", user = user, project = project, emno = emno, room_name = room_name, gubun = gubun)
 
 def login_success(request):
     user = request.args.get('user').lower()

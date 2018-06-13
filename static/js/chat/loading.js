@@ -35,12 +35,7 @@ var input_data = {"user" : user, "project" : project};
 ajax('/chat_bot', input_data, 'chat_bot', 'POST');
 
 function redirect_if_ready() {
-	if (direct_yn == 'Y') {
-		ajax('/is_chatbot_ready_direct', input_data, 'is_chatbot_ready', 'POST');
-	} else {
-		ajax('/is_chatbot_ready', input_data, 'is_chatbot_ready', 'POST');
-	}
-		
+	ajax('/is_chatbot_ready', input_data, 'is_chatbot_ready', 'POST');
 }
 
 function is_chatbot_ready_callback(reply) {
