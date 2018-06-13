@@ -430,7 +430,7 @@ function interact(message){
 	    page = reply['page'];
 	    for (var i = 0; i < Number(reply['num']); ++i) {
 	    	var answer = reply['text' + (i + 1)];
-	    	var spl = answer.split("=")
+	    	var spl = answer.split("===")
 	    	if (spl[0] == 'MODAL') {
 	    		$('#modal_iframe').attr('src', spl[1]);
 	    		$('#chat_modal').modal({
