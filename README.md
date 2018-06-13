@@ -2,9 +2,9 @@
 English Chatbot Building Platform
 <br>
 <br>
-Chat : http://kantchat.com
+http://kantchat.com
 <br>
-Admin : http://kantchat.com/admin
+http://kantchat.com/admin
 <br>
 <br>
 ```
