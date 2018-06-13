@@ -131,6 +131,7 @@ Chat
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  padding: 0px 0px 15px 0px;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
