@@ -29,7 +29,6 @@ var project = $("#project").val();
 var emno = $("#emno").val();
 var room_name = $("#room_name").val();
 var gubun = $("#gubun").val();
-var direct_yn = $("#direct_yn").val();
 var input_data = {"user" : user, "project" : project};
 
 ajax('/chat_bot', input_data, 'chat_bot', 'POST');
