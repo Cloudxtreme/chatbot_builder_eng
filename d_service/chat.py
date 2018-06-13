@@ -181,7 +181,7 @@ def reply(request):
                     msg.append(multiple_answer)
                 else:
                     msg, right_yn, image_path, trained_yn = faq_manager.get_faq_answer(user, project, msg, answer_num, answer, question, message_count, mdfc_rgsn_date)
-            db_chat.collect_question(user_ip, question, answer_num)
+            db_chat.collect_question(user_ip, question.replace("'", "\\'"), answer_num)
             cq = db_chat.get_same_category_question_list(user, project, answer_num)
             cq_num = len(cq)
     
