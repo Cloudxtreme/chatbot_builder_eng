@@ -97,4 +97,5 @@ def loading(request):
     emno = request.form['emno']
     room_name = request.form['room_name']
     gubun = request.form['gubun']
-    return render_template("chat/loading.html", user = user, project = project, emno = emno, room_name = room_name, gubun = gubun)
+    direct_yn = 'N'
+    return render_template("chat/loading.html", user = user, project = project, emno = emno, room_name = room_name, gubun = gubun, direct_yn = direct_yn)
