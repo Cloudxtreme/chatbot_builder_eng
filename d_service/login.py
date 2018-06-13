@@ -23,7 +23,12 @@ def login(request):
     return render_template("login/login.html", logout = 'N', run_chat = 'N')
 
 def login_chat(request):
-    return render_template("login/login.html", logout = 'N', run_chat = 'Y')
+    user = 'kant1724'
+    project = 'bot'
+    emno = 'bot'
+    room_name = ''
+    gubun = '1'
+    return render_template("chat/loading.html", user = user, project = project, emno = emno, room_name = room_name, gubun = gubun)
 
 def login_success(request):
     user = request.args.get('user').lower()
