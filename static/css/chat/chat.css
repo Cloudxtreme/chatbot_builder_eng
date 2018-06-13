@@ -713,7 +713,7 @@ input[type="radio"]{
     margin:0px;
     width: 80px;
     height:25px;
-    top: 100px;
+    top: 120px;
     background:#2F9D27;
     z-index:15;
     border-radius: 5px 5px 0px 0px;
@@ -732,7 +732,7 @@ input[type="radio"]{
     margin:0px;
     width: 80px;
     height:25px;
-    top: 190px;
+    top: 210px;
     background:#CC723D;
     z-index:15;
     border-radius: 5px 5px 0px 0px;
