@@ -12,7 +12,8 @@ def get_voca_from_question(question, all_voca):
             keyword_yn = voca['keyword_yn']
             if keyword_yn == 'Y':
                 for voca_synonym in voca_synonym_arr:
-                    if voca_synonym in qs and voca_synonym_str not in question_voca:
+                    qs = qs.replace("?", "").replace(".", "").replace(",", "").replace("\"", "")
+                    if voca_synonym == qs and voca_synonym_str not in question_voca:
                         question_voca.append(voca_synonym_str)
     
     return question_voca
