@@ -2,7 +2,7 @@ function ajax(url, input_data, gubun, method) {
 	$.ajax(url, {
 		type: method, 
         data: JSON.stringify(input_data),
-        async: false,
+        async: true,
         contentType: 'application/json',
         dataType: 'json',
         processData: false,
