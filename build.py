@@ -430,11 +430,11 @@ def compression_tag_main():
 
 @app.route("/")
 def login():
-    return login_service.login(request)
-
-@app.route("/login_chat")
-def login_chat():
     return login_service.login_chat(request)
+
+@app.route("/admin")
+def admin():
+    return login_service.login(request)
 
 @app.route("/login_success")
 def login_success():
