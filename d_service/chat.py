@@ -146,6 +146,7 @@ def reply(request):
     user, project = request.form['user'], request.form['project']
     global message_count
     msg, question, image_path, tmp, page, answer_num, right_yn, collect_q, cq_num, cq, schedule_updated, trained_yn = [], request.form['msg'], '', request.form['tmp'], request.form['pge'], '', '', True, 0, [], 'N', True
+    question = question.lower()
     mdfc_rgsn_date = ''
     multiple_answer_num = request.form['multiple_answer_num']
     message_count += 1
@@ -213,6 +214,7 @@ def reply(request):
 def reply_dynamic_popup(request):
     user, project = request.form['user'], request.form['project']
     question = request.form['msg']
+    question = question.lower()
     param_holder = eval(request.form['param_holder'])
     _, answer_num = run.run_chatbot(enc_vocab, rev_dec_vocab, question, False, language)
     answer, _ = db_chat.get_answer_by_answer_num(user, project, answer_num)
@@ -229,6 +231,7 @@ def reply_dynamic_popup(request):
 def reply_group_chat(request):
     user, project = request.form['user'], request.form['project']
     question = request.form['msg']
+    question = question.lower()
     _, answer_num = run.run_chatbot(enc_vocab, rev_dec_vocab, question, False, language)
     if answer_num == '':
         _, answer_num = run.run_chatbot(enc_vocab, rev_dec_vocab, question + ' ', False, language)
@@ -242,6 +245,7 @@ def reply_group_chat(request):
 
 def reserve_list(request):
     question = request.form['msg']
+    question = question.lower()
     collect_q = False
     _, answer_num = run.run_chatbot(enc_vocab, rev_dec_vocab, question, collect_q, language)
     if answer_num == '':
