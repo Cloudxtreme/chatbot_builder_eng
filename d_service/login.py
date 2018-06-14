@@ -20,9 +20,10 @@ def login_try(request):
         agent = request.headers.get('User-Agent')
         phones = ["iphone", "android", "blackberry"]
         device = "pc"
-        for p in phones:
-            if p in agent.lower():
-                device = "mobile"
+        if agent != None:
+            for p in phones:
+                if p in agent.lower():
+                    device = "mobile"
         db_login.insert_login_list(request.remote_addr, "admin", device)
         return {'msg' : '', 'success' : 'Y', 'emno' : emno}
     
@@ -37,10 +38,11 @@ def login_chat(request):
     gubun = '1'
     agent = request.headers.get('User-Agent')
     phones = ["iphone", "android", "blackberry"]
-    for p in phones:
-        if p in agent.lower():
-            db_login.insert_login_list(request.remote_addr, "chat", "mobile")
-            return chat.chat_mobile(user, project)
+    if agent != None:
+        for p in phones:
+            if p in agent.lower():
+                db_login.insert_login_list(request.remote_addr, "chat", "mobile")
+                return chat.chat_mobile(user, project)
     
     db_login.insert_login_list(request.remote_addr, "chat", "pc")
     return render_template("chat/loading.html", user = user, project = project, emno = emno, room_name = room_name, gubun = gubun)
