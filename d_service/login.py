@@ -17,7 +17,13 @@ def login_try(request):
         return {'msg' : msg, 'success' : 'N'}
     else:
         emno = db_login.get_emno(request.remote_addr)
-        db_login.insert_login_list(request.remote_addr)
+        agent = request.headers.get('User-Agent')
+        phones = ["iphone", "android", "blackberry"]
+        device = "pc"
+        for p in phones:
+            if p in agent.lower():
+                device = "mobile"
+        db_login.insert_login_list(request.remote_addr, "admin", device)
         return {'msg' : '', 'success' : 'Y', 'emno' : emno}
     
 def login(request):
@@ -29,14 +35,14 @@ def login_chat(request):
     emno = 'bot'
     room_name = ''
     gubun = '1'
-    db_login.insert_login_list(request.remote_addr)
     agent = request.headers.get('User-Agent')
-    print(agent)
     phones = ["iphone", "android", "blackberry"]
     for p in phones:
         if p in agent.lower():
+            db_login.insert_login_list(request.remote_addr, "chat", "mobile")
             return chat.chat_mobile(user, project)
-        
+    
+    db_login.insert_login_list(request.remote_addr, "chat", "pc")
     return render_template("chat/loading.html", user = user, project = project, emno = emno, room_name = room_name, gubun = gubun)
 
 def login_success(request):
