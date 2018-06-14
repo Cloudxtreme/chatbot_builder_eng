@@ -459,6 +459,10 @@ def chat_bot():
 def chat_window(): 
     return chat.chat_window(request)
 
+@app.route("/notify_entrance_of_chat", methods=['POST'])
+def notify_entrance_of_chat(): 
+    return login_service.notify_entrance_of_chat(request)
+
 @app.route("/dynamic_grid_pop", methods=['POST'])
 def dynamic_grid_pop(): 
     return chat_popup.dynamic_grid_pop(request)

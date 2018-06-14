@@ -54,3 +54,7 @@ def login_success(request):
 
 def logout(request): 
     return render_template("login/login.html", logout = 'Y')
+
+def notify_entrance_of_chat(request):
+    db_login.insert_enter_info(request.remote_addr)    
+    return ''

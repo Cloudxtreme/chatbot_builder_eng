@@ -9,8 +9,16 @@ $(window).load(function() {
 		var notice = notice_list[i].replace('\n', '<br>');
 		reply_answer(notice);
 	}
+	notify_entrance_of_chat();
 	getNewQuestion();
 });
+
+function notify_entrance_of_chat() {
+	$.post('/notify_entrance_of_chat', {		
+	}).done(function(reply) {
+	}).fail(function() {
+	});
+}
 
 function updateScrollbar() {
 	$('#scroll-down').mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
