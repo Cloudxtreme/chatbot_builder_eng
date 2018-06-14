@@ -52,9 +52,7 @@ def chat_window(request):
     
     return render_template("chat/chat.html", user = user, project = project, notice_list = str(notice_list))
     
-def chat_mobile(request):
-    user = request.args.get('user')
-    project = request.args.get('project')
+def chat_mobile(user, project):
     res = db_notice.search_notice_list(user, project, '', 'N')
     notice_list = []
     for r in res:

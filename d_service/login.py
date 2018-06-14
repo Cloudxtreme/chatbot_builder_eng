@@ -1,3 +1,4 @@
+from d_service import chat
 from e_database import login as db_login
 from flask import Flask, render_template, request
 from flask import jsonify
@@ -29,6 +30,12 @@ def login_chat(request):
     room_name = ''
     gubun = '1'
     db_login.insert_login_list(request.remote_addr)
+    agent = request.headers.get('User-Agent')
+    phones = ["iphone", "android", "blackberry"]
+    if agent.lower() in phones:
+        chat.chat_mobile(user, project)
+        return
+        
     return render_template("chat/loading.html", user = user, project = project, emno = emno, room_name = room_name, gubun = gubun)
 
 def login_success(request):
