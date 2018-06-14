@@ -28,6 +28,7 @@ def login_chat(request):
     emno = 'bot'
     room_name = ''
     gubun = '1'
+    db_login.insert_login_list(request.remote_addr)
     return render_template("chat/loading.html", user = user, project = project, emno = emno, room_name = room_name, gubun = gubun)
 
 def login_success(request):
