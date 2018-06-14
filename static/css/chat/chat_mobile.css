@@ -46,11 +46,11 @@ Chat
 --------------------*/
 .chat {
   position: absolute;
-  top: 50%;
-  left: 30%;
+  top: 35%;
+  left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 100%;
+  width: 70%;
   height: 160vh;
   max-height: 60%;
   z-index: 1;
@@ -115,13 +115,13 @@ Chat
 
 .right-board {
   position: absolute;
-  top: 73%;
-  left: 77%;
+  top: 80%;
+  left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 40%;
+  width: 70%;
   height: 260vh;
-  max-height: 44%;
+  max-height: 25%;
   z-index: 1;
   overflow: hidden;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
