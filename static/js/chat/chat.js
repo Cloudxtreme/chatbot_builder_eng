@@ -456,10 +456,6 @@ function interact(message){
 			    	}
 		    	}
 	    	}
-	    	if (reply['function_yn'] == 'N' && reply['rpsn_question'] != '' && multiple_answer_num == '') {
-	    		q = '<a class="message_question">Q: ' + reply['rpsn_question'] + '<a><br><br>A: ';
-	    		answer = q + answer;
-	    	}
 	    	reply_answer(answer);
 	    }
 	    image_path_list = eval(reply['image_path']);
