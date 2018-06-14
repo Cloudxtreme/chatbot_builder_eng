@@ -31,10 +31,11 @@ def login_chat(request):
     gubun = '1'
     db_login.insert_login_list(request.remote_addr)
     agent = request.headers.get('User-Agent')
+    print(agent)
     phones = ["iphone", "android", "blackberry"]
-    if agent.lower() in phones:
-        chat.chat_mobile(user, project)
-        return
+    for p in phones:
+        if p in agent.lower():
+            return chat.chat_mobile(user, project)
         
     return render_template("chat/loading.html", user = user, project = project, emno = emno, room_name = room_name, gubun = gubun)
 
