@@ -390,6 +390,10 @@ Messages
 	font-weight: 700;
 }
 
+.reserve-question-div {
+	padding: 0px 10px 0px 0px;
+}
+
 .reserve-question-div:hover {
 	cursor: pointer;
 }
