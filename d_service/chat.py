@@ -52,6 +52,17 @@ def chat_window(request):
     
     return render_template("chat/chat.html", user = user, project = project, notice_list = str(notice_list))
     
+def chat_mobile(request):
+    user = request.args.get('user')
+    project = request.args.get('project')
+    res = db_notice.search_notice_list(user, project, '', 'N')
+    notice_list = []
+    for r in res:
+        if util.is_in_date(r['notice_start_date'], r['notice_end_date']):
+            notice_list.append(r['notice_content'])
+    
+    return render_template("chat/chat_mobile.html", user = user, project = project, notice_list = str(notice_list))
+    
 def group_chat(request):
     user = request.args.get('user')
     project = request.args.get('project')

@@ -27,7 +27,7 @@ CORS(app)
 
 generator_thread = []
 updater_thread = []
-no_check_session = ['login', 'login_chat', 'login_try', 'static', 'admin']
+no_check_session = ['login', 'login_chat', 'login_try', 'static', 'admin', 'chat_mobile']
 
 @app.before_request
 def before_request():
@@ -458,6 +458,11 @@ def chat_bot():
 @app.route("/chat_window")
 def chat_window(): 
     return chat.chat_window(request)
+
+@app.route("/chat_mobile")
+def chat_mobile(): 
+    session['k'] = 'v'
+    return chat.chat_mobile(request)
 
 @app.route("/dynamic_grid_pop", methods=['POST'])
 def dynamic_grid_pop(): 
