@@ -433,7 +433,7 @@ function interact(message){
 	    	var spl = answer.split("===")	    	
 	    	if (spl[0] == 'MODAL' || spl[0] == 'POP') {
 	    		var url_list = spl[1].split(";");
-	    		if (url_list.length > 1) {
+	    		if (url_list.length > 0) {
 			    	var html = '<a style="font-weight:700;font-size:0.9em;">choose one from below<br><br>';
 		    		for (var j = 0; j < url_list.length; ++j) {
 			    		var site = url_list[j].split("==");
