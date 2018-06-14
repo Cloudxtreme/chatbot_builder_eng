@@ -430,28 +430,30 @@ function interact(message){
 	    page = reply['page'];
 	    for (var i = 0; i < Number(reply['num']); ++i) {
 	    	var answer = reply['text' + (i + 1)];
-	    	var spl = answer.split("===")
-	    	var url_list = spl[1].split(";");
-	    	if (url_list.length > 1) {
-		    	var html = '<a style="font-weight:700;font-size:0.9em;">choose one from below<br><br>';
-	    		for (var j = 0; j < url_list.length; ++j) {
-		    		var site = url_list[j].split("==");
-		    		html += '<div class="reserve-question-div" onclick="open_popup(\'' + site[1] + '\')"><img class="check-mark" src="static/res/blue_check_mark.png" />&nbsp;&nbsp;<a class="reserve-question-message">' + site[0] + '</a></div><br>';		    		
-		    	}
-	    		answer = html;
-	    		reply_answer(answer);
-	    		break;
-	    	} else {
-		    	if (spl[0] == 'MODAL') {
-		    		$('#modal_iframe').attr('src', spl[1]);
-		    		$('#chat_modal').modal({
-		    			escapeClose: false,
-		    			clickClose: false,
-		    		});
+	    	var spl = answer.split("===")	    	
+	    	if (spl[0] == 'MODAL' || spl[0] == 'POP') {
+	    		var url_list = spl[1].split(";");
+	    		if (url_list.length > 1) {
+			    	var html = '<a style="font-weight:700;font-size:0.9em;">choose one from below<br><br>';
+		    		for (var j = 0; j < url_list.length; ++j) {
+			    		var site = url_list[j].split("==");
+			    		html += '<div class="reserve-question-div" onclick="open_popup(\'' + site[1] + '\')"><img class="check-mark" src="static/res/blue_check_mark.png" />&nbsp;&nbsp;<a class="reserve-question-message">' + site[0] + '</a></div><br>';		    		
+			    	}
+		    		answer = html;
+		    		reply_answer(answer);
 		    		break;
-		    	} else if (spl[0] == 'POP') {
-		    		open_popup(spl[1]);
-		    		break;
+		    	} else {
+			    	if (spl[0] == 'MODAL') {
+			    		$('#modal_iframe').attr('src', spl[1]);
+			    		$('#chat_modal').modal({
+			    			escapeClose: false,
+			    			clickClose: false,
+			    		});
+			    		break;
+			    	} else if (spl[0] == 'POP') {
+			    		open_popup(spl[1]);
+			    		break;
+			    	}
 		    	}
 	    	}
 	    	if (reply['function_yn'] == 'N' && reply['rpsn_question'] != '' && multiple_answer_num == '') {
