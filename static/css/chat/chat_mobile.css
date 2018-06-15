@@ -517,8 +517,10 @@ Message Box
 .message-box .message-submit {
   position: absolute;
   z-index: 1;
-  top: 13px;
-  right: 10px;
+  width: 70px;
+  height: 60px;
+  top: 0px;
+  right: 0px;
   color: #fff;
   border: none;
   background: #248A52;
@@ -526,7 +528,6 @@ Message Box
   text-transform: uppercase;
   line-height: 1;
   padding: 6px 10px;
-  border-radius: 10px;
   outline: none !important;
   -webkit-transition: background .2s ease;
   transition: background .2s ease;
