@@ -243,7 +243,7 @@ function interact(message){
 	    	setMySchedule();
 	    }
 	    setDate();
-	    //updateScrollbar();
+	    updateScrollbar();
 	}).fail(function() {
 		$('.message.loading').remove();
 		reply_answer("Not trained question. please tell me other question.");
