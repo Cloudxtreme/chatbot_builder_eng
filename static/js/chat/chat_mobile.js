@@ -20,7 +20,7 @@ function setDate(){
 }
 
 function update_scroll() {
-	$('.messages-content').scrollTop($(document).height());
+	$('.messages-content').scrollTop(Number.MAX_SAFE_INTEGER);
 }
 
 function insertMessage() {
