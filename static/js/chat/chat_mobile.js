@@ -3,7 +3,7 @@ var $messages = $('.messages-content'),
     i = 0;
 
 $(window).load(function() {
-	//$messages.mCustomScrollbar();
+	$messages.mCustomScrollbar();
 	var notice_list = eval($('#notice_list').val());
 	for (var i = 0; i < notice_list.length; ++i) {
 		var notice = notice_list[i].replace('\n', '<br>');
