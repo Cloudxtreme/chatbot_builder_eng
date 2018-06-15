@@ -18,6 +18,8 @@ def login_try(request):
     else:
         emno = db_login.get_emno(request.remote_addr)
         agent = request.headers.get('User-Agent')                    
+        if agent == None:
+            agent = ''
         db_login.insert_login_list(request.remote_addr, "admin", agent)
         return {'msg' : '', 'success' : 'Y', 'emno' : emno}
     
@@ -38,6 +40,8 @@ def login_chat(request):
                 db_login.insert_login_list(request.remote_addr, "chat", agent)
                 return chat.chat_mobile(user, project)
     
+    if agent == None:
+        agent = ''
     db_login.insert_login_list(request.remote_addr, "chat", agent)
     return render_template("chat/loading.html", user = user, project = project, emno = emno, room_name = room_name, gubun = gubun)
 
