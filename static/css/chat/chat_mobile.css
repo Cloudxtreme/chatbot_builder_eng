@@ -70,8 +70,9 @@ Chat Title
 --------------------*/
 .chat-title {
   height: 8%;  
-  position: relative;
-  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
   color: #fff;
   text-align: left;
   padding: 15px 15px 15px 70px;
