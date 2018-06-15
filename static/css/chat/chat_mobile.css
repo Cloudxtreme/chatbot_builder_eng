@@ -52,7 +52,7 @@ Chat
   overflow: hidden;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
   background: rgba(0, 0, 0, 0.3);
-  top: 10%;
+  top: 11%;
 }
 
 .reserve-question-div {
@@ -69,7 +69,7 @@ Chat
 Chat Title
 --------------------*/
 .chat-title {
-  height: 10%;  
+  height: 11%;  
   width: 100%;
   position: absolute;
   background: rgba(0, 0, 0, 0.7);
