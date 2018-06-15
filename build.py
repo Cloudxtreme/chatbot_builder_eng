@@ -459,6 +459,10 @@ def chat_bot():
 def chat_window(): 
     return chat.chat_window(request)
 
+@app.route("/chat_mobile")
+def chat_mobile(): 
+    return chat.chat_mobile('kant1724', 'bot')
+
 @app.route("/notify_entrance_of_chat", methods=['POST'])
 def notify_entrance_of_chat(): 
     return login_service.notify_entrance_of_chat(request)
