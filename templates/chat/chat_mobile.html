@@ -12,21 +12,21 @@
 		<link rel="stylesheet" href="/static/lib/jquery_ui/jquery.mobile-1.4.5.min.css">		
 		<script src="/static/lib/jquery/jquery-latest.js"></script>		
 	</head>
+<div class="chat-title">
+	<h1>Kant</h1>		
+	<h2>A.I Chatbot</h2>
+	<figure class="avatar">
+		<img src="static/res/ai_image.jpg" />
+	</figure>
+</div>
 <div class="chat">
-	<div class="chat-title">
-		<h1>Kant</h1>		
-		<h2>A.I Chatbot</h2>
-		<figure class="avatar">
-			<img src="static/res/ai_image.jpg" />
-		</figure>
-	</div>
 	<div id="left-board" class="messages">
 		<div id="scroll-down" class="messages-content"></div>
 	</div>
-	<div class="message-box">
-		<textarea class="message-input" placeholder="Type message..."></textarea>
-		<button type="submit" class="message-submit">Send</button>
-	</div>	
+</div>
+<div class="message-box">
+	<textarea class="message-input" placeholder="Type message..."></textarea>
+	<button type="submit" class="message-submit">Send</button>
 </div>
 <div class="bg"></div>
 <input id="user" type="hidden" value="{{ user }}">
