@@ -27,7 +27,7 @@ CORS(app)
 
 generator_thread = []
 updater_thread = []
-no_check_session = ['login', 'login_chat', 'login_try', 'static', 'admin']
+no_check_session = ['login', 'login_chat', 'login_try', 'static', 'admin', 'chat_mobile']
 
 @app.before_request
 def before_request():
