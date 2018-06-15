@@ -15,11 +15,13 @@ $(window).load(function() {
 function updateScrollbar() {
 	$('#scroll-down').mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
 	    scrollInertia: 1,
-	    timeout: 0
+	    timeout: 0,
+	    contentTouchScroll: true
 	});
 	$('#scroll-top').mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'top', {
 	    scrollInertia: 1,
-	    timeout: 0
+	    timeout: 0,
+	    contentTouchScroll: true
 	});
 }
 

@@ -551,6 +551,7 @@ Custom Srollbar
 
 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
   background-color: #F6F6F6 !important;
+  width: 200px; 
 }
 
 /*--------------------
