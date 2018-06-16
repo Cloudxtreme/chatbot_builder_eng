@@ -2,6 +2,10 @@ $(document).ready(function() {
 	start_interval_is_training();
 	get_is_training();
 	$("#start_training").click(function() {
+		if ($('#admin_yn').val() == 'N') {
+			alert("you are not allowed to start training.");
+			return;
+		}
 		var training_status = $("#start_training").text();
 		if (training_status == "Start Training") {
 			start_training();
@@ -10,6 +14,11 @@ $(document).ready(function() {
 		}
 	});
 	$("#delete_ckpt_file").click(function() {
+		if ($('#admin_yn').val() == 'N') {
+			alert("you are not allowed to delete ckpt file.");
+			return;
+		}
+		return;
 		delete_ckpt_file();
 	});
 	$("#update_voca_and_question").click(function() {

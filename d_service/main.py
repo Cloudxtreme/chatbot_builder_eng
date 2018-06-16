@@ -33,8 +33,9 @@ def notice_manager_main(request):
 def train_main(request): 
     user = request.args.get('user')
     project = request.args.get('project')
+    admin_yn = request.args.get('admin_yn')
     is_training = train.is_training(user, project)
-    return render_template("main/train_main.html", user = user, project = project, is_training = is_training)
+    return render_template("main/train_main.html", user = user, project = project, admin_yn = admin_yn, is_training = is_training)
 
 def update_question_voca_main(request, updater_thread): 
     user = request.args.get('user')

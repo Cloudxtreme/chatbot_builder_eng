@@ -111,7 +111,8 @@ $(document).ready(function() {
 function left_window() {
 	var user = $("#user").val();
 	var project = $("#project").val();
-	$('.left-content').append('<iframe class="content" id="train_main" frameBorder="0" src="/train_main?user=' + user + '&project=' + project + '"></iframe>');
+	var admin_yn = $("#admin_yn").val();
+	$('.left-content').append('<iframe class="content" id="train_main" frameBorder="0" src="/train_main?user=' + user + '&project=' + project + '&admin_yn=' + admin_yn + '"></iframe>');
 }
 
 var current_window = null;
