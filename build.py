@@ -414,7 +414,9 @@ def frame():
     user = request.args.get('user')
     project = request.args.get('project')
     emno = request.args.get('emno')
-    return render_template("frame.html", user = user, project = project, emno = emno)
+    partner_id = request.args.get('partner_id')
+    admin_yn = request.args.get('admin_yn')
+    return render_template("frame.html", user = user, project = project, emno = emno, partner_id = partner_id, admin_yn = admin_yn)
 
 @app.route("/my_page_main", methods=['GET'])
 def my_page_main():

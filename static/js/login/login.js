@@ -1,12 +1,8 @@
 $(document).ready(function() {
 	if ($('#logout').val() == 'N') {
-		if (confirm("auto login?")) {
-			$('#user').val('kant1724');
-			$('#password').val('1111');
-			$('#project').val('bot');
-			login();
-			return;
-		}
+		$('#user').val('kant1724');
+		$('#password').val('1111');
+		$('#project').val('bot');
 	}
 	$("#login").click(function() {
 		login();
@@ -22,13 +18,16 @@ function login() {
 	$.post('/login_try', {
 			user : $('#user').val().toLowerCase(),
 			password : $('#password').val(),
-			project : $('#project').val().toLowerCase()
+			project : $('#project').val().toLowerCase(),
+			partner_id : $('#partner_id').val().toLowerCase()
 		}).done(function(reply) {
 			if (reply['success'] == 'N') {
 				$("#msg").text(reply['msg']);				
 			} else {
 				var user = $('#user').val().toLowerCase();
 				var project = $('#project').val().toLowerCase();
+				var partner_id = $('#partner_id').val().toLowerCase();
+				var admin_yn = reply['admin_yn'];
 				var emno = reply['emno']; 
 				if ($('#run_chat').val() == 'Y') {
 					var w = RUN_CHAT_POPUP_WIDTH;
@@ -46,7 +45,7 @@ function login() {
 					var y = window.top.outerHeight / 2 + window.top.screenY - ( h / 2) - 50;
 					var x = window.top.outerWidth / 2 + window.top.screenX - ( w / 2);
 					var strWindowFeatures = 'location=no ,height='+h+',width='+w+',left='+x+',top='+y+',scrollbars=yes, menubar=no, status=no, toolbar=no, titlebar=no';
-					var pop = window.open('/frame?user=' + user + '&project=' + project + '&emno=' + emno, '_blank', strWindowFeatures);
+					var pop = window.open('/frame?user=' + user + '&project=' + project + '&emno=' + emno + '&partner_id=' + partner_id + '&admin_yn=' + admin_yn, '_blank', strWindowFeatures);
 					if (pop == null) {
 						return;
 					}

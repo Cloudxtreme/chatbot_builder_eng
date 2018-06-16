@@ -7,8 +7,9 @@ def login_try(request):
     user = request.form['user'] 
     password = request.form['password']
     project = request.form['project']
+    partner_id = request.form['partner_id']
     real_password = db_login.get_password(user)
-    server_project = db_login.get_project(user, project)
+    server_project = db_login.get_project(user, project)    
     if real_password == None or password != real_password:
         msg = '아이디 또는 패스워드가 부정확합니다.'
         return {'msg' : msg, 'success' : 'N'}
@@ -16,12 +17,15 @@ def login_try(request):
         msg = '프로젝트명이 잘못되었습니다.'
         return {'msg' : msg, 'success' : 'N'}
     else:
+        admin_yn = 'N'
+        if partner_id == None or partner_id == '':
+            admin_yn = 'Y'    
         emno = db_login.get_emno(request.remote_addr)
         agent = request.headers.get('User-Agent')                    
         if agent == None:
             agent = ''
         db_login.insert_login_list(request.remote_addr, "admin", agent)
-        return {'msg' : '', 'success' : 'Y', 'emno' : emno}
+        return {'msg' : '', 'success' : 'Y', 'emno' : emno, 'partner_id' : partner_id, 'admin_yn' : admin_yn}
     
 def login(request):
     return render_template("login/login.html", logout = 'N', run_chat = 'N')

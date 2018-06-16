@@ -1,4 +1,18 @@
 $(document).ready(function() {
+	if ($('#admin_yn').val() == 'N') {
+		var padding_size = '40px'
+		$('#my_page').css('padding-left', padding_size).css('padding-right', padding_size);
+		$('#qna').css('padding-left', padding_size).css('padding-right', padding_size);
+		$('#bucket_manager').css('padding-left', padding_size).css('padding-right', padding_size)
+		$('#compression_tag').hide();
+		$('#notice_manager').hide();
+		$('#data_collection').hide();
+		$('#voca_synonym').hide();
+		$('#category_manager').hide();
+		$('#error_detection').hide();
+		$('#chatbot_config').hide();
+	}
+	
 	$("#voca_synonym").mouseover(function() {
 		$('.dropdown-content').hide();
 		$('#voca_synonym_dropdown').show();
