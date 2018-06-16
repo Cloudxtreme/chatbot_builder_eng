@@ -12,10 +12,12 @@
       <h1>Kant</h1><br>
 	  <div id="msg"></div>
 	  <p>
-	  <input id="user" value="{{ user }}" type="text" name="user" placeholder="Username">
-	  <input id="password" type="password" name="password" placeholder="Password">
-	  <input id="project" type="text" name="project" placeholder="ProjectName">
-	  <input id="partner_id" type="text" name="partner_id" placeholder="PartnerId (Not Required)">
+	  <div class="text-input">
+		  <input id="user" value="{{ user }}" type="text" name="user" placeholder="Username">
+		  <input id="password" type="password" name="password" placeholder="Password">
+		  <input id="project" type="text" name="project" placeholder="ProjectName">
+		  <input id="partner_id" type="text" name="partner_id" placeholder="PartnerId (Not Required)">
+	  </div>
 	  <input id="login" type="submit" name="login" class="login login-submit" value="login">
 	  <input id="request" type="submit" name="request" class="request request-submit" value="request for partnership">
 	  <input id="logout" type="hidden" value="{{ logout }}">

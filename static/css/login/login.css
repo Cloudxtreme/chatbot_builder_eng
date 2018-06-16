@@ -17,6 +17,11 @@ body {
   overflow: hidden;
 }
 
+.text-input input {
+	border-radius: 5px;
+	outline:none;
+}
+
 .login-card h1 {
   font-weight: 100;
   text-align: center;
@@ -65,7 +70,6 @@ body {
 }
 
 .login-submit {
-  /* border: 1px solid #3079ed; */
   border: 0px;
   color: #fff;
   text-shadow: 0 1px rgba(0,0,0,0.1); 
@@ -129,7 +133,6 @@ body {
 	font-size: 1em;
 	font-weight: 700;
 }
-
 
 .request.modal {
 	border-radius: 0;
