@@ -87,7 +87,8 @@ def question_generator_main(request, generator_thread):
 def new_request_main(request):
     user = request.args.get('user')
     project = request.args.get('project')
-    return render_template("main/new_request_main.html", user = user, project = project)
+    readonly_yn = request.args.get('readonly_yn')
+    return render_template("main/new_request_main.html", user = user, project = project, readonly_yn = readonly_yn)
 
 def chatbot_config_main(request):
     user = request.args.get('user')

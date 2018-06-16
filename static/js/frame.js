@@ -448,10 +448,11 @@ function error_detection_main() {
 function new_request_main() {
 	var user = $("#user").val();
 	var project = $("#project").val();
+	var readonly_yn = $("#readonly_yn").val();
 	$('.menu-name').text('> ' + $('#new_request').text());
 	if ($('#new_request_main').length == 0) {
 		hide_all();
-		$('.div-main').append('<iframe class="content" id="new_request_main" frameBorder="0" src="/new_request_main?user=' + user + '&project=' + project + '"></iframe>');
+		$('.div-main').append('<iframe class="content" id="new_request_main" frameBorder="0" src="/new_request_main?user=' + user + '&project=' + project + '&readonly_yn=' + readonly_yn + '"></iframe>');
 		add_open_menu('new_request_main_open_menu', 'new_request_main_open_menu_x_mark', 'new_request_main', $('#new_request').text());
 	} else {
 		hide_all();

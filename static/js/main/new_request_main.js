@@ -48,14 +48,27 @@ var gridOption1={
 var mygrid1 = new Sigma.Grid(gridOption1);
 Sigma.Util.onLoad(Sigma.Grid.render(mygrid1));
 
+function readonly_alert() {
+	alert("readonly mode");
+}
+
 $(document).ready(function() {
+	var readonly = $('#readonly_yn').val();
 	$("#search_new_request").click(function() {
 		search_new_request();
 	});
 	$("#new_answer_pop").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		new_answer_pop();
 	});
 	$("#submit_complete_request").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		submit_complete_request();
 	});
 	$("#subject").keydown(function (key) {
