@@ -11,15 +11,20 @@ def login_try(request):
     real_password = db_login.get_password(user)
     server_project = db_login.get_project(user, project)    
     if real_password == None or password != real_password:
-        msg = '아이디 또는 패스워드가 부정확합니다.'
+        msg = 'Wrong ID or Password.'
         return {'msg' : msg, 'success' : 'N'}
     elif server_project == None:
-        msg = '프로젝트명이 잘못되었습니다.'
+        msg = 'Wrong ProjectName.'
         return {'msg' : msg, 'success' : 'N'}
     else:
-        admin_yn = 'N'
+        admin_yn = 'N'        
         if partner_id == None or partner_id == '':
-            admin_yn = 'Y'    
+            admin_yn = 'Y'
+        else:
+            res = db_login.check_partner_id(partner_id)
+            if res == None or res == '':
+                msg = 'Wrong PartnerId.'
+                return {'msg' : msg, 'success' : 'N'}    
         emno = db_login.get_emno(request.remote_addr)
         agent = request.headers.get('User-Agent')                    
         if agent == None:
