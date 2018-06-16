@@ -17,6 +17,7 @@ def submit_answer(request):
     req_dict = eval(request.data.decode('utf8'))
     user = req_dict['user']
     project = req_dict['project']
+    partner_id = req_dict['partner_id']
     answer = req_dict['answer']
     question = req_dict['question']
     question_tag = req_dict['question_tag']
@@ -31,7 +32,7 @@ def submit_answer(request):
     else:
         num = builder_util.alphabet_to_num(max_answer_num)
     answer_num = builder_util.num_to_alphabet(num + 1)
-    qna.insert_answer(answer_num, answer, question, category_num, user_ip, rq_num, user, project)
+    qna.insert_answer(answer_num, answer, question, category_num, user_ip, rq_num, user, project, partner_id)
     qna.insert_question(answer_num, question, question_tag, user, project)
     
     return jsonify('')

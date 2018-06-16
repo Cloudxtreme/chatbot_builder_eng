@@ -12,7 +12,9 @@ def my_page_main(request):
 def qna_main(request):
     user = request.args.get('user')
     project = request.args.get('project')
-    return render_template("main/qna_main.html", user = user, project = project)
+    partner_id = request.args.get('partner_id')
+    admin_yn = request.args.get('admin_yn')
+    return render_template("main/qna_main.html", user = user, project = project, partner_id = partner_id, admin_yn = admin_yn)
 
 def bucket_manager_main(request):
     user = request.args.get('user')

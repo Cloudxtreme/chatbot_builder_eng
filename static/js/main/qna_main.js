@@ -1,5 +1,5 @@
-var grid_data1 = [[]];
-var grid_data2 = [[]];
+var grid_data1 = [];
+var grid_data2 = [];
 var grid_demo_id1 = "myGrid1";
 var grid_demo_id2 = "myGrid2";
 
@@ -156,7 +156,9 @@ function search_answer() {
 	var subject = $("#subject").val();
 	var user = $("#user").val();
 	var project = $("#project").val();
-	var input_data = {"gubun" : gubun, "subject" : subject, "user" : user, "project" : project};
+	var partner_id = $("#partner_id").val();
+	var admin_yn = $("#admin_yn").val();
+	var input_data = {"gubun" : gubun, "subject" : subject, "user" : user, "project" : project, "partner_id" : partner_id, "admin_yn" : admin_yn};
 	
 	ajax('/search_answer', input_data, 'search_answer', 'POST');
 }
@@ -249,11 +251,12 @@ function easy_manager_pop() {
 function new_answer_pop() {
 	var user = $("#user").val();
 	var project = $("#project").val();
+	var partner_id = $("#partner_id").val();
 	var w = NEW_ANSWER_POPUP_WIDTH;
 	var h = NEW_ANSWER_POPUP_HEIGHT;
 	var x = (screen.width - w) / 2;
     var y = (screen.height - h) / 3;
-	window.open('/new_answer_pop?user=' + user + '&project=' + project, '_blank', 'scrollbars=yes, width=' + w + ', height=' + h + ', left=' + x + ', top=' + y);
+	window.open('/new_answer_pop?user=' + user + '&project=' + project + '&partner_id=' + partner_id, '_blank', 'scrollbars=yes, width=' + w + ', height=' + h + ', left=' + x + ', top=' + y);
 }
 
 function new_function_pop() {

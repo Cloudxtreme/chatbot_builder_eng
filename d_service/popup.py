@@ -10,10 +10,11 @@ def easy_manager_pop(request):
 def new_answer_pop(request):
     user = request.args.get('user')
     project = request.args.get('project')
+    partner_id = request.args.get('partner_id')
     rq_num = request.args.get('rq_num')
     if rq_num == None:
         rq_num = ''
-    return render_template("popup/new_answer_pop.html", user = user, project = project, rq_num = rq_num)
+    return render_template("popup/new_answer_pop.html", user = user, project = project, partner_id = partner_id, rq_num = rq_num)
 
 def multiple_answer_pop(request):
     user = request.args.get('user')

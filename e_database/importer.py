@@ -15,7 +15,7 @@ def create_question_fragment_builder_table(user, project):
         print("QUESTION_FRAGMENT_BUILDER table already exists")
 
 def create_answer_builder_table(user, project):
-    sql = "CREATE TABLE ANSWER_BUILDER_" + user + "_" + project + " (ANSWER_NUM VARCHAR(10), ANSWER VARCHAR(500), CATEGORY_NUM VARCHAR(7), RPSN_QUESTION VARCHAR(500), IMAGE_CNT INT(3), RGSN_USER_IP VARCHAR(20), RQ_NUM INT(10), FRST_RGSN_DATE VARCHAR(20), MDFC_RGSN_DATE VARCHAR(20))"
+    sql = "CREATE TABLE ANSWER_BUILDER_" + user + "_" + project + " (ANSWER_NUM VARCHAR(10), ANSWER VARCHAR(500), CATEGORY_NUM VARCHAR(7), RPSN_QUESTION VARCHAR(500), IMAGE_CNT INT(3), RGSN_USER_IP VARCHAR(20), RQ_NUM INT(10), FRST_RGSN_DATE VARCHAR(20), MDFC_RGSN_DATE VARCHAR(20), PARTNER_ID VARCHAR(20))"
     try:
         update.commit(sql)
     except:
@@ -166,7 +166,7 @@ def import_question_builder(user, project, arr):
     update.commit(sql)
     
 def import_answer_builder(user, project, arr):
-    sql = "INSERT INTO ANSWER_BUILDER_" + user + "_" + project + " VALUES ('" + arr[0] + "', '" + arr[1] + "', '" + arr[2] + "', '" + arr[3] + "', " + arr[4] + ", '" + arr[5] + "', " + arr[6] + ", '" +  arr[7] + "', '" +  arr[8] + "')"
+    sql = "INSERT INTO ANSWER_BUILDER_" + user + "_" + project + " VALUES ('" + arr[0] + "', '" + arr[1] + "', '" + arr[2] + "', '" + arr[3] + "', " + arr[4] + ", '" + arr[5] + "', " + arr[6] + ", '" +  arr[7] + "', '" +  arr[8] + "', '" +  arr[9] + "')"
     update.commit(sql)
 
 def import_compression_tag(user, project, arr):

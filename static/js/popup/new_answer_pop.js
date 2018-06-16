@@ -103,12 +103,13 @@ function submit_answer() {
 	}
 	var user = $("#user").val();
 	var project = $("#project").val();
+	var partner_id = $("#partner_id").val();	
 	var question_input = $("#question_input").val();
 	var question_tag_input = '';
 	var answer_input = $("#answer_input").val();
 	var category_num = $("#category_num").val();
 	var rq_num = $("#rq_num").val();
-	var input_data = {"user" : user, "project" : project, "question" : question_input, "question_tag" : question_tag_input, "answer" : answer_input, "category_num" : category_num, "rq_num" : rq_num};
+	var input_data = {"user" : user, "project" : project, "partner_id" : partner_id, "question" : question_input, "question_tag" : question_tag_input, "answer" : answer_input, "category_num" : category_num, "rq_num" : rq_num};
 	
 	ajax('/submit_answer', input_data, 'submit_answer', 'POST');
 }

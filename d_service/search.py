@@ -20,7 +20,9 @@ def search_answer(request):
     user = req_dict['user']
     gubun = req_dict['gubun']
     project = req_dict['project']
-    res = qna.search_answer(gubun, subject, user, project)
+    partner_id = req_dict['partner_id']
+    admin_yn = req_dict['admin_yn']
+    res = qna.search_answer(gubun, subject, user, project, partner_id, admin_yn)
     
     return jsonify(results = res)
 

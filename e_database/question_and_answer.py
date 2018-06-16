@@ -1,18 +1,19 @@
 from e_database.sql_processor import select 
 from e_database.sql_processor import update
 
-def search_answer(gubun, subject, user, project):
-    sql = ''
+def search_answer(gubun, subject, user, project, partner_id, admin_yn):
     category_select = "(SELECT CONCAT(BIG_CATEGORY,' > ',MIDDLE_CATEGORY,' > ',SMALL_CATEGORY_LV1,' > ',SMALL_CATEGORY_LV2,' > ',SMALL_CATEGORY_LV3) FROM CATEGORY_LIST WHERE CATEGORY_NUM = X.CATEGORY_NUM) AS CATEGORY_NM"
+    sql = "SELECT X.RPSN_QUESTION, X.ANSWER_NUM, X.ANSWER, X.CATEGORY_NUM, " + category_select + ", X.IMAGE_CNT, X.RGSN_USER_IP FROM ANSWER_BUILDER_" + user + "_" + project + " X WHERE 1=1"
     if subject != '':
         if gubun == '1':
-            sql = "SELECT X.RPSN_QUESTION, X.ANSWER_NUM, X.ANSWER, X.CATEGORY_NUM, " + category_select + ", X.IMAGE_CNT, X.RGSN_USER_IP FROM ANSWER_BUILDER_" + user + "_" + project + " X WHERE X.ANSWER_NUM IN (SELECT ANSWER_NUM FROM QUESTION_BUILDER_" + user + "_" + project + " WHERE QUESTION LIKE '%" + subject + "%') ORDER BY X.ANSWER_NUM DESC"
+            sql += " AND X.ANSWER_NUM IN (SELECT ANSWER_NUM FROM QUESTION_BUILDER_" + user + "_" + project + " WHERE QUESTION LIKE '%" + subject + "%')"
         elif gubun == '2':
-            sql = "SELECT X.RPSN_QUESTION, X.ANSWER_NUM, X.ANSWER, X.CATEGORY_NUM, " + category_select + ", X.IMAGE_CNT, X.RGSN_USER_IP FROM ANSWER_BUILDER_" + user + "_" + project + " X WHERE X.ANSWER LIKE '%" + subject + "%' ORDER BY X.ANSWER_NUM DESC"
+            sql += " AND X.ANSWER LIKE '%" + subject + "%'"
         elif gubun == '3':
-            sql = "SELECT X.RPSN_QUESTION, X.ANSWER_NUM, X.ANSWER, X.CATEGORY_NUM, " + category_select + ", X.IMAGE_CNT, X.RGSN_USER_IP FROM ANSWER_BUILDER_" + user + "_" + project + " X WHERE X.RGSN_USER_IP = '" + subject + "' ORDER BY X.ANSWER_NUM DESC"
-    else:
-        sql = "SELECT X.RPSN_QUESTION, X.ANSWER_NUM, X.ANSWER, X.CATEGORY_NUM, " + category_select + ", X.IMAGE_CNT, X.RGSN_USER_IP FROM ANSWER_BUILDER_" + user + "_" + project + " X ORDER BY X.ANSWER_NUM DESC"
+            sql += " AND X.RGSN_USER_IP = '" + subject + "'"
+    if admin_yn == 'N':
+        sql += " AND X.PARTNER_ID = '" + partner_id + "'" 
+    sql += " ORDER BY X.ANSWER_NUM DESC"
     result = select.fetch(sql)
     res = []
     for r in result:
@@ -74,8 +75,8 @@ def search_max_answer_num(user, project):
 
     return max_answer_num
 
-def insert_answer(answer_num, answer, question, category_num, user_ip, rq_num, user, project):
-    sql = "INSERT INTO ANSWER_BUILDER_" + user + "_" + project + " VALUES ('" + answer_num + "', '" + answer + "', '" + category_num + "', '" + question + "', 0, '" + user_ip + "', " + rq_num + ", CAST(DATE_FORMAT(NOW(), '%Y%m%d') AS CHAR), CAST(DATE_FORMAT(NOW(), '%Y%m%d') AS CHAR))"
+def insert_answer(answer_num, answer, question, category_num, user_ip, rq_num, user, project, partner_id):
+    sql = "INSERT INTO ANSWER_BUILDER_" + user + "_" + project + " VALUES ('" + answer_num + "', '" + answer + "', '" + category_num + "', '" + question + "', 0, '" + user_ip + "', " + rq_num + ", CAST(DATE_FORMAT(NOW(), '%Y%m%d') AS CHAR), CAST(DATE_FORMAT(NOW(), '%Y%m%d') AS CHAR), '" + partner_id + "')"
     update.commit(sql)
 
 def update_answer(answer_num, rpsn_question, answer, category_num, user, project):

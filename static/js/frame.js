@@ -281,10 +281,12 @@ function my_page_main() {
 function qna_main() {
 	var user = $("#user").val();
 	var project = $("#project").val();
+	var partner_id = $("#partner_id").val();
+	var admin_yn = $("#admin_yn").val();
 	$('.menu-name').text('> ' + $('#qna').text());
 	if ($('#qna_main').length == 0) { 
 		hide_all();
-		$('.div-main').append('<iframe class="content" id="qna_main" frameBorder="0" src="/qna_main?user=' + user + '&project=' + project + '"></iframe>');
+		$('.div-main').append('<iframe class="content" id="qna_main" frameBorder="0" src="/qna_main?user=' + user + '&project=' + project + '&partner_id=' + partner_id + '&admin_yn=' + admin_yn + '"></iframe>');
 		add_open_menu('qna_main_open_menu', 'qna_main_open_menu_x_mark', 'qna_main', $('#qna').text());
 	} else {
 		hide_all();
