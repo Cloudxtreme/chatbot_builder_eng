@@ -141,10 +141,12 @@ def search_question_by_question_nm_and_answer_num(question_nm, answer_num, user,
     where_question_nm = ''
     where_answer_num = ''
     if question_nm != None and question_nm != '':
-        where_question_nm = " AND QUESTION LIKE '%" + question_nm + "%'"
+        where_question_nm = " AND A.QUESTION LIKE '%" + question_nm + "%'"
     if answer_num != None and answer_num != '':
-        where_answer_num = " AND ANSWER_NUM = '" + answer_num + "'"
-    sql = "SELECT ANSWER_NUM, QUESTION_SRNO, QUESTION, QUESTION_TAG, QUESTION_VOCA FROM QUESTION_BUILDER_" + user + "_" + project + " WHERE 1=1" + where_question_nm + where_answer_num
+        where_answer_num = " AND B.ANSWER_NUM = '" + answer_num + "'"    
+    sql = "SELECT A.ANSWER_NUM, A.QUESTION_SRNO, A.QUESTION, A.QUESTION_TAG, A.QUESTION_VOCA FROM QUESTION_BUILDER_" + user + "_" + project + " A, ANSWER_BUILDER_" + user + "_" + project + " B WHERE 1=1 AND A.ANSWER_NUM = B.ANSWER_NUM" + where_question_nm + where_answer_num
+    if admin_yn == 'N' and readonly_yn == 'N':
+        sql += " AND B.PARTNER_ID = '" + partner_id + "'"
     result = select.fetch(sql)
     res = []
     for r in result:
