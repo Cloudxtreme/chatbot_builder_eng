@@ -303,7 +303,7 @@ function bucket_manager_main() {
 	$('.menu-name').text('> ' + $('#bucket_manager').text());
 	if ($('#bucket_manager_main').length == 0) {
 		hide_all();
-		$('.div-main').append('<iframe class="content" id="bucket_manager_main" frameBorder="0" src="/bucket_manager_main?user=' + user + '&project=' + project + '"></iframe>');
+		$('.div-main').append('<iframe class="content" id="bucket_manager_main" frameBorder="0" src="/bucket_manager_main?user=' + user + '&project=' + project + '&partner_id=' + partner_id + '&admin_yn=' + admin_yn + '&readonly_yn=' + readonly_yn + '"></iframe>');
 		add_open_menu('bucket_manager_main_open_menu', 'bucket_manager_main_open_menu_x_mark', 'bucket_manager_main', $('#bucket_manager').text());
 	} else {
 		hide_all();
@@ -317,10 +317,11 @@ function bucket_manager_main() {
 function compression_tag_main() {
 	var user = $("#user").val();
 	var project = $("#project").val();
+	var readonly_yn = $("#readonly_yn").val();
 	$('.menu-name').text('> ' + $('#compression_tag').text());
 	if ($('#compression_tag_main').length == 0) {
 		hide_all();
-		$('.div-main').append('<iframe class="content" id="compression_tag_main" frameBorder="0" src="/compression_tag_main?user=' + user + '&project=' + project + '"></iframe>');
+		$('.div-main').append('<iframe class="content" id="compression_tag_main" frameBorder="0" src="/compression_tag_main?user=' + user + '&project=' + project + '&readonly_yn=' + readonly_yn + '"></iframe>');
 		add_open_menu('compression_tag_main_open_menu', 'compression_tag_main_open_menu_x_mark', 'compression_tag_main', $('#compression_tag').text());
 	} else {
 		hide_all();
@@ -334,10 +335,11 @@ function compression_tag_main() {
 function notice_manager_main() {
 	var user = $("#user").val();
 	var project = $("#project").val();
+	var readonly_yn = $("#readonly_yn").val();
 	$('.menu-name').text('> ' + $('#notice_manager').text());
 	if ($('#notice_manager_main').length == 0) {
 		hide_all();
-		$('.div-main').append('<iframe class="content" id="notice_manager_main" frameBorder="0" src="/notice_manager_main?user=' + user + '&project=' + project + '"></iframe>');
+		$('.div-main').append('<iframe class="content" id="notice_manager_main" frameBorder="0" src="/notice_manager_main?user=' + user + '&project=' + project + '&readonly_yn=' + readonly_yn + '"></iframe>');
 		add_open_menu('notice_manager_main_open_menu', 'notice_manager_main_open_menu_x_mark', 'notice_manager_main', $('#notice_manager').text());
 	} else {
 		hide_all();
@@ -351,10 +353,11 @@ function notice_manager_main() {
 function update_question_voca_main() {
 	var user = $("#user").val();
 	var project = $("#project").val();
+	var readonly_yn = $("#readonly_yn").val();
 	$('.menu-name').text('> ' + $('#update_question_voca').text());
 	if ($('#update_question_voca_main').length == 0) {
 		hide_all();
-		$('.div-main').append('<iframe class="content" id="update_question_voca_main" frameBorder="0" src="/update_question_voca_main?user=' + user + '&project=' + project + '"></iframe>');
+		$('.div-main').append('<iframe class="content" id="update_question_voca_main" frameBorder="0" src="/update_question_voca_main?user=' + user + '&project=' + project + '&readonly_yn=' + readonly_yn + '"></iframe>');
 		add_open_menu('update_question_voca_main_open_menu', 'update_question_voca_main_open_menu_x_mark', 'update_question_voca_main', $('#update_question_voca').text());
 	} else {
 		hide_all();
@@ -368,10 +371,11 @@ function update_question_voca_main() {
 function synonym_manager_main() {
 	var user = $("#user").val();
 	var project = $("#project").val();
+	var readonly_yn = $("#readonly_yn").val();
 	$('.menu-name').text('> ' + $('#synonym_manager').text());
 	if ($('#synonym_manager_main').length == 0) {
 		hide_all();
-		$('.div-main').append('<iframe class="content" id="synonym_manager_main" frameBorder="0" src="/synonym_manager_main?user=' + user + '&project=' + project + '"></iframe>');
+		$('.div-main').append('<iframe class="content" id="synonym_manager_main" frameBorder="0" src="/synonym_manager_main?user=' + user + '&project=' + project + '&readonly_yn=' + readonly_yn + '"></iframe>');
 		add_open_menu('synonym_manager_main_open_menu', 'synonym_manager_main_open_menu_x_mark', 'synonym_manager_main', $('#synonym_manager').text());
 	} else {
 		hide_all();
@@ -385,10 +389,11 @@ function synonym_manager_main() {
 function voca_manager_main() {
 	var user = $("#user").val();
 	var project = $("#project").val();
+	var readonly_yn = $("#readonly_yn").val();
 	$('.menu-name').text('> ' + $('#voca_manager').text());
 	if ($('#voca_manager_main').length == 0) {
 		hide_all();
-		$('.div-main').append('<iframe class="content" id="voca_manager_main" frameBorder="0" src="/voca_manager_main?user=' + user + '&project=' + project + '"></iframe>');
+		$('.div-main').append('<iframe class="content" id="voca_manager_main" frameBorder="0" src="/voca_manager_main?user=' + user + '&project=' + project + '&readonly_yn=' + readonly_yn + '"></iframe>');
 		add_open_menu('voca_manager_main_open_menu', 'voca_manager_main_open_menu_x_mark', 'voca_manager_main', $('#voca_manager').text());
 	} else {
 		hide_all();
@@ -402,10 +407,11 @@ function voca_manager_main() {
 function category_manager_main() {
 	var user = $("#user").val();
 	var project = $("#project").val();
+	var readonly_yn = $("#readonly_yn").val();
 	$('.menu-name').text('> ' + $('#category_manager').text());
 	if ($('#category_manager_main').length == 0) {
 		hide_all();
-		$('.div-main').append('<iframe class="content" id="category_manager_main" frameBorder="0" src="/category_manager_main?user=' + user + '&project=' + project + '"></iframe>');
+		$('.div-main').append('<iframe class="content" id="category_manager_main" frameBorder="0" src="/category_manager_main?user=' + user + '&project=' + project + '&readonly_yn=' + readonly_yn + '"></iframe>');
 		add_open_menu('category_manager_main_open_menu', 'category_manager_main_open_menu_x_mark', 'category_manager_main', $('#category_manager').text());
 	} else {
 		hide_all();
@@ -422,7 +428,7 @@ function error_detection_main() {
 	$('.menu-name').text('> ' + $('#error_detection').text());
 	if ($('#error_detection_main').length == 0) {
 		hide_all();
-		$('.div-main').append('<iframe class="content" id="error_detection_main" frameBorder="0" src="/error_detection_main?user=' + user + '&project=' + project + '"></iframe>');
+		$('.div-main').append('<iframe class="content" id="error_detection_main" frameBorder="0" src="/error_detection_main?user=' + user + '&project=' + project + '&readonly_yn=' + readonly_yn + '"></iframe>');
 		add_open_menu('error_detection_main_open_menu', 'error_detection_main_open_menu_x_mark', 'error_detection_main', $('#error_detection').text());
 	} else {
 		hide_all();
@@ -470,10 +476,11 @@ function error_statistics_main() {
 function chatbot_config_main() {
 	var user = $("#user").val();
 	var project = $("#project").val();
+	var readonly_yn = $("#readonly_yn").val();
 	$('.menu-name').text('> ' + $('#chatbot_config').text());
 	if ($('#chatbot_config_main').length == 0) {
 		hide_all();
-		$('.div-main').append('<iframe class="content" id="chatbot_config_main" frameBorder="0" src="/chatbot_config_main?user=' + user + '&project=' + project + '"></iframe>');
+		$('.div-main').append('<iframe class="content" id="chatbot_config_main" frameBorder="0" src="/chatbot_config_main?user=' + user + '&project=' + project + '&readonly_yn=' + readonly_yn + '"></iframe>');
 		add_open_menu('chatbot_config_main_open_menu', 'chatbot_config_main_open_menu_x_mark', 'chatbot_config_main', $('#chatbot_config').text());
 	} else {
 		hide_all();

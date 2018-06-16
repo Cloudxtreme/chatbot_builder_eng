@@ -292,11 +292,14 @@ function update_question_voca_callback() {
 function easy_manager_pop() {
 	var user = $("#user").val();
 	var project = $("#project").val();
+	var admin_yn = $("#admin_yn").val();
+	var partner_id = $("#partner_id").val();
+	var readonly_yn = $("#readonly_yn").val();	
 	var w = EASY_MANAGER_POPUP_WIDTH;
 	var h = EASY_MANAGER_POPUP_HEIGHT;
 	var x = (screen.width - w) / 2;
     var y = (screen.height - h) / 3;
-	window.open('/easy_manager_pop?user=' + user + '&project=' + project, '_blank', 'scrollbars=yes, width=' + w + ', height=' + h + ', left=' + x + ', top=' + y);
+	window.open('/easy_manager_pop?user=' + user + '&project=' + project + '&admin_yn=' + admin_yn + '&partner_id=' + partner_id + '&readonly_yn=' + readonly_yn, '_blank', 'scrollbars=yes, width=' + w + ', height=' + h + ', left=' + x + ', top=' + y);
 }
 
 function new_answer_pop() {

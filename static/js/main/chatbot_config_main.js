@@ -1,5 +1,14 @@
+function readonly_alert() {
+	alert("readonly mode");
+}
+
 $(document).ready(function() {
+	var readonly = $('#readonly_yn').val();
 	$("#submit_training_config").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		submit_training_config();
 		submit_chatbot_config();
 	});

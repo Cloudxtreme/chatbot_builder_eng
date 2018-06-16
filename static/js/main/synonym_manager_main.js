@@ -85,23 +85,48 @@ var mygrid2 = new Sigma.Grid(gridOption2);
 Sigma.Util.onLoad(Sigma.Grid.render(mygrid1));
 Sigma.Util.onLoad(Sigma.Grid.render(mygrid2));
 
+function readonly_alert() {
+	alert("readonly mode");
+}
+
 $(document).ready(function() {
+	var readonly = $('#readonly_yn').val();
 	$("#search_synonym").click(function() {
 		search_synonym();
 	});
 	$("#new_master").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		new_master();
 	});
 	$("#new_detail").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		new_detail();
 	});
 	$("#submit_synonym_detail").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		submit_synonym_detail();
 	});
 	$("#delete_synonym_master").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		delete_synonym_master();
 	});
 	$("#delete_synonym_detail").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		delete_synonym_detail();
 	});
 	$("#subject").keydown(function (key) {

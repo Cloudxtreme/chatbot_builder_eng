@@ -38,7 +38,10 @@ function search_answer() {
 	var subject = $("#subject").val();
 	var user = $("#user").val();
 	var project = $("#project").val();
-	var input_data = {"gubun" : gubun, "subject" : subject, "user" : user, "project" : project};
+	var admin_yn = $("#admin_yn").val();
+	var partner_id = $("#partner_id").val();
+	var readonly_yn = $("#readonly_yn").val();
+	var input_data = {"gubun" : gubun, "subject" : subject, "user" : user, "project" : project, "admin_yn" : admin_yn, "partner_id" : partner_id, "readonly_yn" : readonly_yn};
 	
 	ajax('/search_answer', input_data, 'search_answer', 'POST');
 }

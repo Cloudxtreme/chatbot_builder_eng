@@ -20,18 +20,23 @@ def qna_main(request):
 def bucket_manager_main(request):
     user = request.args.get('user')
     project = request.args.get('project')
-    return render_template("main/bucket_manager_main.html", user = user, project = project)
+    partner_id = request.args.get('partner_id')
+    admin_yn = request.args.get('admin_yn')
+    readonly_yn = request.args.get('readonly_yn')
+    return render_template("main/bucket_manager_main.html", user = user, project = project, partner_id = partner_id, admin_yn = admin_yn, readonly_yn = readonly_yn)
 
 def compression_tag_main(request):
     user = request.args.get('user')
     project = request.args.get('project')
+    readonly_yn = request.args.get('readonly_yn')
     is_training = train.is_compression_tag_training(user, project)
-    return render_template("main/compression_tag_main.html", user = user, project = project, is_training = is_training)
+    return render_template("main/compression_tag_main.html", user = user, project = project, is_training = is_training, readonly_yn = readonly_yn)
 
 def notice_manager_main(request):
     user = request.args.get('user')
     project = request.args.get('project')
-    return render_template("main/notice_manager_main.html", user = user, project = project)
+    readonly_yn = request.args.get('readonly_yn')
+    return render_template("main/notice_manager_main.html", user = user, project = project, readonly_yn = readonly_yn)
 
 def train_main(request): 
     user = request.args.get('user')
@@ -43,21 +48,25 @@ def train_main(request):
 def update_question_voca_main(request, updater_thread): 
     user = request.args.get('user')
     project = request.args.get('project')
+    readonly_yn = request.args.get('readonly_yn')
     is_update = 'N'
     for i in range(len(updater_thread)):
         if updater_thread[i]['user'] == user and updater_thread[i]['project'] == project:
             is_update = 'Y'
             break
-    return render_template("main/update_question_voca_main.html", user = user, project = project, is_updating = is_update)
+    return render_template("main/update_question_voca_main.html", user = user, project = project, is_updating = is_update, readonly_yn = readonly_yn)
 
 def synonym_manager_main(request): 
-    return render_template("main/synonym_manager_main.html")
+    readonly_yn = request.args.get('readonly_yn')
+    return render_template("main/synonym_manager_main.html", readonly_yn = readonly_yn)
 
 def voca_manager_main(request): 
-    return render_template("main/voca_manager_main.html")
+    readonly_yn = request.args.get('readonly_yn')
+    return render_template("main/voca_manager_main.html", readonly_yn = readonly_yn)
 
-def category_manager_main(request): 
-    return render_template("main/category_manager_main.html")
+def category_manager_main(request):
+    readonly_yn = request.args.get('readonly_yn') 
+    return render_template("main/category_manager_main.html", readonly_yn = readonly_yn)
 
 def error_detection_main(request):
     user = request.args.get('user')
@@ -83,7 +92,8 @@ def new_request_main(request):
 def chatbot_config_main(request):
     user = request.args.get('user')
     project = request.args.get('project')
-    return render_template("main/chatbot_config_main.html", user = user, project = project)
+    readonly_yn = request.args.get('readonly_yn') 
+    return render_template("main/chatbot_config_main.html", user = user, project = project, readonly_yn = readonly_yn)
 
 def training_test_main(request):
     user = request.args.get('user')

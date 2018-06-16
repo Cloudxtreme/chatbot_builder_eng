@@ -46,20 +46,41 @@ var gridOption1={
 var mygrid1 = new Sigma.Grid(gridOption1);
 Sigma.Util.onLoad(Sigma.Grid.render(mygrid1));
 
+function readonly_alert() {
+	alert("readonly mode");
+}
+
 $(document).ready(function() {
+	var readonly = $('#readonly_yn').val();
 	$("#search_compression_tag").click(function() {
 		search_compression_tag();
 	});
 	$("#add_row").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		add_row();
 	});
 	$("#del_row").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		del_row();
 	});
 	$("#submit_compression_tag").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		submit_compression_tag();
 	});
 	$("#delete_ckpt_file").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		delete_ckpt_file();
 	});
 	start_interval_is_training();

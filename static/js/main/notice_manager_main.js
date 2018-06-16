@@ -48,20 +48,41 @@ var gridOption1={
 var mygrid1 = new Sigma.Grid(gridOption1);
 Sigma.Util.onLoad(Sigma.Grid.render(mygrid1));
 
+function readonly_alert() {
+	alert("readonly mode");
+}
+
 $(document).ready(function() {
+	var readonly = $('#readonly_yn').val();
 	$("#search_notice").click(function() {
 		search_notice();
 	});
 	$("#add_new_notice").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		add_new_notice();
 	});
 	$("#modify_notice").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		modify_notice();
 	});
 	$("#delete_notice").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		delete_notice();
 	});
 	$("#submit_notice_complete").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		submit_notice_complete();
 	});
 	$("#subject").keydown(function (key) {
@@ -110,7 +131,7 @@ function add_new_notice() {
 
 function modify_notice() {
 	if ($('#notice_num').val() == '') {
-		alert("변경할 열을 선택하세요.");
+		alert("choose the row to modify.");
 		return;
 	}
 	var user = $("#user").val();
@@ -134,10 +155,10 @@ function search_notice() {
 
 function delete_notice() {
 	if ($('#notice_num').val() == '') {
-		alert("삭제할 열을 선택하세요.");
+		alert("choose the row to delete.");
 		return;
 	}
-	if (!confirm("삭제 하시겠습니까?")) {
+	if (!confirm("do you want to delete?")) {
 		return;
 	}
 	var user = $("#user").val();
@@ -149,10 +170,10 @@ function delete_notice() {
 
 function submit_notice_complete() {
 	if ($('#notice_num').val() == '') {
-		alert("공지완료할 열을 선택하세요.");
+		alert("choose the row to complete.");
 		return;
 	}
-	if (!confirm("공지완료 하시겠습니까?")) {
+	if (!confirm("do you want to complete?")) {
 		return;
 	}
 	var user = $("#user").val();
@@ -176,9 +197,9 @@ function search_notice_callback(retData) {
 		a.push(retList[i]['notice_start_date']);
 		a.push(retList[i]['notice_end_date']);
 		if (retList[i]['complete_yn'] == "Y") {
-			a.push("공지완료");
+			a.push("complete");
 		} else {
-			a.push("공지중");
+			a.push("notice");
 		}
 		dataArr.push(a);
 	}
@@ -188,11 +209,11 @@ function search_notice_callback(retData) {
 }
 
 function submit_notice_complete_callback() {
-	alert("공지완료 처리되었습니다.");
+	alert("completed.");
 	search_notice();
 }
 
 function delete_notice_callback() {
-	alert("삭제완료 처리되었습니다.");
+	alert("deleted.");
 	search_notice();
 }
