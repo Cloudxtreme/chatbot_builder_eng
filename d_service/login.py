@@ -60,3 +60,9 @@ def logout(request):
 def notify_entrance_of_chat(request):
     db_login.insert_enter_info(request.remote_addr)    
     return ''
+
+def request_for_partnership(request):
+    email = request.form['email'] 
+    objective = request.form['objective']
+    db_login.insert_request_for_partnership(email, objective)    
+    return ''

@@ -27,7 +27,7 @@ CORS(app)
 
 generator_thread = []
 updater_thread = []
-no_check_session = ['login', 'login_chat', 'login_try', 'static', 'admin', 'chat_mobile']
+no_check_session = ['login', 'request_for_partnership', 'login_chat', 'login_try', 'static', 'admin', 'chat_mobile']
 
 @app.before_request
 def before_request():
@@ -401,6 +401,12 @@ def stop_generating_all_fragment():
 @app.route("/get_generating_all_fragment_info", methods=['POST'])
 def get_generating_all_fragment_info(): 
     return generator.get_generating_all_fragment_info(request, generator_thread)
+
+@app.route("/request_for_partnership", methods=['POST'])
+def request_for_partnership(): 
+    res = login_service.request_for_partnership(request)
+    
+    return jsonify(res)
 
 @app.route("/login_try", methods=['POST'])
 def login_try(): 

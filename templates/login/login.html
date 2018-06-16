@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Log-in</title>
       <link rel="stylesheet" href="/static/css/login/login.css">
+      <link rel="stylesheet" href="/static/lib/jquery/jquery.modal.min.css">
 </head>
 <body>
   <div class="login-card">
@@ -16,11 +17,9 @@
 	  <input id="project" type="text" name="project" placeholder="ProjectName">
 	  <input id="partner_id" type="text" name="partner_id" placeholder="PartnerId (Not Required)">
 	  <input id="login" type="submit" name="login" class="login login-submit" value="login">
+	  <input id="request" type="submit" name="request" class="request request-submit" value="request for partnership">
 	  <input id="logout" type="hidden" value="{{ logout }}">
 	  <input id="run_chat" type="hidden" value="{{ run_chat }}">
-	  <div class="login-help">
-	    <a href="#">Request</a>
-	  </div>
   </div>
   <form name="loading" id="loading" method="post" action="/loading" target="loading_page">
 	  <input id="chat_user" type="hidden" name="user" value="{{ user }}">
@@ -29,7 +28,14 @@
 	  <input type="hidden" id="room_name" name="room_name">
 	  <input type="hidden" id="gubun" name="gubun" value="1">
   </form>
+  <div id="request_for_partnership" class="request modal">
+	  <p><label>your email address:</label><input id="email" type="text" /></p>
+	  <p><label>objective:</label><textarea id="objective" rows="5" cols="60"></textarea></p>
+	  <p><button id="send">send</button>
+	  <a id="modal_close" href="#" rel="modal:close" style="display: none"></a>
+  </div>
 <script src='/static/lib/jquery/jquery.min.js'></script>
+<script src='/static/lib/jquery/jquery.modal.min.js'></script>
 <script src='/static/js/popup/popup_size.js'></script>
 <script src="/static/js/login/login.js"></script>
 </body>

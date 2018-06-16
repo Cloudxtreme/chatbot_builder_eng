@@ -7,6 +7,14 @@ $(document).ready(function() {
 	$("#login").click(function() {
 		login();
 	});
+	$("#request").click(function() {
+		$('#request_for_partnership').modal({});
+	});
+	$("#send").click(function() {
+		var email = $('#email').val();
+		var objective = $('#objective').val();
+		send_request_for_partnership();
+	});
 	$(window).on('keydown', function(e) {
 		if (e.which == 13) {
 			login();
@@ -55,4 +63,15 @@ function login() {
 			}
 		}).fail(function() {
 				});
+}
+
+function send_request_for_partnership() {
+	$.post("/request_for_partnership", {
+		email : $('#email').val(),
+		objective : $('#objective').val(),
+	}).done(function(reply) {
+		alert("your request was sent, we will send you an email with PartnerId soon.");
+		$('#modal_close').click();
+	}).fail(function() {
+	});
 }
