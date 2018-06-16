@@ -103,7 +103,11 @@ def training_test_main(request):
 def error_statistics_main(request):
     user = request.args.get('user')
     project = request.args.get('project')
-    return render_template("main/error_statistics_main.html", user = user, project = project)
+    partner_id = request.args.get('partner_id')
+    admin_yn = request.args.get('admin_yn')
+    readonly_yn = request.args.get('readonly_yn')
+    
+    return render_template("main/error_statistics_main.html", user = user, project = project, partner_id = partner_id, admin_yn = admin_yn, readonly_yn = readonly_yn)
 
 def loading(request):
     user = request.form['user']

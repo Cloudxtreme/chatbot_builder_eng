@@ -128,7 +128,10 @@ function search_bucket_id() {
 }
 
 function search_question_and_bucket_id(bucket_id) {
-	var input_data = {"user" : $('#user').val(), "project" : $('#project').val(), "question_nm" : $('#subject').val(), "answer_num" : $('#answer_num').val(), "bucket_id" : bucket_id};
+	var partner_id = $('#partner_id').val();
+	var admin_yn = $('#admin_yn').val();
+	var readonly_yn = $('#readonly_yn').val();
+	var input_data = {"user" : $('#user').val(), "project" : $('#project').val(), "question_nm" : $('#subject').val(), "answer_num" : $('#answer_num').val(), "bucket_id" : bucket_id, "partner_id" : partner_id, "admin_yn" : admin_yn, "readonly_yn" : readonly_yn};
 	ajax('/search_question_and_bucket_id', input_data, 'search_question_and_bucket_id', 'POST');
 }
 

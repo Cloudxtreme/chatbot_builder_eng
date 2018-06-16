@@ -300,6 +300,9 @@ function qna_main() {
 function bucket_manager_main() {
 	var user = $("#user").val();
 	var project = $("#project").val();
+	var partner_id = $("#partner_id").val();
+	var admin_yn = $("#admin_yn").val();
+	var readonly_yn = $("#readonly_yn").val();
 	$('.menu-name').text('> ' + $('#bucket_manager').text());
 	if ($('#bucket_manager_main').length == 0) {
 		hide_all();
@@ -425,10 +428,13 @@ function category_manager_main() {
 function error_detection_main() {
 	var user = $("#user").val();
 	var project = $("#project").val();
+	var partner_id = $("#partner_id").val();
+	var admin_yn = $("#admin_yn").val();
+	var readonly_yn = $("#readonly_yn").val();
 	$('.menu-name').text('> ' + $('#error_detection').text());
 	if ($('#error_detection_main').length == 0) {
 		hide_all();
-		$('.div-main').append('<iframe class="content" id="error_detection_main" frameBorder="0" src="/error_detection_main?user=' + user + '&project=' + project + '&readonly_yn=' + readonly_yn + '"></iframe>');
+		$('.div-main').append('<iframe class="content" id="error_detection_main" frameBorder="0" src="/error_detection_main?user=' + user + '&project=' + project + '&partner_id=' + partner_id + '&admin_yn=' + admin_yn + '&readonly_yn=' + readonly_yn + '"></iframe>');
 		add_open_menu('error_detection_main_open_menu', 'error_detection_main_open_menu_x_mark', 'error_detection_main', $('#error_detection').text());
 	} else {
 		hide_all();
@@ -459,10 +465,13 @@ function new_request_main() {
 function error_statistics_main() {
 	var user = $("#user").val();
 	var project = $("#project").val();
+	var partner_id = $("#partner_id").val();
+	var admin_yn = $("#admin_yn").val();
+	var readonly_yn = $("#readonly_yn").val();
 	$('.menu-name').text('> ' + $('#error_statistics').text());
 	if ($('#error_statistics_main').length == 0) {
 		hide_all();
-		$('.div-main').append('<iframe class="content" id="error_statistics_main" frameBorder="0" src="/error_statistics_main?user=' + user + '&project=' + project + '"></iframe>');
+		$('.div-main').append('<iframe class="content" id="error_statistics_main" frameBorder="0" src="/error_statistics_main?user=' + user + '&project=' + project + '&partner_id=' + partner_id + '&admin_yn=' + admin_yn + '&readonly_yn=' + readonly_yn + '"></iframe>');
 		add_open_menu('error_statistics_main_open_menu', 'error_statistics_main_open_menu_x_mark', 'error_statistics_main', $('#error_statistics').text());
 	} else {
 		hide_all();

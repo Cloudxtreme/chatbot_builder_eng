@@ -137,7 +137,7 @@ def search_question_fragment(answer_num, user, project):
             
     return res
 
-def search_question_by_question_nm_and_answer_num(question_nm, answer_num, user, project):
+def search_question_by_question_nm_and_answer_num(question_nm, answer_num, user, project, partner_id, admin_yn, readonly_yn):
     where_question_nm = ''
     where_answer_num = ''
     if question_nm != None and question_nm != '':

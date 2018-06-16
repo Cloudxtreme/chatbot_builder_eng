@@ -126,7 +126,12 @@ Sigma.Util.onLoad(Sigma.Grid.render(mygrid1));
 Sigma.Util.onLoad(Sigma.Grid.render(mygrid2));
 Sigma.Util.onLoad(Sigma.Grid.render(mygrid3));
 
+function readonly_alert() {
+	alert("readonly mode");
+}
+
 $(document).ready(function() {
+	var readonly = $('#readonly_yn').val();
 	$("#search_wrong_answer").click(function() {
 		search_wrong_answer();
 	});
@@ -134,6 +139,10 @@ $(document).ready(function() {
 		search_answer();
 	});
 	$("#mapping_new_question_answer").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		mapping_new_question_answer();
 	});
 	$("#wrong_answer_subject").keydown(function (key) {
@@ -212,7 +221,10 @@ function search_answer() {
 	var subject = $("#answer_subject").val();
 	var user = $("#user").val();
 	var project = $("#project").val();
-	var input_data = {"gubun" : gubun, "subject" : subject, "user" : user, "project" : project};
+	var partner_id = $("#partner_id").val();
+	var admin_yn = $("#admin_yn").val();
+	var readonly_yn = $("#readonly_yn").val();
+	var input_data = {"gubun" : gubun, "subject" : subject, "user" : user, "project" : project, "partner_id" : partner_id, "admin_yn" : admin_yn, "readonly_yn" : readonly_yn};
 	
 	ajax('/search_answer', input_data, 'search_answer', 'POST');
 }
