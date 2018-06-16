@@ -60,7 +60,7 @@ body {
   font-weight: 700;
   height: 36px;
   padding: 0 8px;
-/* border-radius: 3px; */
+  border-radius: 10px;
 /* -webkit-user-select: none;
   user-select: none; */
 }
@@ -89,6 +89,7 @@ body {
   font-weight: 700;
   height: 25px;
   padding: 0 8px;
+  border-radius: 10px;
 }
 
 .request-submit {
