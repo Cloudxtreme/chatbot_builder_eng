@@ -18,7 +18,6 @@ $(document).ready(function() {
 			alert("you are not allowed to delete ckpt file.");
 			return;
 		}
-		return;
 		delete_ckpt_file();
 	});
 	$("#update_voca_and_question").click(function() {
