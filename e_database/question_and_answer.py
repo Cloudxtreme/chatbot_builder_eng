@@ -1,7 +1,7 @@
 from e_database.sql_processor import select 
 from e_database.sql_processor import update
 
-def search_answer(gubun, subject, user, project, partner_id, admin_yn):
+def search_answer(gubun, subject, user, project, partner_id, admin_yn, readonly_yn):
     category_select = "(SELECT CONCAT(BIG_CATEGORY,' > ',MIDDLE_CATEGORY,' > ',SMALL_CATEGORY_LV1,' > ',SMALL_CATEGORY_LV2,' > ',SMALL_CATEGORY_LV3) FROM CATEGORY_LIST WHERE CATEGORY_NUM = X.CATEGORY_NUM) AS CATEGORY_NM"
     sql = "SELECT X.RPSN_QUESTION, X.ANSWER_NUM, X.ANSWER, X.CATEGORY_NUM, " + category_select + ", X.IMAGE_CNT, X.RGSN_USER_IP FROM ANSWER_BUILDER_" + user + "_" + project + " X WHERE 1=1"
     if subject != '':
@@ -11,7 +11,7 @@ def search_answer(gubun, subject, user, project, partner_id, admin_yn):
             sql += " AND X.ANSWER LIKE '%" + subject + "%'"
         elif gubun == '3':
             sql += " AND X.RGSN_USER_IP = '" + subject + "'"
-    if admin_yn == 'N':
+    if admin_yn == 'N' and readonly_yn == 'N':
         sql += " AND X.PARTNER_ID = '" + partner_id + "'" 
     sql += " ORDER BY X.ANSWER_NUM DESC"
     result = select.fetch(sql)

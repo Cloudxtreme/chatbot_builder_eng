@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	if ($('#admin_yn').val() == 'N') {
+	if ($('#admin_yn').val() == 'N' && $('#readonly_yn').val() == 'N') {
 		var padding_size = '40px'
 		$('#my_page').css('padding-left', padding_size).css('padding-right', padding_size);
 		$('#qna').css('padding-left', padding_size).css('padding-right', padding_size);
@@ -12,7 +12,6 @@ $(document).ready(function() {
 		$('#error_detection').hide();
 		$('#chatbot_config').hide();
 	}
-	
 	$("#voca_synonym").mouseover(function() {
 		$('.dropdown-content').hide();
 		$('#voca_synonym_dropdown').show();
@@ -283,10 +282,11 @@ function qna_main() {
 	var project = $("#project").val();
 	var partner_id = $("#partner_id").val();
 	var admin_yn = $("#admin_yn").val();
+	var readonly_yn = $("#readonly_yn").val();
 	$('.menu-name').text('> ' + $('#qna').text());
 	if ($('#qna_main').length == 0) { 
 		hide_all();
-		$('.div-main').append('<iframe class="content" id="qna_main" frameBorder="0" src="/qna_main?user=' + user + '&project=' + project + '&partner_id=' + partner_id + '&admin_yn=' + admin_yn + '"></iframe>');
+		$('.div-main').append('<iframe class="content" id="qna_main" frameBorder="0" src="/qna_main?user=' + user + '&project=' + project + '&partner_id=' + partner_id + '&admin_yn=' + admin_yn + '&readonly_yn=' + readonly_yn + '"></iframe>');
 		add_open_menu('qna_main_open_menu', 'qna_main_open_menu_x_mark', 'qna_main', $('#qna').text());
 	} else {
 		hide_all();

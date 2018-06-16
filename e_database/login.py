@@ -34,12 +34,12 @@ def insert_enter_info(user_ip):
     update.commit(sql)
 
 def check_partner_id(partner_id):
-    sql = "SELECT PARTNER_ID FROM PARTNER_INFO WHERE PARTNER_ID = '" + partner_id + "'"
+    sql = "SELECT ADMIN_YN FROM PARTNER_INFO WHERE PARTNER_ID = '" + partner_id + "'"
     result = select.fetch(sql)
-    partner_id = None
+    admin_yn = None
     for r in result:
-        partner_id = r[0]
-    return partner_id
+        admin_yn = r[0]
+    return admin_yn
     
 def insert_request_for_partnership(email, objective):
     sql = "INSERT INTO REQUEST_PARTNERSHIP VALUES ('" + email + "', '" + objective + "')"

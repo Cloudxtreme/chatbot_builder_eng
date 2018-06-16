@@ -99,8 +99,18 @@ var mygrid1 = new Sigma.Grid(gridOption1);
 var mygrid2 = new Sigma.Grid(gridOption2);
 Sigma.Util.onLoad(Sigma.Grid.render(mygrid1));
 Sigma.Util.onLoad(Sigma.Grid.render(mygrid2));
+
+function readonly_alert() {
+	alert("readonly mode");
+}
+
 $(document).ready(function() {
+	var readonly = $('#readonly_yn').val();
 	$("#easy_manager_pop").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		easy_manager_pop();
 	});
 	$("#search_answer").click(function() {
@@ -110,24 +120,48 @@ $(document).ready(function() {
 		search_question();
 	});
 	$("#new_answer_pop").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		new_answer_pop();
 	});
 	$("#new_function_pop").click(function() {
 		new_function_pop();
 	});
 	$("#new_question_pop").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		new_question_pop();
 	});
 	$("#add_image_pop").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		add_image_pop();
 	});
 	$("#multiple_answer_pop").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		multiple_answer_pop();
 	});
 	$("#modify_answer_pop").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		modify_answer_pop();
 	});
 	$("#delete_answer").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		delete_answer();
 	});
 	$("#subject").keydown(function (key) {
@@ -136,15 +170,31 @@ $(document).ready(function() {
         }
     });
 	$("#delete_question").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		delete_question();
 	});
 	$("#update_question_voca_pop").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		update_question_voca_pop();
 	});
 	$("#submit_voca").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		submit_voca();
 	});
 	$("#update_question_voca").click(function() {
+		if (readonly == 'Y') {
+			readonly_alert();
+			return;
+		}
 		update_question_voca();
 	});
 	
@@ -158,7 +208,8 @@ function search_answer() {
 	var project = $("#project").val();
 	var partner_id = $("#partner_id").val();
 	var admin_yn = $("#admin_yn").val();
-	var input_data = {"gubun" : gubun, "subject" : subject, "user" : user, "project" : project, "partner_id" : partner_id, "admin_yn" : admin_yn};
+	var readonly_yn = $("#readonly_yn").val();
+	var input_data = {"gubun" : gubun, "subject" : subject, "user" : user, "project" : project, "partner_id" : partner_id, "admin_yn" : admin_yn, "readonly_yn" : readonly_yn};
 	
 	ajax('/search_answer', input_data, 'search_answer', 'POST');
 }

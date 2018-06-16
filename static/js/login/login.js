@@ -36,6 +36,7 @@ function login() {
 				var project = $('#project').val().toLowerCase();
 				var partner_id = $('#partner_id').val().toLowerCase();
 				var admin_yn = reply['admin_yn'];
+				var readonly_yn = reply['readonly_yn'];
 				var emno = reply['emno']; 
 				if ($('#run_chat').val() == 'Y') {
 					var w = RUN_CHAT_POPUP_WIDTH;
@@ -53,7 +54,7 @@ function login() {
 					var y = window.top.outerHeight / 2 + window.top.screenY - ( h / 2) - 50;
 					var x = window.top.outerWidth / 2 + window.top.screenX - ( w / 2);
 					var strWindowFeatures = 'location=no ,height='+h+',width='+w+',left='+x+',top='+y+',scrollbars=yes, menubar=no, status=no, toolbar=no, titlebar=no';
-					var pop = window.open('/frame?user=' + user + '&project=' + project + '&emno=' + emno + '&partner_id=' + partner_id + '&admin_yn=' + admin_yn, '_blank', strWindowFeatures);
+					var pop = window.open('/frame?user=' + user + '&project=' + project + '&emno=' + emno + '&partner_id=' + partner_id + '&admin_yn=' + admin_yn + '&readonly_yn=' + readonly_yn, '_blank', strWindowFeatures);
 					if (pop == null) {
 						return;
 					}

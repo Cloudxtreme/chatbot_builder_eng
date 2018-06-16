@@ -22,7 +22,8 @@ def search_answer(request):
     project = req_dict['project']
     partner_id = req_dict['partner_id']
     admin_yn = req_dict['admin_yn']
-    res = qna.search_answer(gubun, subject, user, project, partner_id, admin_yn)
+    readonly_yn = req_dict['readonly_yn']
+    res = qna.search_answer(gubun, subject, user, project, partner_id, admin_yn, readonly_yn)
     
     return jsonify(results = res)
 

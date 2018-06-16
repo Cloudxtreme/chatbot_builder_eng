@@ -17,12 +17,13 @@ def login_try(request):
         msg = 'Wrong ProjectName.'
         return {'msg' : msg, 'success' : 'N'}
     else:
-        admin_yn = 'N'        
+        admin_yn = 'N'
+        readonly_yn = 'N'        
         if partner_id == None or partner_id == '':
-            admin_yn = 'Y'
+            readonly_yn = 'Y'
         else:
-            res = db_login.check_partner_id(partner_id)
-            if res == None or res == '':
+            admin_yn = db_login.check_partner_id(partner_id)
+            if admin_yn == None or admin_yn == '':
                 msg = 'Wrong PartnerId.'
                 return {'msg' : msg, 'success' : 'N'}    
         emno = db_login.get_emno(request.remote_addr)
@@ -30,7 +31,7 @@ def login_try(request):
         if agent == None:
             agent = ''
         db_login.insert_login_list(request.remote_addr, "admin", agent)
-        return {'msg' : '', 'success' : 'Y', 'emno' : emno, 'partner_id' : partner_id, 'admin_yn' : admin_yn}
+        return {'msg' : '', 'success' : 'Y', 'emno' : emno, 'partner_id' : partner_id, 'admin_yn' : admin_yn, 'readonly_yn' : readonly_yn}
     
 def login(request):
     return render_template("login/login.html", logout = 'N', run_chat = 'N')
