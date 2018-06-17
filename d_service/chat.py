@@ -186,14 +186,11 @@ def reply(request):
                     function_yn = 'Y'
                 elif prefix == 'POP' or prefix == 'MODAL':
                     answer_num_arr = answer_num.split(";")
-                    if len(answer_num_arr) > 1:
-                        suffix = ''
-                        for i in range(len(answer_num_arr)):
-                            if i > 0:
-                                suffix += ";" 
-                            answer, _ = db_chat.get_answer_by_answer_num(user, project, answer_num_arr[i])                            
-                            suffix += answer.replace('\n', '').split(" ")[1]
-                    msg.append(linker.get_url(prefix, suffix))
+                    url = []
+                    for i in range(len(answer_num_arr)):
+                        answer, _ = db_chat.get_answer_by_answer_num(user, project, answer_num_arr[i])                            
+                        url.append(answer.replace('\n', '').split(" ")[1])
+                    msg.append(prefix + "===" + str(url))
             else:
                 tmp = ''
                 multiple_answer_num, multiple_answer = faq_manager.check_multiple_answer(answer_num, user, project)
@@ -218,6 +215,12 @@ def reply(request):
         res['cq' + str(i + 1)] = cq[i]
     
     return jsonify(res)
+
+def update_popup_click_count(request):
+    user, project = request.form['user'], request.form['project']
+    answer_num = request.form['answer_num']
+    db_chat.update_popup_click_count(user, project, answer_num)
+    return ''
 
 def reply_dynamic_popup(request):
     user, project = request.form['user'], request.form['project']

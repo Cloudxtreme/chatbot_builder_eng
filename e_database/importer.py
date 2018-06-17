@@ -21,6 +21,13 @@ def create_answer_builder_table(user, project):
     except:
         print("ANSWER_BUILDER table already exists")
 
+def create_answer_stat_table(user, project):
+    sql = "CREATE TABLE ANSWER_STAT_" + user + "_" + project + " (ANSWER_NUM VARCHAR(10), SHOW_CNT INT(7), CLICK_CNT INT(7))"
+    try:
+        update.commit(sql)
+    except:
+        print("ANSWER_STAT table already exists")
+
 def create_compression_tag_table(user, project):
     sql = "CREATE TABLE COMPRESSION_TAG_" + user + "_" + project + " (COMPRESSION_NUM INT(10), EXPRESSION VARCHAR(500), TAG_NAME VARCHAR(500))" 
     try:
@@ -167,6 +174,10 @@ def import_question_builder(user, project, arr):
     
 def import_answer_builder(user, project, arr):
     sql = "INSERT INTO ANSWER_BUILDER_" + user + "_" + project + " VALUES ('" + arr[0] + "', '" + arr[1] + "', '" + arr[2] + "', '" + arr[3] + "', " + arr[4] + ", '" + arr[5] + "', " + arr[6] + ", '" +  arr[7] + "', '" +  arr[8] + "', '" +  arr[9] + "')"
+    update.commit(sql)
+
+def import_answer_stat(user, project, arr):
+    sql = "INSERT INTO ANSWER_STAT_" + user + "_" + project + " VALUES ('" + arr[0] + "', '" + arr[1] + "', '" + arr[2] + "')"
     update.commit(sql)
 
 def import_compression_tag(user, project, arr):

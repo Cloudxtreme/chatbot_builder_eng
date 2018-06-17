@@ -24,6 +24,12 @@ def get_answer_builder(user, project):
     
     return result
 
+def get_answer_stat(user, project):
+    sql = "SELECT ANSWER_NUM, SHOW_CNT, CLICK_CNT FROM ANSWER_STAT_" + user + "_" + project
+    result = select.fetch(sql)
+    
+    return result
+
 def get_dialogue_list():
     sql = "SELECT DIALOGUE_NUM, DIALOGUE_TEXT, ARGUMENT_NM, FUNCTION_NM FROM DIALOGUE_LIST"
     result = select.fetch(sql)

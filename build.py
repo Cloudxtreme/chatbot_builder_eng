@@ -560,6 +560,10 @@ def request_new_answer():
 def recommend_request():
     return chat.recommend_request(request)
 
+@app.route('/update_popup_click_count', methods=['POST'])
+def update_popup_click_count():
+    return chat.update_popup_click_count(request)
+
 @app.route('/get_schedule', methods=['POST'])
 def get_schedule():
     return chat.get_schedule(request)

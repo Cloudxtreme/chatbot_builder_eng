@@ -406,13 +406,15 @@ function noRequestNewAnswer(msg_count) {
 	$('#' + msg_count).remove();
 }
 
-function open_popup(url) {
-	var w = CHAT_POPUP_WIDTH;
-	var h = CHAT_POPUP_HEIGHT;
-	var x = (screen.width - w) / 2;
-	var y = (screen.height - h) / 3;
-	window.open(url, '');
-	//, 'scrollbars=yes, resizable=yes, width=' + w + ', height=' + h + ', left=' + x + ', top=' + y
+function open_popup(url, answer_num) {
+	$.post('/update_popup_click_count', {
+		user : $('#user').val(),
+		project : $('#project').val(),
+		answer_num : answer_num
+	}).done(function(reply) {
+		window.open(url, '');
+	}).fail(function() {
+	});
 }
 
 function go_back() {
@@ -438,15 +440,16 @@ function interact(message){
 	    page = reply['page'];
 	    for (var i = 0; i < Number(reply['num']); ++i) {
 	    	var answer = reply['text' + (i + 1)];
-	    	var spl = answer.split("===")	    	
+	    	var spl = answer.split("===");	    	
 	    	if (spl[0] == 'MODAL' || spl[0] == 'POP') {
-	    		var url_list = spl[1].split(";");
+	    		url_list = eval(spl[1]);
 	    		if (url_list.length > 0) {
-			    	var html = '<a style="font-weight:700;font-size:0.9em;">choose one from below<br><br>';
-		    		for (var j = 0; j < url_list.length; ++j) {
+	    			var html = '<a style="font-weight:700;font-size:0.9em;">choose one from below<br><br>';
+	    			var answer_num_arr = reply['ans_num'].split(";")
+	    			for (var j = 0; j < url_list.length; ++j) {		    			
 		    			if (url_list[j] != null && url_list[j] != '') {
 			    			var site = url_list[j].split("==");
-				    		html += '<div class="reserve-question-div" onclick="open_popup(\'' + site[1] + '\')"><img class="check-mark" src="static/res/blue_check_mark.png" />&nbsp;&nbsp;<a class="reserve-question-message">' + site[0] + '</a></div><br>';		    		
+				    		html += '<div class="reserve-question-div" onclick="open_popup(\'' + site[1] + '\', \'' + answer_num_arr[j] + '\')"><img class="check-mark" src="static/res/blue_check_mark.png" />&nbsp;&nbsp;<a class="reserve-question-message">' + site[0] + '</a></div><br>';		    		
 		    			}
 			    	}
 		    		answer = html;
