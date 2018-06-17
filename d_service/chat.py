@@ -188,7 +188,8 @@ def reply(request):
                     answer_num_arr = answer_num.split(";")
                     url = []
                     for i in range(len(answer_num_arr)):
-                        answer, _ = db_chat.get_answer_by_answer_num(user, project, answer_num_arr[i])                            
+                        answer, _ = db_chat.get_answer_by_answer_num(user, project, answer_num_arr[i])
+                        db_chat.update_popup_show_count(user, project, answer_num_arr[i])                            
                         url.append(answer.replace('\n', '').split(" ")[1])
                     msg.append(prefix + "===" + str(url))
             else:

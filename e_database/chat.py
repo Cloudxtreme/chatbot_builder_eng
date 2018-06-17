@@ -259,6 +259,10 @@ def get_answer_by_answer_num(user, project, answer_num):
         
     return answer, mdfc_rgsn_date
 
+def update_popup_show_count(user, project, answer_num):
+    sql = "UPDATE ANSWER_STAT_" + user + "_" + project + " SET SHOW_CNT = SHOW_CNT + 1 WHERE ANSWER_NUM = '" + answer_num + "'"
+    update.commit(sql)
+
 def update_popup_click_count(user, project, answer_num):
     sql = "UPDATE ANSWER_STAT_" + user + "_" + project + " SET CLICK_CNT = CLICK_CNT + 1 WHERE ANSWER_NUM = '" + answer_num + "'"
     update.commit(sql)
