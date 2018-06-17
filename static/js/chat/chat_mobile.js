@@ -145,7 +145,7 @@ function go_back() {
 }
 
 function interact(message){
-	$('<div class="message loading new"><figure class="avatar"><img src="/static/res/ai_image2.png" /></figure><span></span></div>').appendTo($('.messages-content'));
+	$('<div class="message loading new"><figure class="avatar"><img src="/static/res/ai_image2.png" /></figure><span></span></div>').appendTo($('#left-board .mCSB_container'));
 	$.post('/message', {
 		user : $('#user').val(),
 		project : $('#project').val(),
@@ -163,14 +163,17 @@ function interact(message){
 	    page = reply['page'];
 	    for (var i = 0; i < Number(reply['num']); ++i) {
 	    	var answer = reply['text' + (i + 1)];
-	    	var spl = answer.split("===")	    	
+	    	var spl = answer.split("===");	    	
 	    	if (spl[0] == 'MODAL' || spl[0] == 'POP') {
-	    		var url_list = spl[1].split(";");
+	    		url_list = eval(spl[1]);
 	    		if (url_list.length > 0) {
-			    	var html = '<a style="font-weight:700;font-size:0.9em;">choose one from below<br><br>';
-		    		for (var j = 0; j < url_list.length; ++j) {
-			    		var site = url_list[j].split("==");
-			    		html += '<div class="reserve-question-div" onclick="open_popup(\'' + site[1] + '\')"><img class="check-mark" src="static/res/blue_check_mark.png" />&nbsp;&nbsp;<a class="reserve-question-message">' + site[0] + '</a></div><br>';		    		
+	    			var html = '<a style="font-weight:700;font-size:0.9em;">choose one from below<br><br>';
+	    			var answer_num_arr = reply['ans_num'].split(";")
+	    			for (var j = 0; j < url_list.length; ++j) {		    			
+		    			if (url_list[j] != null && url_list[j] != '') {
+			    			var site = url_list[j].split("==");
+				    		html += '<div class="reserve-question-div" onclick="open_popup(\'' + site[1] + '\', \'' + answer_num_arr[j] + '\')"><img class="check-mark" src="static/res/blue_check_mark.png" />&nbsp;&nbsp;<a class="reserve-question-message">' + site[0] + '</a></div><br>';		    		
+		    			}
 			    	}
 		    		answer = html;
 		    		reply_answer(answer);
@@ -194,11 +197,11 @@ function interact(message){
 	    image_path_list = eval(reply['image_path']);
 	    if (image_path_list != null && image_path_list != '') {
 		    for (var i = 0; i < image_path_list.length; ++i) {
-		    	$('<div class="message new"><img class="answer-image" src="' + image_path_list[i] + '" /><a href="' + image_path_list[i] + '" target="_blank");">이미지확대</a></div>').appendTo($('.messages-content')).addClass('new');
+		    	$('<div class="message new"><img class="answer-image" src="' + image_path_list[i] + '" /><a href="' + image_path_list[i] + '" target="_blank");">이미지확대</a></div>').appendTo($('#left-board .mCSB_container')).addClass('new');
 		    }
 	    }
 	    if (reply['right_yn'] != '') {
-	    	$('<div id=' + message_count + ' class="message new"><figure class="avatar"><img src="/static/res/ai_image2.png" /></figure>' + reply['right_yn'] + '</div>').appendTo($('.messages-content')).addClass('new');
+	    	$('<div id=' + message_count + ' class="message new"><figure class="avatar"><img src="/static/res/ai_image2.png" /></figure>' + reply['right_yn'] + '</div>').appendTo($('#left-board .mCSB_container')).addClass('new');
 	    }
 	    if (reply['right_yn'] != '' && Number(reply['num']) == 1) {
 	    	question.push(reply['qst']);
@@ -209,7 +212,7 @@ function interact(message){
 	    	setMySchedule();
 	    }
 	    setDate();
-	    update_scroll();
+	    updateScrollbar();
 	}).fail(function() {
 		$('.message.loading').remove();
 		reply_answer("Not trained question. please tell me other question.");
