@@ -34,24 +34,6 @@ def search_answer(gubun, subject, user, project, partner_id, admin_yn, readonly_
         res_dict['image_cnt'] = r[5]
         res_dict['rgsn_user'] = r[6]
     return res
-
-def search_chatbot_stat(subject, user, project, partner_id, admin_yn, readonly_yn):
-    sql = "SELECT A.ANSWER_NUM, B.ANSWER, A.SHOW_CNT, A.CLICK_CNT FROM ANSWER_STAT_" + user + "_" + project + " A, ANSWER_BUILDER_" + user + "_" + project + " B WHERE A.ANSWER_NUM = B.ANSWER_NUM"
-    if subject != '':
-        sql += " AND B.ANSWER LIKE '%" + subject + "%'"
-    if admin_yn == 'N' and readonly_yn == 'N':
-        sql += " AND B.PARTNER_ID = '" + partner_id + "'" 
-    result = select.fetch(sql)
-    res = []
-    for r in result:
-        res_dict = {}
-        res_dict['answer_num'] = r[0] 
-        res_dict['answer'] = r[1]
-        res_dict['show_cnt'] = r[2]
-        res_dict['click_cnt'] = r[3]
-        res.append(res_dict)
-        
-    return res
     
 def search_answer_by_answer_num(answer_num, user, project):
     category_select = "(SELECT CONCAT(BIG_CATEGORY,' > ',MIDDLE_CATEGORY,' > ',SMALL_CATEGORY_LV1,' > ',SMALL_CATEGORY_LV2,' > ',SMALL_CATEGORY_LV3) FROM CATEGORY_LIST WHERE CATEGORY_NUM = X.CATEGORY_NUM) AS CATEGORY_NM"

@@ -4,6 +4,7 @@ from b_trainer.file import training_file_manager
 from a_builder.util import util
 from e_database import question_and_answer as db_qna
 from e_database import chat as db_chat
+from e_database import stat as db_stat
 from e_database import enc_and_dec
 from flask import Flask, render_template, request
 from flask import jsonify
@@ -189,7 +190,7 @@ def reply(request):
                     url = []
                     for i in range(len(answer_num_arr)):
                         answer, _ = db_chat.get_answer_by_answer_num(user, project, answer_num_arr[i])
-                        db_chat.update_popup_show_count(user, project, answer_num_arr[i])                            
+                        db_stat.update_popup_show_count(user, project, answer_num_arr[i])                            
                         url.append(answer.replace('\n', '').split(" ")[1])
                     msg.append(prefix + "===" + str(url))
             else:
@@ -220,7 +221,7 @@ def reply(request):
 def update_popup_click_count(request):
     user, project = request.form['user'], request.form['project']
     answer_num = request.form['answer_num']
-    db_chat.update_popup_click_count(user, project, answer_num)
+    db_stat.update_popup_click_count(user, project, answer_num)
     return ''
 
 def reply_dynamic_popup(request):

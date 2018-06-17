@@ -2,6 +2,7 @@ from e_database import question_and_answer as qna
 from e_database import compression_tag as db_compression_tag
 from e_database import multiple_answer as db_multiple_answer
 from e_database import tag as db_tag
+from e_database import stat as db_stat
 from e_database import voca as db_voca
 from e_database import synonym as db_synonym
 from e_database import category as db_category
@@ -36,7 +37,7 @@ def search_chatbot_stat(request):
     admin_yn = req_dict['admin_yn']
     readonly_yn = req_dict['readonly_yn']
     print(partner_id, admin_yn, readonly_yn)
-    res = qna.search_chatbot_stat(subject, user, project, partner_id, admin_yn, readonly_yn)
+    res = db_stat.search_chatbot_stat(subject, user, project, partner_id, admin_yn, readonly_yn)
     
     return jsonify(results = res)
 

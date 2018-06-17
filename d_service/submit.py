@@ -2,6 +2,7 @@ from e_database import question_and_answer as qna
 from e_database import compression_tag as db_compression_tag
 from e_database import multiple_answer as db_multiple_answer
 from e_database import tag as db_tag
+from e_database import stat as db_stat
 from e_database import voca as db_voca
 from e_database import synonym as db_synonym
 from e_database import category as db_category
@@ -33,6 +34,7 @@ def submit_answer(request):
         num = builder_util.alphabet_to_num(max_answer_num)
     answer_num = builder_util.num_to_alphabet(num + 1)
     qna.insert_answer(answer_num, answer, question, category_num, user_ip, rq_num, user, project, partner_id)
+    db_stat.insert_chatbot_stat(answer_num, user, project)
     qna.insert_question(answer_num, question, question_tag, user, project)
     
     return jsonify('')

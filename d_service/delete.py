@@ -1,5 +1,6 @@
 from e_database import question_and_answer as qna
 from e_database import compression_tag as db_compression_tag
+from e_database import stat as db_stat
 from e_database import voca as db_voca
 from e_database import synonym as db_synonym
 from e_database import category as db_category
@@ -12,6 +13,7 @@ def delete_answer(request):
     project = req_dict['project']
     answer_num = req_dict['answer_num']
     qna.delete_answer(answer_num, user, project)
+    db_stat.delete_chatbot_stat(answer_num, user, project)
     
     return jsonify('')
 
