@@ -448,11 +448,11 @@ def compression_tag_main():
 @app.route("/")
 def login():
     session['k'] = 'v'
-    return login_service.login_chat(request)
-
-@app.route("/admin")
-def admin():
     return login_service.login(request)
+
+@app.route("/chat")
+def chat():
+    return login_service.login_chat(request)
 
 @app.route("/login_success")
 def login_success():
