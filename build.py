@@ -451,7 +451,7 @@ def login():
     return login_service.login(request)
 
 @app.route("/chat")
-def chat():
+def login_chat():
     return login_service.login_chat(request)
 
 @app.route("/login_success")
