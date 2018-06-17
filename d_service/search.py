@@ -35,6 +35,7 @@ def search_chatbot_stat(request):
     partner_id = req_dict['partner_id']
     admin_yn = req_dict['admin_yn']
     readonly_yn = req_dict['readonly_yn']
+    print(partner_id, admin_yn, readonly_yn)
     res = qna.search_chatbot_stat(subject, user, project, partner_id, admin_yn, readonly_yn)
     
     return jsonify(results = res)

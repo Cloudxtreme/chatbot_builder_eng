@@ -497,7 +497,7 @@ function chatbot_stat_main() {
 	$('.menu-name').text('> ' + $('#chatbot_stat').text());
 	if ($('#chatbot_stat_main').length == 0) {
 		hide_all();
-		$('.div-main').append('<iframe class="content" id="chatbot_stat_main" frameBorder="0" src="/chatbot_stat_main?user=' + user + '&project=' + project + '&partner_id=' + partner_id + '&admin_yn =' + admin_yn + '&readonly_yn=' + readonly_yn + '"></iframe>');
+		$('.div-main').append('<iframe class="content" id="chatbot_stat_main" frameBorder="0" src="/chatbot_stat_main?user=' + user + '&project=' + project + '&partner_id=' + partner_id + '&admin_yn=' + admin_yn + '&readonly_yn=' + readonly_yn + '"></iframe>');
 		add_open_menu('chatbot_stat_main_open_menu', 'chatbot_stat_main_open_menu_x_mark', 'chatbot_stat_main', $('#chatbot_stat').text());
 	} else {
 		hide_all();
