@@ -164,11 +164,13 @@ def reply(request):
         if is_fixed == False:
             _, answer_num = run.run_chatbot(enc_vocab, rev_dec_vocab, replacedMsg, collect_q, language)
             if answer_num == '':
-                _, answer_num = run.run_chatbot(enc_vocab, rev_dec_vocab, replacedMsg + ' ', collect_q, language)
+                _, answer_num = run.run_chatbot(enc_vocab, rev_dec_vocab, replacedMsg + ' ', collect_q, language)            
             if len(answer_num.split(";")) > 1:
-                answer = ''
-                message = faq_manager.get_reserve_question_list(question, answer_num, answer_num_and_rpsn_question)
-                msg.append(message)
+                answer, _ = db_chat.get_answer_by_answer_num(user, project, answer_num.split(";")[0])
+                if answer[:1] != '$':
+                    answer = ''
+                    message = faq_manager.get_reserve_question_list(question, answer_num, answer_num_and_rpsn_question)
+                    msg.append(message)
             else:
                 answer, mdfc_rgsn_date = db_chat.get_answer_by_answer_num(user, project, answer_num)
         else:
@@ -183,6 +185,14 @@ def reply(request):
                     msg, tmp, function_nm, param_holder = function_adapter.get_message_by_function(param, message_count, 'N')
                     function_yn = 'Y'
                 elif prefix == 'POP' or prefix == 'MODAL':
+                    answer_num_arr = answer_num.split(";")
+                    if len(answer_num_arr) > 1:
+                        suffix = ''
+                        for i in range(len(answer_num_arr)):
+                            if i > 0:
+                                suffix += ";" 
+                            answer, _ = db_chat.get_answer_by_answer_num(user, project, answer_num_arr[i])                            
+                            suffix += answer.replace('\n', '').split(" ")[1]
                     msg.append(linker.get_url(prefix, suffix))
             else:
                 tmp = ''

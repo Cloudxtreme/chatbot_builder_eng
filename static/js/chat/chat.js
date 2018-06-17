@@ -444,8 +444,10 @@ function interact(message){
 	    		if (url_list.length > 0) {
 			    	var html = '<a style="font-weight:700;font-size:0.9em;">choose one from below<br><br>';
 		    		for (var j = 0; j < url_list.length; ++j) {
-			    		var site = url_list[j].split("==");
-			    		html += '<div class="reserve-question-div" onclick="open_popup(\'' + site[1] + '\')"><img class="check-mark" src="static/res/blue_check_mark.png" />&nbsp;&nbsp;<a class="reserve-question-message">' + site[0] + '</a></div><br>';		    		
+		    			if (url_list[j] != null && url_list[j] != '') {
+			    			var site = url_list[j].split("==");
+				    		html += '<div class="reserve-question-div" onclick="open_popup(\'' + site[1] + '\')"><img class="check-mark" src="static/res/blue_check_mark.png" />&nbsp;&nbsp;<a class="reserve-question-message">' + site[0] + '</a></div><br>';		    		
+		    			}
 			    	}
 		    		answer = html;
 		    		reply_answer(answer);

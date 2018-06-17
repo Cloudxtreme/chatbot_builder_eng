@@ -117,12 +117,33 @@ def prepare_custom_data(user, project, enc_vocabulary_size, dec_vocabulary_size,
 
     return train_enc_ids, train_dec_ids
 
-def convert_and_replace(user, project):
+def convert_and_replace(user, project):    
     question_and_answer_num = exporter.get_question_and_answer_num(user, project)
+    question_and_answer_num = merge_overlap(question_and_answer_num)
     fragment_and_answer_num = exporter.get_fragment_and_answer_num(user, project)
     answer_dict = exporter.get_answer_and_answer_num(user, project)
     
     connect_file.send_training_data(user, project, str(answer_dict), str(question_and_answer_num), str(fragment_and_answer_num))
+
+def merge_overlap(question_and_answer_num):
+    answer_num_and_question_dict = {}
+    for qna in question_and_answer_num:
+        if answer_num_and_question_dict.get(qna[0], '') != '':
+            answer_num_arr = answer_num_and_question_dict[qna[0]].split(";")
+            ok = True
+            for answer_num in answer_num_arr:
+                if answer_num == qna[1]:
+                    ok = False
+                    break
+            if ok: 
+                answer_num_and_question_dict[qna[0]] += ";" + qna[1]
+        else:
+            answer_num_and_question_dict[qna[0]] = qna[1]
+    res = []
+    for key, value in answer_num_and_question_dict.items():
+        res.append([key, value])
+    
+    return res
 
 def compression_tag_prepare_custom_data(user, project, enc_vocabulary_size, dec_vocabulary_size, language):
     res = connect_file.get_compression_tag_training_data(user, project)
