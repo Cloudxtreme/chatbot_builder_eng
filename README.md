@@ -4,8 +4,6 @@ English Chatbot Building Platform
 <br>
 http://kantchat.com
 <br>
-http://kantchat.com/admin
-<br>
 <br>
 ```
 python build.py
