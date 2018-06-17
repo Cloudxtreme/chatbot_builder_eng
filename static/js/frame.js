@@ -2,7 +2,7 @@ $(document).ready(function() {
 	if ($('#admin_yn').val() == 'N' && $('#readonly_yn').val() == 'N') {
 		var padding_size = '40px'
 		$('#my_page').css('padding-left', padding_size).css('padding-right', padding_size);
-		$('#qna').css('padding-left', padding_size).css('padding-right', padding_size);
+		$('#qna').css('padding-left', padding_size).css('padding-right', padding_size);		
 		$('#bucket_manager').css('padding-left', padding_size).css('padding-right', padding_size)
 		$('#compression_tag').hide();
 		$('#notice_manager').hide();
@@ -10,6 +10,7 @@ $(document).ready(function() {
 		$('#voca_synonym').hide();
 		$('#category_manager').hide();
 		$('#error_detection').hide();
+		$('#chatbot_stat').css('padding-left', padding_size).css('padding-right', padding_size);
 		$('#chatbot_config').hide();
 	}
 	$("#voca_synonym").mouseover(function() {
@@ -71,6 +72,10 @@ $(document).ready(function() {
 	$("#error_statistics").click(function() {
 		if ($('#error_statistics_main_open_menu').text() == '' && !check_can_open_menu()) return;
 		error_statistics_main();
+	});
+	$("#chatbot_stat").click(function() {
+		if ($('#chatbot_stat_main_open_menu').text() == '' && !check_can_open_menu()) return;
+		chatbot_stat_main();
 	});
 	$("#chatbot_config").click(function() {
 		if ($('#chatbot_config_main_open_menu').text() == '' && !check_can_open_menu()) return;
@@ -481,6 +486,26 @@ function error_statistics_main() {
 	$('.info-bar').find('.open-menu-active').first().attr('class', 'open-menu');
 	$("#error_statistics_main_open_menu").attr('class', 'open-menu-active');
 	$("#data_collection").attr('class', 'active');
+}
+
+function chatbot_stat_main() {
+	var user = $("#user").val();
+	var project = $("#project").val();
+	var partner_id = $("#partner_id").val();
+	var admin_yn = $("#admin_yn").val();
+	var readonly_yn = $("#readonly_yn").val();
+	$('.menu-name').text('> ' + $('#chatbot_stat').text());
+	if ($('#chatbot_stat_main').length == 0) {
+		hide_all();
+		$('.div-main').append('<iframe class="content" id="chatbot_stat_main" frameBorder="0" src="/chatbot_stat_main?user=' + user + '&project=' + project + '&partner_id=' + partner_id + '&admin_yn =' + admin_yn + '&readonly_yn=' + readonly_yn + '"></iframe>');
+		add_open_menu('chatbot_stat_main_open_menu', 'chatbot_stat_main_open_menu_x_mark', 'chatbot_stat_main', $('#chatbot_stat').text());
+	} else {
+		hide_all();
+		$("#chatbot_stat_main").show();
+	}
+	$('.info-bar').find('.open-menu-active').first().attr('class', 'open-menu');
+	$("#chatbot_stat_main_open_menu").attr('class', 'open-menu-active');
+	$("#chatbot_stat").attr('class', 'active');
 }
 
 function chatbot_config_main() {

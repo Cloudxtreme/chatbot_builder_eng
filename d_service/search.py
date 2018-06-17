@@ -27,6 +27,18 @@ def search_answer(request):
     
     return jsonify(results = res)
 
+def search_chatbot_stat(request):
+    req_dict = eval(request.data.decode('utf8'))
+    subject = req_dict['subject']
+    user = req_dict['user']    
+    project = req_dict['project']
+    partner_id = req_dict['partner_id']
+    admin_yn = req_dict['admin_yn']
+    readonly_yn = req_dict['readonly_yn']
+    res = qna.search_chatbot_stat(subject, user, project, partner_id, admin_yn, readonly_yn)
+    
+    return jsonify(results = res)
+
 def search_answer_by_answer_num(request):
     req_dict = eval(request.data.decode('utf8'))
     answer_num = req_dict['answer_num']

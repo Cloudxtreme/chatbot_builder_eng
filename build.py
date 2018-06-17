@@ -50,6 +50,10 @@ def after_request(response):
 def search_answer():
     return search.search_answer(request)
 
+@app.route('/search_chatbot_stat', methods=['POST'])
+def search_chatbot_stat():
+    return search.search_chatbot_stat(request)
+
 @app.route('/search_answer_by_answer_num', methods=['POST'])
 def search_answer_by_answer_num():
     return search.search_answer_by_answer_num(request)
@@ -301,6 +305,10 @@ def question_generator_main():
 @app.route("/new_request_main", methods=['GET'])
 def new_request_main(): 
     return main.new_request_main(request)
+
+@app.route("/chatbot_stat_main", methods=['GET'])
+def chatbot_stat_main(): 
+    return main.chatbot_stat_main(request)
 
 @app.route("/chatbot_config_main", methods=['GET'])
 def chatbot_config_main(): 

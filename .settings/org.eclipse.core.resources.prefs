@@ -6,6 +6,7 @@ encoding//templates/login/no_session.html=UTF-8
 encoding//templates/main/bucket_manager_main.html=UTF-8
 encoding//templates/main/category_manager_main.html=UTF-8
 encoding//templates/main/chatbot_config_main.html=UTF-8
+encoding//templates/main/chatbot_stat_main.html=UTF-8
 encoding//templates/main/compression_tag_main.html=UTF-8
 encoding//templates/main/error_detection_main.html=UTF-8
 encoding//templates/main/error_statistics_main.html=UTF-8
