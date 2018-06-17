@@ -505,9 +505,13 @@ function call_excel(output_file) {
 	window.open(file, null);
 }
 
+/**
 setInterval(function() {
-	get_schedule()
+	get_schedule();
 }, 60000);
+
+get_schedule();
+**/
 
 function lpad(s, len, padding) {
 	while (s.length < len) {
@@ -532,8 +536,6 @@ function get_schedule() {
 	}).fail(function() {
 	});
 }
-
-get_schedule();
 
 function change_background() {
 	var bg = $(".bg").css("background-image");
