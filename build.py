@@ -452,6 +452,7 @@ def login():
 
 @app.route("/chat")
 def login_chat():
+    session['k'] = 'v'
     return login_service.login_chat(request)
 
 @app.route("/login_success")

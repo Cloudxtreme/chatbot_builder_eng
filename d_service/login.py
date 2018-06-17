@@ -34,6 +34,13 @@ def login_try(request):
         return {'msg' : '', 'success' : 'Y', 'emno' : emno, 'partner_id' : partner_id, 'admin_yn' : admin_yn, 'readonly_yn' : readonly_yn}
     
 def login(request):
+    agent = request.headers.get('User-Agent')
+    phones = ["iphone", "android", "blackberry"]
+    if agent != None:
+        for p in phones:
+            if p in agent.lower():
+                db_login.insert_login_list(request.remote_addr, "chat", agent)
+                return chat.chat_mobile('kant1724', 'bot')
     return render_template("login/login.html", logout = 'N', run_chat = 'N')
 
 def login_chat(request):
