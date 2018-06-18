@@ -72,11 +72,13 @@ function interact(message){
 		project : $('#project').val(),
 		msg: message
 	}).done(function(reply) {
-	    reply_answer(reply['answer']);
-	    setDate();
-	    updateScrollbar();
+		var text = reply['answer'];
+		if (text != '') {
+			$('#message2 .mCSB_container').empty();
+		}
+		var html = '<div class="message new"><figure class="avatar"><img src="/static/res/ai_image2.png" /></figure>' + text + '</div>';
+		$(html).appendTo($('#message2 .mCSB_container')).addClass('new');
 	}).fail(function() {
-		reply_answer("Not trained question. please tell me other question.");
 	});
 }
 
@@ -112,7 +114,7 @@ function onMessage(evt) {
 	var data = eval(evt.data);
 	var message = data[0];
 	text = message + '<br><br><a href="#" onclick="interact(\'' + message + '\')">ask to kant</a>'
-	$('<div class="message new"><figure class="avatar"><img src="/static/res/ai_image2.png" /></figure>' + text + '</div>').appendTo($('#left-board .mCSB_container')).addClass('new');
+	$('<div class="message new"><figure class="avatar"><img src="/static/res/person.png" /></figure>' + text + '</div>').appendTo($('#left-board .mCSB_container')).addClass('new');
 	updateScrollbar();
 }
 

@@ -257,7 +257,7 @@ def reply_group_chat(request):
     if len(answer_num.split(";")) > 1:
         answer = 'more than one answer!'
     else:
-        answer = db_chat.get_answer_by_answer_num(user, project, answer_num)
+        answer, _ = db_chat.get_answer_by_answer_num(user, project, answer_num)
     res = {'answer' : answer}
     
     return jsonify(res)
