@@ -66,17 +66,13 @@ function setMessageInput(text) {
 	$('.message-input').val(text);
 }
 
-function reply_group_chat(message){
-	$.post('/message', {
+function interact(message){
+	$.post('/message_group_chat', {
 		user : $('#user').val(),
 		project : $('#project').val(),
 		msg: message
 	}).done(function(reply) {
-	    $('.message.loading').remove();
-	    for (var i = 0; i < Number(reply['num']); ++i) {
-	    	var answer = reply['text' + (i + 1)];
-	    	reply_answer(answer);
-	    }
+	    reply_answer(reply['answer']);
 	    setDate();
 	    updateScrollbar();
 	}).fail(function() {
