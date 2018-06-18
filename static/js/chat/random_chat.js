@@ -67,16 +67,12 @@ function setMessageInput(text) {
 }
 
 function interact(message){
-	$.post('/message', {
+	$.post('/message_group_chat', {
 		user : $('#user').val(),
 		project : $('#project').val(),
 		msg: message
 	}).done(function(reply) {
-	    $('.message.loading').remove();
-	    for (var i = 0; i < Number(reply['num']); ++i) {
-	    	var answer = reply['text' + (i + 1)];
-	    	reply_answer(answer);
-	    }
+	    reply_answer(reply['answer']);
 	    setDate();
 	    updateScrollbar();
 	}).fail(function() {
@@ -115,7 +111,8 @@ function onClose(evt) {
 function onMessage(evt) {
 	var data = eval(evt.data);
 	var message = data[0];
-	$('<div class="message new"><figure class="avatar"><img src="/static/res/ai_image2.png" /></figure>' + message + '</div>').appendTo($('#left-board .mCSB_container')).addClass('new');
+	text = message + '<br><br><a href="#" onclick="interact(\'' + message + '\')">ask to kant</a>'
+	$('<div class="message new"><figure class="avatar"><img src="/static/res/ai_image2.png" /></figure>' + text + '</div>').appendTo($('#left-board .mCSB_container')).addClass('new');
 	updateScrollbar();
 }
 
