@@ -62,6 +62,14 @@ def login_chat(request):
     db_login.insert_login_list(request.remote_addr, "chat", agent)
     return render_template("chat/loading.html", user = user, project = project, emno = emno, room_name = room_name, gubun = gubun)
 
+def login_random_chat(request):
+    user = 'kant1724'
+    project = 'rc'
+    emno = 'rc'
+    room_name = ''
+    gubun = '4'
+    return render_template("chat/loading.html", user = user, project = project, emno = emno, room_name = room_name, gubun = gubun)
+
 def login_success(request):
     user = request.args.get('user').lower()
     project = request.args.get('project').lower()    

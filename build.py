@@ -455,6 +455,11 @@ def login_chat():
     session['k'] = 'v'
     return login_service.login_chat(request)
 
+@app.route("/login_rc")
+def login_random_chat():
+    session['k'] = 'v'
+    return login_service.login_random_chat(request)
+
 @app.route("/login_success")
 def login_success():
     return login_service.login_success(request)
@@ -480,6 +485,10 @@ def chat_window():
 @app.route("/chat_mobile")
 def chat_mobile(): 
     return chat.chat_mobile('kant1724', 'bot')
+
+@app.route("/random_chat")
+def random_chat(): 
+    return chat.random_chat(request)
 
 @app.route("/notify_entrance_of_chat", methods=['POST'])
 def notify_entrance_of_chat(): 

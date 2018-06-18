@@ -61,7 +61,12 @@ def chat_mobile(user, project):
             notice_list.append(r['notice_content'])
     
     return render_template("chat/chat_mobile.html", user = user, project = project, notice_list = str(notice_list))
-    
+
+def random_chat(request):
+    user = request.args.get('user')
+    project = request.args.get('project')
+    return render_template("chat/random_chat.html", user = user, project = project)
+
 def group_chat(request):
     user = request.args.get('user')
     project = request.args.get('project')

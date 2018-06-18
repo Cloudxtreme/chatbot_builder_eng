@@ -45,6 +45,8 @@ function is_chatbot_ready_callback(reply) {
 			$(location).attr('href', '/group_chat?user=' + user + "&project=" + project + "&emno=" + emno + "&room_name=" + room_name);
 		} else if (gubun == "3") {
 			$(location).attr('href', '/action_principle?user=' + user + "&project=" + project);
+		} else if (gubun == "4") {
+			$(location).attr('href', '/random_chat?user=' + user + "&project=" + project);
 		}
 	}
 }
