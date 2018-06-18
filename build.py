@@ -456,7 +456,7 @@ def login_chat():
     return login_service.login_chat(request)
 
 @app.route("/login_rc")
-def login_random_chat():
+def login_rc():
     session['k'] = 'v'
     return login_service.login_random_chat(request)
 
