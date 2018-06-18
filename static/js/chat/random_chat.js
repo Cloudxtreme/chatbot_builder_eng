@@ -66,7 +66,7 @@ function setMessageInput(text) {
 	$('.message-input').val(text);
 }
 
-function interact(message){
+function reply_group_chat(message){
 	$.post('/message', {
 		user : $('#user').val(),
 		project : $('#project').val(),
@@ -115,7 +115,8 @@ function onClose(evt) {
 function onMessage(evt) {
 	var data = eval(evt.data);
 	var message = data[0];
-	$('<div class="message new"><figure class="avatar"><img src="/static/res/ai_image2.png" /></figure>' + message + '</div>').appendTo($('#left-board .mCSB_container')).addClass('new');
+	text = message + '<br><br><a href="#" onclick="interact(\'' + message + '\')">ask to kant</a>'
+	$('<div class="message new"><figure class="avatar"><img src="/static/res/ai_image2.png" /></figure>' + text + '</div>').appendTo($('#left-board .mCSB_container')).addClass('new');
 	updateScrollbar();
 }
 
