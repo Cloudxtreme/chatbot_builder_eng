@@ -25,4 +25,4 @@ it needs to interface with chatbot_tf, chatbot_file, chatbot_external_adapter, g
 
 3. chatbot_extenal_adapter : when the chatbot needs to interface with other systems, it can do it by using external adapter.
 
-4. group_chat : multi-to-one (multi people to one A.I) conversion can be done by entering the group chat server.
+4. group_chat : multi-to-one (multi people to one A.I) conversation can be done by entering the group chat server.
