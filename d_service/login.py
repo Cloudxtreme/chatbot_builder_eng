@@ -65,9 +65,6 @@ def login_chat(request):
 def login_random_chat(request):
     user = 'kant1724'
     project = 'rc'
-    emno = 'rc'
-    room_name = ''
-    gubun = '4'
     agent = request.headers.get('User-Agent')
     phones = ["iphone", "android", "blackberry"]
     if agent != None:
@@ -75,7 +72,7 @@ def login_random_chat(request):
             if p in agent.lower():
                 db_login.insert_login_list(request.remote_addr, "chat", agent)
                 return chat.random_chat_mobile(user, project)
-    return render_template("chat/searching.html", user = user, project = project, emno = emno, room_name = room_name, gubun = gubun)
+    return chat.random_chat(user, project)
 
 def login_success(request):
     user = request.args.get('user').lower()
