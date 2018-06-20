@@ -65,7 +65,7 @@ function interact(message){
 	}).done(function(reply) {
 		var text = reply['answer'];
 		if (text != '') {
-			$('#message2 .mCSB_container').empty();
+			$('#.message-input').empty();
 		}
 		var html = '<div class="message new"><figure class="avatar"><img src="/static/res/ai_image2.png" /></figure>' + text + '</div>';
 		$(html).appendTo($('.messages-content')).addClass('new');
