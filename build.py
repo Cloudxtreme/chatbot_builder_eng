@@ -27,7 +27,7 @@ CORS(app)
 
 generator_thread = []
 updater_thread = []
-no_check_session = ['login', 'request_for_partnership', 'login_chat', 'login_try', 'static', 'admin', 'chat_mobile', 'login_rc']
+no_check_session = ['login', 'request_for_partnership', 'login_chat', 'login_try', 'static', 'admin', 'chat_mobile', 'random_chat_mobile', 'login_rc']
 
 @app.before_request
 def before_request():
@@ -485,6 +485,10 @@ def chat_window():
 @app.route("/chat_mobile")
 def chat_mobile(): 
     return chat.chat_mobile('kant1724', 'bot')
+
+@app.route("/random_chat_mobile")
+def random_chat_mobile(): 
+    return chat.random_chat_mobile('kant1724', 'rc')
 
 @app.route("/random_chat")
 def random_chat(): 
