@@ -8,6 +8,7 @@ with open('./server_ip', encoding="utf8") as f:
     DB_HOST_IP = lines[5].split("=")[1].replace('\n', '')
     GROUP_CHAT_IP = lines[6].split("=")[1].replace('\n', '')
     EXTERNAL_ADAPTER_IP = lines[7].split("=")[1].replace('\n', '')
+    RANDOM_CHAT_IP = lines[8].split("=")[1].replace('\n', '')
     
 IMAGE_FILE_ROOT_PATH = '/static/data/images/user/' 
     
@@ -37,3 +38,6 @@ def get_group_chat_ip():
 
 def get_image_file_root_path():
     return IMAGE_FILE_ROOT_PATH
+
+def get_random_chat_ip():
+    return RANDOM_CHAT_IP

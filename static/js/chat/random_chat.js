@@ -95,7 +95,7 @@ function send(message) {
 }
 
 function connect() {
-	websocket = new WebSocket("ws://" + $('#group_chat_ip').val());
+	websocket = new WebSocket("ws://" + $('#random_chat_ip').val());
 	websocket.onopen = function(evt) { onOpen(evt) };
 	websocket.onclose = function(evt) { onClose(evt) };
 	websocket.onmessage = function(evt) { onMessage(evt) };
