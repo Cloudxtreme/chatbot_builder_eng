@@ -30,7 +30,7 @@ function insertMessage() {
 	if ($.trim(msg) == '') {
 		return false;
 	}
-	$('<div class="message message-personal">' + msg + '</div>').appendTo($('#left-board .mCSB_container')).addClass('new');
+	$('<div class="message message-personal">' + msg + '</div>').appendTo($('.messages-content')).addClass('new');
 	setDate();
 	$('.message-input').val(null);
 	update_scroll();
@@ -43,7 +43,7 @@ $('.message-submit').click(function() {
 });
 
 function reply_answer(text) {
-	$('<div class="message new"><figure class="avatar"><img src="/static/res/ai_image2.png" /></figure>' + text + '</div>').appendTo($('#left-board .mCSB_container')).addClass('new');
+	$('<div class="message new"><figure class="avatar"><img src="/static/res/ai_image2.png" /></figure>' + text + '</div>').appendTo($('.messages-content')).addClass('new');
 }
 
 $(window).on('keydown', function(e) {
@@ -68,7 +68,7 @@ function interact(message){
 			$('#message2 .mCSB_container').empty();
 		}
 		var html = '<div class="message new"><figure class="avatar"><img src="/static/res/ai_image2.png" /></figure>' + text + '</div>';
-		$(html).appendTo($('#message2 .mCSB_container')).addClass('new');
+		$(html).appendTo($('.messages-content')).addClass('new');
 	}).fail(function() {
 	});
 }
@@ -104,7 +104,7 @@ function onClose(evt) {
 function onMessage(evt) {
 	var data = eval(evt.data);
 	var text = data[0];
-	$('<div class="message new"><figure class="avatar"><img src="/static/res/person.png" /></figure>' + text + '</div>').appendTo($('#left-board .mCSB_container')).addClass('new');
+	$('<div class="message new"><figure class="avatar"><img src="/static/res/person.png" /></figure>' + text + '</div>').appendTo($('.messages-content')).addClass('new');
 	update_scroll();
 }
 
