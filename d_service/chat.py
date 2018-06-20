@@ -72,6 +72,10 @@ def random_chat(request):
     random_chat_ip = properties.get_random_chat_ip()
     return render_template("chat/random_chat.html", user = user, project = project, group_chat_ip = random_chat_ip)
 
+def random_chat_mobile(user, project):
+    random_chat_ip = properties.get_random_chat_ip()
+    return render_template("chat/random_chat_mobile.html", user = user, project = project, group_chat_ip = random_chat_ip)
+
 def group_chat(request):
     user = request.args.get('user')
     project = request.args.get('project')

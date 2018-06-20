@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		<meta charset="UTF-8">
+		<title>Kant</title>
+		<link rel="stylesheet" href="/static/css/normalize.css">
+		<link rel="stylesheet" href="/static/css/icon.css">
+		<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+		<link rel='stylesheet prefetch' href='/static/lib/jquery/jquery.mCustomScrollbar.min.css'>
+		<link rel="stylesheet" href="static/css/chat/random_chat.css">
+		<link rel="stylesheet" href="/static/lib/jquery/jquery.modal.min.css">
+		<link rel="stylesheet" href="/static/lib/jquery_ui/jquery-ui.min.css">		
+		<script src="/static/lib/jquery/jquery-latest.js"></script>		
+	</head>
+<div class="chat">
+	<div class="chat-title">
+	</div>
+	<div id="left-board" class="messages">
+		<div id="scroll-down" class="messages-content"></div>
+	</div>
+	<div class="message-box">
+		<textarea class="message-input" placeholder="Type message..."></textarea>
+		<button type="submit" class="message-submit">Send</button>
+	</div>
+</div>
+<!-- 
+<div id="message2" class="reserve-list">
+	<div class="chat-title">
+		<h1>Kant</h1>		
+		<h2>A.I Chatbot</h2>
+		<figure class="avatar">
+			<img src="static/res/ai_image.jpg" />
+		</figure>
+	</div>
+	<div id="right-board" class="messages">
+		<div id="scroll-top" class="messages-content"></div>
+	</div>
+</div>  -->
+<div class="bg"></div>
+<input id="user" type="hidden" value="{{ user }}">
+<input id="project" type="hidden" value="{{ project }}">
+<input id="random_chat_ip" type="hidden" value="{{ group_chat_ip }}">
+<input id="url" type="hidden">
+<script src='/static/lib/jquery/jquery.min.js'></script>
+<script src='/static/lib/jquery_ui/jquery-ui.min.js'></script>
+<script src='/static/lib/jquery/jquery.mCustomScrollbar.concat.min.js'></script>
+<script src='/static/js/popup/popup_size.js'></script>
+<script src="/static/js/chat/random_chat.js"></script>
+<script src='/static/lib/jquery/jquery.modal.min.js'></script>
+</body>
+</html>
