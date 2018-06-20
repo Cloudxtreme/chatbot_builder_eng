@@ -17,12 +17,6 @@ function notify_entrance_of_chat() {
 
 function updateScrollbar() {
 	$('#scroll-down').mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
-	    scrollInertia: 1,
-	    timeout: 0
-	});
-	$('#scroll-top').mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'top', {
-	    scrollInertia: 1,
-	    timeout: 0
 	});
 }
 
