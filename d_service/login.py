@@ -68,7 +68,7 @@ def login_random_chat(request):
     emno = 'rc'
     room_name = ''
     gubun = '4'
-    return render_template("chat/loading.html", user = user, project = project, emno = emno, room_name = room_name, gubun = gubun)
+    return render_template("chat/searching.html", user = user, project = project, emno = emno, room_name = room_name, gubun = gubun)
 
 def login_success(request):
     user = request.args.get('user').lower()
