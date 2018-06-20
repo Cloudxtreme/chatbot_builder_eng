@@ -113,7 +113,6 @@ function onClose(evt) {
 function onMessage(evt) {
 	var data = eval(evt.data);
 	var message = data[0];
-	text = message + '<br><br><a href="#" onclick="interact(\'' + message + '\')">ask to kant</a>'
 	$('<div class="message new"><figure class="avatar"><img src="/static/res/person.png" /></figure>' + text + '</div>').appendTo($('#left-board .mCSB_container')).addClass('new');
 	updateScrollbar();
 }
