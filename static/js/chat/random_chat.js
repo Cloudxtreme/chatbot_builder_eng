@@ -112,7 +112,7 @@ function onClose(evt) {
 
 function onMessage(evt) {
 	var data = eval(evt.data);
-	var message = data[0];
+	var text = data[0];
 	$('<div class="message new"><figure class="avatar"><img src="/static/res/person.png" /></figure>' + text + '</div>').appendTo($('#left-board .mCSB_container')).addClass('new');
 	updateScrollbar();
 }
