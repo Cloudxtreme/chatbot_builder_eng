@@ -4,6 +4,7 @@ from d_service import properties
 
 tf_ip = properties.get_tf_ip()
 tf_compression_tag_ip = properties.get_tf_compression_tag_ip()
+tf_rc_ip = properties.get_tf_rc_ip()
 
 def update_training_config(config_data):
     url = 'http://' + tf_ip + '/update_training_config'
@@ -14,13 +15,28 @@ def init_chatbot(user, project):
     response = requests.post(url, data={"user" : user, "project" : project})
     return json.loads(response.content.decode('utf8'))
 
+def init_rc_chatbot(user, project):
+    url = 'http://' + tf_rc_ip + '/init_chatbot'
+    response = requests.post(url, data={"user" : user, "project" : project})
+    return json.loads(response.content.decode('utf8'))
+
 def is_chatbot_ready():
     url = 'http://' + tf_ip + '/is_chatbot_ready'
     response = requests.post(url, data={})
     return json.loads(response.content.decode('utf8'))
 
+def is_rc_chatbot_ready():
+    url = 'http://' + tf_rc_ip + '/is_chatbot_ready'
+    response = requests.post(url, data={})
+    return json.loads(response.content.decode('utf8'))
+
 def run_chatbot(token_ids):
     url = 'http://' + tf_ip + '/run_chatbot'
+    response = requests.post(url, data={"token_ids" : str(token_ids)})
+    return json.loads(response.content.decode('utf8'))
+
+def run_rc_chatbot(token_ids):
+    url = 'http://' + tf_rc_ip + '/run_chatbot'
     response = requests.post(url, data={"token_ids" : str(token_ids)})
     return json.loads(response.content.decode('utf8'))
 

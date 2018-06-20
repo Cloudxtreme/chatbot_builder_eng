@@ -11,6 +11,8 @@ function ajax(url, input_data, gubun, method) {
         		start_interval();
         	} else if (gubun == "is_chatbot_ready") {
         		is_chatbot_ready_callback(data);
+        	} else if (gubun == "is_rc_chatbot_ready") {
+        		is_chatbot_ready_callback(data);
         	}
         },
         error: function (jqXhr, textStatus, errorMessage) {
@@ -29,12 +31,16 @@ var project = $("#project").val();
 var emno = $("#emno").val();
 var room_name = $("#room_name").val();
 var gubun = $("#gubun").val();
-var input_data = {"user" : user, "project" : project};
+var input_data = {"user" : user, "project" : project, "gubun" : gubun};
 
 ajax('/chat_bot', input_data, 'chat_bot', 'POST');
 
 function redirect_if_ready() {
-	ajax('/is_chatbot_ready', input_data, 'is_chatbot_ready', 'POST');
+	if (gubun == "4") {
+		ajax('/is_rc_chatbot_ready', input_data, 'is_rc_chatbot_ready', 'POST');
+	} else {
+		ajax('/is_chatbot_ready', input_data, 'is_chatbot_ready', 'POST');
+	}
 }
 
 function is_chatbot_ready_callback(reply) {

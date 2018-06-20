@@ -530,6 +530,10 @@ def get_action_principle():
 def is_chatbot_ready(): 
     return chat.is_chatbot_ready(request)
 
+@app.route("/is_rc_chatbot_ready", methods=['POST'])
+def is_rc_chatbot_ready(): 
+    return chat.is_rc_chatbot_ready(request)
+
 @app.route('/message', methods=['POST'])
 def reply():
     return chat.reply(request)

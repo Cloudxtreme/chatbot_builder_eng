@@ -2,11 +2,12 @@ with open('./server_ip', encoding="utf8") as f:
     lines = f.readlines()
     BUILDER_IP = lines[0].split("=")[1].replace('\n', '')
     TF_IP = lines[1].split("=")[1].replace('\n', '')
-    TF_COMPRESSION_TAG_IP = lines[2].split("=")[1].replace('\n', '')
-    FILE_IP = lines[3].split("=")[1].replace('\n', '')
-    DB_HOST_IP = lines[4].split("=")[1].replace('\n', '')
-    GROUP_CHAT_IP = lines[5].split("=")[1].replace('\n', '')
-    EXTERNAL_ADAPTER_IP = lines[6].split("=")[1].replace('\n', '')
+    TF_RC_IP = lines[2].split("=")[1].replace('\n', '')
+    TF_COMPRESSION_TAG_IP = lines[3].split("=")[1].replace('\n', '')
+    FILE_IP = lines[4].split("=")[1].replace('\n', '')
+    DB_HOST_IP = lines[5].split("=")[1].replace('\n', '')
+    GROUP_CHAT_IP = lines[6].split("=")[1].replace('\n', '')
+    EXTERNAL_ADAPTER_IP = lines[7].split("=")[1].replace('\n', '')
     
 IMAGE_FILE_ROOT_PATH = '/static/data/images/user/' 
     
@@ -15,6 +16,9 @@ def get_builder_ip():
 
 def get_tf_ip():
     return TF_IP
+
+def get_tf_rc_ip():
+    return TF_RC_IP
 
 def get_tf_compression_tag_ip():
     return TF_COMPRESSION_TAG_IP

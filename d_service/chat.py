@@ -33,8 +33,12 @@ def chat_bot(request):
     req_dict = eval(request.data.decode('utf8'))
     user = req_dict['user']
     project = req_dict['project']
+    gubun = req_dict['gubun']
     language = db_training_config.get_project_language(user, project)
-    enc_vocab, rev_dec_vocab = run.init_chatbot(user, project)
+    if gubun == '4':
+        enc_vocab, rev_dec_vocab = run.init_rc_chatbot(user, project)
+    else:
+        enc_vocab, rev_dec_vocab = run.init_chatbot(user, project)
     answer_dict = training_file_manager.get_answer_and_answer_num(user, project)
     answer_num_and_rpsn_question = db_chat.get_all_answer_num_and_rpsn_question(user, project)
     answer_dict_arr.append({"user" : user, "project" : project, "answer_dict" : answer_dict})
@@ -146,6 +150,12 @@ def is_chatbot_ready(request):
     res = {"is_ready" : is_ready}
     
     return jsonify(res)
+
+def is_rc_chatbot_ready(request):
+    is_ready = run.is_rc_chatbot_ready()
+    res = {"is_ready" : is_ready}
+    
+    return jsonify(res)
     
 def reply(request):
     user, project = request.form['user'], request.form['project']
@@ -251,7 +261,7 @@ def reply_group_chat(request):
     user, project = request.form['user'], request.form['project']
     question = request.form['msg']
     question = question.lower()
-    _, answer_num = run.run_chatbot(enc_vocab, rev_dec_vocab, question, False, language)
+    _, answer_num = run.run_rc_chatbot(enc_vocab, rev_dec_vocab, question, False, language)
     if answer_num == '':
         _, answer_num = run.run_chatbot(enc_vocab, rev_dec_vocab, question + ' ', False, language)
     if len(answer_num.split(";")) > 1:
