@@ -3,8 +3,6 @@ var $messages = $('.messages-content'),
     i = 0;
 
 $(window).load(function() {
-	$messages.mCustomScrollbar();
-	notify_entrance_of_chat();
 	connect();
 });
 
@@ -15,15 +13,8 @@ function notify_entrance_of_chat() {
 	});
 }
 
-function updateScrollbar() {
-	$('#scroll-down').mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
-	    scrollInertia: 1,
-	    timeout: 0
-	});
-	$('#scroll-top').mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'top', {
-	    scrollInertia: 1,
-	    timeout: 0
-	});
+function update_scroll() {
+	$('.messages-content').scrollTop(Number.MAX_SAFE_INTEGER);
 }
 
 function setDate(){
@@ -42,7 +33,7 @@ function insertMessage() {
 	$('<div class="message message-personal">' + msg + '</div>').appendTo($('#left-board .mCSB_container')).addClass('new');
 	setDate();
 	$('.message-input').val(null);
-	updateScrollbar();
+	update_scroll();
 	send(msg);
 	setTimeout(function() {}, 1000 + (Math.random() * 20) * 100);
 }
@@ -114,7 +105,7 @@ function onMessage(evt) {
 	var data = eval(evt.data);
 	var text = data[0];
 	$('<div class="message new"><figure class="avatar"><img src="/static/res/person.png" /></figure>' + text + '</div>').appendTo($('#left-board .mCSB_container')).addClass('new');
-	updateScrollbar();
+	update_scroll();
 }
 
 function onError(evt) {
