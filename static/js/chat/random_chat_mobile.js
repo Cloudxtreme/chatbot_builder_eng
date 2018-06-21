@@ -3,13 +3,17 @@ var $messages = $('.messages-content'),
     i = 0;
 
 var full_height = $(window).height();
+var chat_title_height = $('.chat-title').height() * 2;
 
 $(window).resize(function() {
-	if ($( window ).height() < full_height) {
+	if ($(window).height() < full_height) {				
 		$('.message-box').css("top", "85.5%");
+		$('.chat').css("top", chat_title_height);
 	} else {
 		$('.message-box').css("top", "93%");
+		$('.chat').css("top", "11%");
 	}
+	$('.chat-title').css("height", chat_title_height + "px");
 	$('.message-box').css("height", "40px");
 }); 
 
