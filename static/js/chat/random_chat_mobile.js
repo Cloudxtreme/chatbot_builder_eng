@@ -8,13 +8,15 @@ var chat_title_height = $('.chat-title').height() * 2;
 $(window).resize(function() {
 	if ($(window).height() < full_height) {				
 		$('.message-box').css("top", "85.5%");
-		$('.chat').css("top", chat_title_height);
+		$('.chat').css("top", "0px");
+		$('.chat-title').hide();
 	} else {
 		$('.message-box').css("top", "93%");
 		$('.chat').css("top", "11%");
-	}
-	$('.chat-title').css("height", chat_title_height + "px");
+		$('.chat-title').show();
+	}	
 	$('.message-box').css("height", "40px");
+	update_scroll();
 }); 
 
 $(window).load(function() {
