@@ -47,7 +47,7 @@ Chat
 .chat {
   position: fixed;
   width: 100%;
-  height: 79%;
+  height: 82vh;
   z-index: 1;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
   background: rgba(0, 0, 0, 0.3);
@@ -292,13 +292,13 @@ Messages
 Message Box
 --------------------*/
 .message-box {
-  height: 10%;
+  height: 40px;  
   width: 100%;
-  top: 90%;
+  top: 93%;
   background: rgba(0, 0, 0, 0.8);
   padding: 10px;
   z-index: 1;
-  position: absolute;
+  position: fixed;
 }
 .message-box .message-input {
   background: none;
@@ -320,7 +320,7 @@ Message Box
   position: absolute;
   z-index: 1;
   width: 70px;
-  height: 60px;
+  height: 100%;
   top: 0px;
   right: 0px;
   color: #fff;

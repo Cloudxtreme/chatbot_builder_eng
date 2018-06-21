@@ -2,6 +2,17 @@ var $messages = $('.messages-content'),
     d, h, m,
     i = 0;
 
+var full_height = $(window).height();
+
+$(window).resize(function() {
+	if ($( window ).height() < full_height) {
+		$('.message-box').css("top", "85.5%");
+	} else {
+		$('.message-box').css("top", "93%");
+	}
+	$('.message-box').css("height", "40px");
+}); 
+
 $(window).load(function() {
 	connect();
 });
