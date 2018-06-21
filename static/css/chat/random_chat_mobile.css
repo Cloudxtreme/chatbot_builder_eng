@@ -45,7 +45,7 @@ body {
 Chat
 --------------------*/
 .chat {
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 79%;
   z-index: 1;
