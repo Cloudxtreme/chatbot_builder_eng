@@ -84,7 +84,7 @@ function lpad(s, len, padding) {
 }
 
 function send(message) {
-	var send_data = {"message" : message, "members" : ""};
+	var send_data = {"message" : message, "members" : "", "religion" : $('#my_religion').val()};
 	websocket.send(JSON.stringify(send_data));
 }
 
