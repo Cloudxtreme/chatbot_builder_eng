@@ -93,9 +93,11 @@ function connect() {
 	websocket.onopen = function(evt) { onOpen(evt) };
 	websocket.onclose = function(evt) { onClose(evt) };
 	websocket.onmessage = function(evt) { onMessage(evt) };
-	websocket.onerror = function(evt) { onError(evt) };
+	websocket.onerror = function(evt) { onError(evt) };	
 	setTimeout(function() {
-    }.bind(this), 1000);
+		var send_data = {"message" : [$('#my_religion').val(), $('#others_religion').val()], "members" : ""};
+		websocket.send(JSON.stringify(send_data));
+	}.bind(this), 1000);
 }
 
 function onOpen(evt) {
