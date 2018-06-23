@@ -66,13 +66,13 @@ def chat_mobile(user, project):
     
     return render_template("chat/chat_mobile.html", user = user, project = project, notice_list = str(notice_list))
 
-def random_chat(user, project):
+def random_chat(user, project, my_religion, stranger_religion):
     random_chat_ip = properties.get_random_chat_ip()
-    return render_template("chat/random_chat.html", user = user, project = project, group_chat_ip = random_chat_ip)
+    return render_template("chat/random_chat.html", user = user, project = project, group_chat_ip = random_chat_ip, my_religion = my_religion, stranger_religion = stranger_religion)
 
-def random_chat_mobile(user, project):
+def random_chat_mobile(user, project, my_religion, stranger_religion):
     random_chat_ip = properties.get_random_chat_ip()
-    return render_template("chat/random_chat_mobile.html", user = user, project = project, group_chat_ip = random_chat_ip)
+    return render_template("chat/random_chat_mobile.html", user = user, project = project, group_chat_ip = random_chat_ip, my_religion = my_religion, stranger_religion = stranger_religion)
 
 def group_chat(request):
     user = request.args.get('user')
