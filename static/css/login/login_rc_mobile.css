@@ -9,12 +9,12 @@ body {
 .div1 {
 	position: absolute;
 	left: 10%;
-	top: 20%;
+	top: 15%;
 	border: 1px solid #d9d9d9;
 	border-radius: 10px;
 	margin: 0 auto 10px;
 	width: 80%;
-	height: 50%;
+	height: 60%;
 	background: #F6F6F6;	
 }
 
