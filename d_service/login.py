@@ -67,7 +67,6 @@ def login_rc(request):
     if agent != None:
         for p in phones:
             if p in agent.lower():
-                db_login.insert_login_list(request.remote_addr, "chat", agent)
                 return render_template("login/login_rc_mobile.html") 
     return render_template("login/login_rc.html") 
 
