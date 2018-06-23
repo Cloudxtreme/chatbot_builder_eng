@@ -5,15 +5,16 @@
   <meta charset="UTF-8">
   <meta name=viewport content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <title>Log-in</title>
-      <link rel="stylesheet" href="/static/css/login/login_rc.css">
+      <link rel="stylesheet" href="/static/css/login/login_rc_mobile.css">
+      <link rel="stylesheet" href="/static/lib/jquery_ui/jquery.mobile-1.4.5.min.css">
 </head>
 
 <body>
   <div class="div1">
   	<div class="div1-inner">  
-	    <h1 class="title">Kant Random Religion Chat</h1><br>
+	    <h1 class="title">Kant Random<br>Religion Chat</h1><br>
 		<div class="div1-input">
-			<a>My:</a>&nbsp;<select id="my_religion">
+			<a>My:</a><br><select id="my_religion">
 				<option value="1">Catholic</option>
 				<option value="2">Islam</option>
 				<option value="3">Hinduism</option>		
@@ -22,7 +23,8 @@
 				<option value="98">Others</option>
 				<option value="99">Atheism</option>
 			</select>
-			&nbsp;<a>Others:</a>&nbsp;<select id="others_religion">
+			<p>
+			<a>Others:</a><br><select id="others_religion">
 				<option value="1">Catholic</option>
 				<option value="2">Islam</option>
 				<option value="3">Hinduism</option>		
@@ -31,12 +33,13 @@
 				<option value="98">Others</option>
 				<option value="99">Atheism</option>
 			</select>
-			&nbsp;<input id="login" class="login" type="button" value="Find">
+			<p>
+			<input id="login" class="login" type="button" value="Find">
 		</div>
 	</div>
   </div>
-  <script src='/static/lib/jquery/jquery.min.js'></script>
-  <script src="/static/js/login/login_rc.js"></script>
+  <script src='/static/lib/jquery/jquery-mobile-1.4.5.min.js'></script>
+  <script src="/static/js/login/login_rc_mobile.js"></script>
 </body>
 
 </html>
