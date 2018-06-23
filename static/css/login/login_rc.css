@@ -4,9 +4,6 @@ body {
   font-size: 12px;
   line-height: 1.3;
   overflow: hidden;
-  background: url("/static/res/religion_image.png");
-  background-image: url("/static/res/religion_image.png");
-  background-repeat: repeat;
 }
 
 .div1 {

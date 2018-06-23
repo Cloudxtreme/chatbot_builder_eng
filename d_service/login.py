@@ -69,15 +69,15 @@ def login_rc_success(request):
     user = 'kant1724'
     project = 'rc'
     my_religion = request.args.get('my_religion')
-    stranger_religion = request.args.get('stranger_religion')
+    others_religion = request.args.get('others_religion')   
     agent = request.headers.get('User-Agent')
     phones = ["iphone", "android", "blackberry"]
     if agent != None:
         for p in phones:
             if p in agent.lower():
                 db_login.insert_login_list(request.remote_addr, "chat", agent)
-                return chat.random_chat_mobile(user, project, my_religion, stranger_religion)
-    return chat.random_chat(user, project, my_religion, stranger_religion)
+                return chat.random_chat_mobile(user, project, my_religion, others_religion)
+    return chat.random_chat(user, project, my_religion, others_religion)
 
 def login_success(request):
     user = request.args.get('user').lower()
