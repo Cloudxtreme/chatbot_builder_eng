@@ -109,6 +109,8 @@ function connect() {
 	websocket.onmessage = function(evt) { onMessage(evt) };
 	websocket.onerror = function(evt) { onError(evt) };
 	setTimeout(function() {
+		var send_data = {"message" : [$('#my_religion').val(), $('#others_religion').val()], "members" : ""};
+		websocket.send(JSON.stringify(send_data));
     }.bind(this), 1000);
 }
 
