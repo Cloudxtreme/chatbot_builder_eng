@@ -8,15 +8,28 @@ body {
 
 .div1 {
 	position: absolute;
-	left: 20vw;
-	top: 15vh;
+	left: 25vw;
+	top: 50vh;
 }
 
 .div1-inner {
 	position: relative;
+	top:-3vh;
 }
 
 .div1-inner2 {
 	position: relative;
 	top: 5vh;
+}
+
+#login {
+	width: 50vw;
+}
+
+.logo-img {
+	position: relative;
+	left: 5vw;
+	top: 5vh;
+	width: 10vw;
+	height: 10vh;
 }
