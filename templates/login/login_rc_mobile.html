@@ -6,37 +6,43 @@
   <meta name=viewport content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
   <title>Log-in</title>
       <link rel="stylesheet" href="/static/css/login/login_rc_mobile.css">
-      <link rel="stylesheet" href="/static/lib/jquery_ui/jquery.mobile-1.4.5.min.css">
+      <link rel="stylesheet" href="/static/lib/jquery/jquery.mobile-1.4.5.min.css">
 </head>
 
 <body>
   <div class="div1">
   	<div class="div1-inner">  
-	    <h1 class="title">Kant Random<br>Religion Chat</h1><br>
+	    <h1 class="title">Kant Random<br>Religion Chat</h1>
 		<div class="div1-input">
-			<a>My:</a><br><select id="my_religion">
-				<option value="1">Catholic</option>
-				<option value="2">Islam</option>
-				<option value="3">Hinduism</option>		
-				<option value="4">Buddhism</option>
-				<option value="5">Protestant</option>		
-				<option value="98">Others</option>
-				<option value="99">Atheism</option>
-			</select>
+			<div data-role="fieldcontain">
+				<label for="my_religion" class="select">My:</label><br>
+				<select id="my_religion" name="select-native-2" data-mini="true">
+					<option value="1">Catholic</option>
+					<option value="2">Islam</option>
+					<option value="3">Hinduism</option>		
+					<option value="4">Buddhism</option>
+					<option value="5">Protestant</option>		
+					<option value="98">Others</option>
+					<option value="99">Atheism</option>
+				</select>
+			</div>
 			<p>
-			<a>Others:</a><br><select id="others_religion">
-				<option value="1">Catholic</option>
-				<option value="2">Islam</option>
-				<option value="3">Hinduism</option>		
-				<option value="4">Buddhism</option>
-				<option value="5">Protestant</option>		
-				<option value="98">Others</option>
-				<option value="99">Atheism</option>
-			</select>
+			<div data-role="fieldcontain">
+				<label for="others_religion" class="select">Others:</label><br>
+				<select id="others_religion" name="select-native-2" data-mini="true">
+					<option value="1">Catholic</option>
+					<option value="2">Islam</option>
+					<option value="3">Hinduism</option>		
+					<option value="4">Buddhism</option>
+					<option value="5">Protestant</option>		
+					<option value="98">Others</option>
+					<option value="99">Atheism</option>
+				</select>
+			</div>
 		</div>
 	</div>
 	<div class="div1-inner2">
-		<input id="login" class="login" type="button" value="Find">
+		<button id="login" class="ui-btn ui-corner-all">Find</button>
 	</div>
   </div>
   <script src='/static/lib/jquery/jquery.min.js'></script>

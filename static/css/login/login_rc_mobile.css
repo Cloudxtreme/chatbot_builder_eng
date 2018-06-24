@@ -8,24 +8,15 @@ body {
 
 .div1 {
 	position: absolute;
-	left: 10%;
-	top: 15%;
-	border: 1px solid #d9d9d9;
-	border-radius: 10px;
-	margin: 0 auto 10px;
-	width: 80%;
-	height: 60%;
-	background: #F6F6F6;	
+	left: 20vw;
+	top: 15vh;
 }
 
 .div1-inner {
 	position: relative;
-	left: 25%;
-	top: 8%
 }
 
 .div1-inner2 {
 	position: relative;
-	left: 25%;
-	top: 15%
+	top: 5vh;
 }
