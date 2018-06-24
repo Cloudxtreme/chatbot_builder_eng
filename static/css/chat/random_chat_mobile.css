@@ -294,7 +294,7 @@ Message Box
 .message-box {
   height: 40px;  
   width: 100%;
-  top: 93%;
+  bottom: 0%;
   background: rgba(0, 0, 0, 0.8);
   padding: 10px;
   z-index: 1;
