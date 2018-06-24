@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	document.getElementsByTagName("html")[0].style.visibility = "visible";
 	$("#login").click(function() {
 		login();
 	});
