@@ -9,12 +9,11 @@ body {
 .div1 {
 	position: absolute;
 	left: 25vw;
-	top: 50vh;
+	top: 40vh;
 }
 
 .div1-inner {
 	position: relative;
-	top:-3vh;
 }
 
 .div1-inner2 {
@@ -28,8 +27,11 @@ body {
 
 .logo-img {
 	position: relative;
-	left: 5vw;
+	left: 17vw;
 	top: 5vh;
-	width: 10vw;
-	height: 10vh;
+}
+
+.logo-img img {
+	width: 250px;
+	height: 200px;
 }
