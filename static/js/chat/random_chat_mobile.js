@@ -7,14 +7,13 @@ var chat_title_height = $('.chat-title').height() * 2;
 
 $(window).resize(function() {
 	if ($(window).height() < full_height) {				
-		$('.message-box').css("bottom", "0%");
 		$('.chat').css("top", "0px");
 		$('.chat-title').hide();
 	} else {
-		$('.message-box').css("bottom", "0%");
 		$('.chat').css("top", "11%");
 		$('.chat-title').show();
-	}	
+	}
+	$('.message-box').css("bottom", "0%");
 	$('.message-box').css("height", "40px");
 	update_scroll();
 }); 
