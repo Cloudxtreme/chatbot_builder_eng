@@ -18,51 +18,38 @@ $(window).resize(function() {
 	update_scroll();
 }); 
 
-var client;
+var url;
+var token;
+function push_send() {
+	var xhr = new XMLHttpRequest();
+    xhr.open('POST', url);
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    xhr.setRequestHeader('Authorization',
+                         'key=AIzaSyBh7bdZlP6TdcRpv1F9nDGaM_h9bslb-kQ');
+    xhr.onloadend = () => {};
+    xhr.send(JSON.stringify({
+    	'registration_ids': [token]
+    }));
+}
+
 $(window).load(function() {
-    var webPushManager = new WebPushManager();
-    webPushManager.start(function(error, registrationId){
-    	if (error) {
-    		if(error.message) {
-    			alert(error.message);
-    		} else {
-    			alert("Ooops! It seems this browser doesn't support Web Push Notifications :(");
-    		}
-    	};
-     
-    	client = RealtimeMessaging.createClient();
-    	client.setClusterUrl('https://ortc-developers.realtime.co/server/ssl/2.1/');
-    	client.onConnected = function (theClient) {
-    		theClient.subscribeWithNotifications(channel, true, registrationId,
-    				function (theClient, channel, msg) {
-    					webPushManager.forceNotification(msg);
-    				});
-    	};
-    	client.connect(RealtimeAppKey, 'JustAnyRandomToken');
-    });
-	
+	if ('serviceWorker' in navigator) {
+	    console.log('Service Worker is supported');
+	    navigator.serviceWorker.register('/static/sw/service_worker.js').then(function(reg) {
+	        console.log(':^)', reg);
+	        reg.pushManager.subscribe({
+	            userVisibleOnly: true
+	        }).then(function(sub) {
+	        	var slash = sub.endpoint.lastIndexOf('/');
+				url = sub.endpoint.substr(0, slash);
+				token = sub.endpoint.substr(slash + 1);
+	        });
+	    }).catch(function(error) {
+	        console.log(':^(', error);
+	    });
+	}
     connect();
 });
-
-function S4() {
-	return (((1+Math.random())*0x10000)|0).toString(16).substring(1); 
-}
-
-function generateUserChannel() {
-	userChannel = localStorage.getItem("channel");
-	if (userChannel == null || userChannel == "null") { 
-		guid = (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();               
-		userChannel = 'channel-' + guid;
-		localStorage.setItem("channel", userChannel);
-	}
-	return userChannel;
-}
-var channel = generateUserChannel();
-function push_send() {
-	if (client) {
-		client.send(channel, "This is a web push notification sent using the Realtime JavaScript SDK");
-	};
-}
 
 function notify_entrance_of_chat() {
 	$.post('/notify_entrance_of_chat', {		
