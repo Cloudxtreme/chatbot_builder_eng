@@ -150,12 +150,7 @@ function onOpen(evt) {
 function onClose(evt) {
 }
 
-var first = true;
 function onMessage(evt) {
-	if (first) {
-		push_send();
-		first = false; 
-	}
 	var data = eval(evt.data);
 	var text = data[0];
 	$('<div class="message new"><figure class="avatar"><img src="/static/res/person.png" /></figure>' + text + '</div>').appendTo($('.messages-content')).addClass('new');
