@@ -22,7 +22,7 @@ var url;
 var token;
 function push_send() {
 	var xhr = new XMLHttpRequest();
-    xhr.open('POST', url);
+	xhr.open('POST', url);
     xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     xhr.setRequestHeader('Authorization',
                          'key=AIzaSyBh7bdZlP6TdcRpv1F9nDGaM_h9bslb-kQ');
@@ -41,7 +41,8 @@ $(window).load(function() {
 	            userVisibleOnly: true
 	        }).then(function(sub) {
 	        	var slash = sub.endpoint.lastIndexOf('/');
-				url = sub.endpoint.substr(0, slash);
+	        	console.log(sub.endpoint);
+	        	url = sub.endpoint.substr(0, slash);
 				token = sub.endpoint.substr(slash + 1);
 	        });
 	    }).catch(function(error) {
