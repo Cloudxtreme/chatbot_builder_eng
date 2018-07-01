@@ -612,4 +612,4 @@ def send_file():
     return chat.send_file(request)
 
 if (__name__ == "__main__"): 
-    app.run(threaded=True, host=ip_addr, port = 5002) 
+    app.run(threaded=True, host=ip_addr, port = 80) 
