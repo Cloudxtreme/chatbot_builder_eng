@@ -1,14 +1,9 @@
-<<<<<<< HEAD
-builder_ip=172.27.0.96
-tf_ip=172.27.0.96:5003
-tf_compression_tag_ip=172.27.0.96:5004
-file_ip=14.63.168.58:5005
-=======
 builder_ip=127.0.0.1
 tf_ip=127.0.0.1:5003
+tf_rc_ip=127.0.0.1:5008
 tf_compression_tag_ip=127.0.0.1:5004
 file_ip=127.0.0.1:5005
->>>>>>> branch 'master' of http://github.com/kant1724/chatbot_builder_eng
 db_host_ip=14.63.168.58
 group_chat_ip=127.0.0.1:5006
 external_adapter_ip=14.63.168.58:5007
+random_chat_ip=127.0.0.1:5011
