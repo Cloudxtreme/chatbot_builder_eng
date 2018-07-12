@@ -45,6 +45,11 @@ def train_main(request):
     is_training = train.is_training(user, project)
     return render_template("main/train_main.html", user = user, project = project, admin_yn = admin_yn, is_training = is_training)
 
+def run_main(request): 
+    user = request.args.get('user')
+    project = request.args.get('project')
+    return render_template("main/run_main.html", user = user, project = project)
+
 def update_question_voca_main(request, updater_thread): 
     user = request.args.get('user')
     project = request.args.get('project')
