@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # chatbot_builder
 English Chatbot Building Platform
 <br>
