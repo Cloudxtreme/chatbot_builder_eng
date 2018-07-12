@@ -112,6 +112,22 @@
 	height: 100%;
 }
 
+.right-window {
+	position: absolute;
+	left: 1115px;
+	top: 8px;
+	width: 310px;
+	height: 850px;
+	border-left: 1px solid #ccc;
+	overflow: hidden;
+}
+
+.right-content {
+	width: 310px;
+	height: 850px;
+	overflow: hidden;
+}
+
 .bottom-content {
 	position: absolute;
 	width: 750px;

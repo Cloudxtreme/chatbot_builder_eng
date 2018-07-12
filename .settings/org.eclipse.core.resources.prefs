@@ -15,6 +15,7 @@ encoding//templates/main/new_request_main.html=UTF-8
 encoding//templates/main/notice_manager_main.html=UTF-8
 encoding//templates/main/qna_main.html=UTF-8
 encoding//templates/main/question_generator_main.html=UTF-8
+encoding//templates/main/run_main.html=UTF-8
 encoding//templates/main/synonym_manager_main.html=UTF-8
 encoding//templates/main/train_main.html=UTF-8
 encoding//templates/main/training_test_main.html=UTF-8
