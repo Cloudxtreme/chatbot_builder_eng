@@ -108,6 +108,7 @@ $(document).ready(function() {
 		action_principle();
 	});
 	left_window();
+	right_window();
 	qna_main();
 	training_test_main();
 });
@@ -117,6 +118,12 @@ function left_window() {
 	var project = $("#project").val();
 	var admin_yn = $("#admin_yn").val();
 	$('.left-content').append('<iframe class="content" id="train_main" frameBorder="0" src="/train_main?user=' + user + '&project=' + project + '&admin_yn=' + admin_yn + '"></iframe>');
+}
+
+function right_window() {
+	var user = $("#user").val();
+	var project = $("#project").val();
+	$('.right-content').append('<iframe class="content" id="run_main" frameBorder="0" src="/run_main?user=' + user + '&project=' + project + '"></iframe>');
 }
 
 var current_window = null;

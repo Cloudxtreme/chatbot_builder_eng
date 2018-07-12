@@ -18,6 +18,7 @@ from c_engine.extension.site_linker import linker
 from e_database import notice as db_notice
 from e_database import training_config as db_training_config
 from d_service import properties
+from c_engine.core.error_detector import sentence_comparator
 
 buckets = []
 answer_dict_arr = []
@@ -296,6 +297,26 @@ def reserve_list(request):
     b = ['0'] + buckets
     res['bucket_range'] = b[bucket_id] + '~' + str(int(b[bucket_id + 1]) - 1)
 
+    return jsonify(res)
+
+def run_main_get_answer(request):
+    if enc_vocab == None:
+        chat_bot(request)
+    req_dict = eval(request.data.decode('utf8'))
+    user = req_dict['user']
+    project = req_dict['project']
+    question = req_dict['msg']
+    _, answer_num = run.run_chatbot(enc_vocab, rev_dec_vocab, question, False, language)
+    if answer_num == '':
+        _, answer_num = run.run_chatbot(enc_vocab, rev_dec_vocab, question + ' ', False, language)
+    if len(answer_num.split(";")) > 1:
+        answer = 'more than one answer!'
+    else:
+        answer, _ = db_chat.get_answer_by_answer_num(user, project, answer_num)
+    
+    _, point = sentence_comparator.compare_by_formula(user, project, question, answer_num)
+    res = {'answer' : answer, 'point' : point}
+    
     return jsonify(res)
 
 def get_answer_dict(user, project):
