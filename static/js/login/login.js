@@ -1,8 +1,8 @@
 $(document).ready(function() {
 	if ($('#logout').val() == 'N') {
-		$('#user').val('kant1724');
+		$('#user').val('platform');
 		$('#password').val('1111');
-		$('#project').val('bot');
+		$('#project').val('pet');
 	}
 	$("#login").click(function() {
 		login();
