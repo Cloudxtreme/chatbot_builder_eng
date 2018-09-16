@@ -1,10 +1,6 @@
 # chatbot_builder
 English Chatbot Building Platform
-<br>
-<br>
-http://kantchat.com/admin
-<br>
-<br>
+
 ```
 python build.py
 ```
